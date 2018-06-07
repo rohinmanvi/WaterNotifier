@@ -10,7 +10,7 @@ public class DatabaseClass {
 		Long inNotifierPhone = Long.parseLong(phonenumb, 10);
 		Location tempLoc = new Location();
 		tempLoc = Location.getNotifierLocationZIPCODESeqNumber(inNotifierPhone);
-		List<ConsumerCallers> listOfConsumerCallers = new ArrayList<ConsumerCallers>();
+		ArrayList<ConsumerCallers> listOfConsumerCallers = new ArrayList<ConsumerCallers>();
 		if (tempLoc == null) {
 			System.out.println(
 					"System could not find Location details for given Notifier Phone : " + inNotifierPhone + " !");
