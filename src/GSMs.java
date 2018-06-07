@@ -71,4 +71,8 @@ public abstract class GSMs extends GSM implements Runnable {
 	public String toString() {
 		return threadName;
 	}
+
+	public  String getPhoneNumber(){
+		return phoneNumber;
+	}
 }
