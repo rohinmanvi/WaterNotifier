@@ -6,8 +6,8 @@ public class MissedCalls extends GSMs{
 	private String phoneNumber;
 	private String message;
 	
-	public MissedCalls(String com, String phone, String name, int fun) {
-		super(com, phone, name, fun);
+	public MissedCalls(String phone, String name, int fun) {
+		super(phone, name, fun);
 	}
 	
 	public void running() {

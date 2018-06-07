@@ -10,6 +10,11 @@ public class GSM extends Arduino {
 	private String ccid = "";
 	private String number = "";
 
+	public GSM() {
+		super();
+		service = false;
+	}
+	
 	public GSM(String p) {
 		super();
 		port = p;

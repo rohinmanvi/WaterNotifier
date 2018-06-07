@@ -4,8 +4,8 @@ public class WaitForMessages extends GSMs {
 	private String message;
 	private String testingPhone = "18189135171";
 
-	public WaitForMessages(String com, String phone, String name, int fun) {
-		super(com, phone, name, fun);
+	public WaitForMessages(String phone, String name, int fun) {
+		super(phone, name, fun);
 	}
 
 	public void running() {

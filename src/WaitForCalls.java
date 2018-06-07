@@ -5,8 +5,8 @@ public class WaitForCalls extends GSMs{
 	
 	private ArrayList<String> phoneNumbers = new ArrayList<String>();
 	
-	public WaitForCalls(String com, String phone, String name, int fun) {
-		super(com, phone, name, fun);
+	public WaitForCalls(String phone, String name, int fun) {
+		super(phone, name, fun);
 	}
 	
 	public void running() {

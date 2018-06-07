@@ -6,19 +6,31 @@ public abstract class GSMs extends GSM implements Runnable {
 	public int function;
 	private String phoneNumber;
 
-	public GSMs(String com, String phone, String name, int fun) {
-		super(com);
+	public GSMs(String phone, String name, int fun) {
+		super();
 		phoneNumber = phone;
 		threadName = name;
 		function = fun;
 		System.out.println(threadName + ": creating");
-		checkConnection();
-		if (t == null && ownPhoneNumber()) {
-			t = new Thread(this, threadName);
-			t.start();
+		for (int i = 0; i <= 20; i++) {
+			String port = "COM" + i;
+			setPortDescription(port);
+			try {
+				if (openConnection()) {
+					checkConnection();
+					if (t == null && ownPhoneNumber()) {
+						t = new Thread(this, threadName);
+						t.start();
+						break;
+					}
+				}
+			} catch (Exception e) {
+				closeConnection();
+				throw e;
+			}
+			if (i == 20)
+				System.out.println("FAILED CONNECTION");
 		}
-		else
-			System.out.println(threadName + ": wrong SIM card/COM port" + "=\n" + jsend("AT+CNUM"));
 	}
 
 	public void run() {
