@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="WaterNotifier1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/artifacts/WaterNotifier_jar/WaterNotifier.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
