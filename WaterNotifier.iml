@@ -8,8 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="src" level="project" />
-    <orderEntry type="library" name="WaterNotifier" level="project" />
     <orderEntry type="library" name="bin" level="project" />
-    <orderEntry type="library" name="WaterNotifier1" level="project" />
   </component>
 </module>
