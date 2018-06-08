@@ -32,8 +32,6 @@ public abstract class GSMs extends GSM implements Runnable {
 					}
 					if(v)
 						break;
-					else
-						closeConnection();
 				}
 			} catch (Exception e) {
 				closeConnection();
