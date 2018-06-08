@@ -140,9 +140,7 @@ public class Displayconsumers {
                     e1.printStackTrace();
                 }
 
-                DatabaseHelper dbHelp = new DatabaseHelper();
 
-                DatabaseHelper.updateAllConsumersForCallerPhone();
 
 //                if (DatabaseHelper.newConsumer(8189678112L, 912142, "Rajesh Manvi")) {
 //                    System.out.println("Successfully added user Rajesh Manvi to database." + '\n');
@@ -205,8 +203,14 @@ public class Displayconsumers {
 //                LocationConsumers.deleteToDatabase(912142, "USA");
 //                LocationConsumers.deleteToDatabase(912142);
 
+
+//                DatabaseHelper dbHelp = new DatabaseHelper();
+//
+//                DatabaseHelper.updateAllConsumersForCallerPhone();
+
+
 //                Long inNotifierPhone = 7472558828L;
-                Long inNotifierPhone = 7472558828L;
+                Long inNotifierPhone = 8189135171L;
 
 
 

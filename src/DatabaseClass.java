@@ -1,42 +1,52 @@
 import java.util.ArrayList;
 
 import com.waternotifier.waternotifierlibrary.*;
+import com.waternotifier.waternotifierlibrary.Location;
+import com.waternotifier.waternotifierlibrary.DatabaseHelper;
+
 
 public class DatabaseClass {
 
-   public static ArrayList<String> getConsumers(String phonenumb, String callerphone) {
-		ArrayList<Long> locationConsumersArrayList = new ArrayList<>();
-		ArrayList<String> LCA = new ArrayList<>();
-		Long inNotifierPhone = Long.parseLong(phonenumb, 10);
-		Location tempLoc = new Location();
-		tempLoc = Location.getNotifierLocationZIPCODESeqNumber(inNotifierPhone);
-		ArrayList<ConsumerCallers> listOfConsumerCallers = new ArrayList<ConsumerCallers>();
-		if (tempLoc == null) {
-			System.out.println(
-					"System could not find Location details for given Notifier Phone : " + inNotifierPhone + " !");
-		}
+    public static ArrayList<String> getConsumers(String phonenumb, String callerphone) {
+        ArrayList<Long> locationConsumersArrayList = new ArrayList<>();
+        ArrayList<String> LCA = new ArrayList<>();
+        Long inNotifierPhone = Long.parseLong(phonenumb, 10);
+        System.out.println("device number found: " + inNotifierPhone + " MissedCall number: " + callerphone);
+        Location tempLoc = new Location();
+        tempLoc = Location.getNotifierLocationZIPCODESeqNumber(inNotifierPhone);
+        ArrayList<ConsumerCallers> listOfConsumerCallers = new ArrayList<ConsumerCallers>();
+        if (tempLoc == null) {
+            System.out.println(
+                    "System could not find Location details for given Notifier Phone : " + inNotifierPhone + " !");
+        }
 		listOfConsumerCallers = ConsumerCallers.getAll(tempLoc.getZIPCODE(), tempLoc.getSeqNumber());
-		if (listOfConsumerCallers.isEmpty() || listOfConsumerCallers == null) {
-			System.out.println("There are no Consumer Callers for given Notifier Phone : " + inNotifierPhone
-					+ " at LocationCode : " + tempLoc.getZIPCODE() + tempLoc.getSeqNumber());
-		} else {
-			System.out.println("There are TOTAL of " + listOfConsumerCallers.size()
-					+ "  Consumer Callers for given Notifier Phone : " + inNotifierPhone + " at LocationCode : "
-					+ tempLoc.getZIPCODE() + tempLoc.getSeqNumber() + '\n');
-			for (int i = 0; i < listOfConsumerCallers.size(); i++) {
-				if (listOfConsumerCallers.get(i).getSIMCardPhone().toString().equals(callerphone)) {
-					System.out.println("The Consumers for :: " + listOfConsumerCallers.get(i).getName() + '\n');
+//        listOfConsumerCallers = ConsumerCallers.getAll(91214, 1);
+        System.out.println("ZIPCODE found: " + tempLoc.getZIPCODE() + " Seq number: " + tempLoc.getSeqNumber());
+
+        if (listOfConsumerCallers.isEmpty() || listOfConsumerCallers == null) {
+            System.out.println("There are no Consumer Callers for given Notifier Phone : " + inNotifierPhone
+                    + " at LocationCode : " + tempLoc.getZIPCODE() + tempLoc.getSeqNumber());
+        } else {
+            System.out.println("There are TOTAL of " + listOfConsumerCallers.size()
+                    + "  Consumer Callers for given Notifier Phone : " + inNotifierPhone + " at LocationCode : "
+                    + tempLoc.getZIPCODE() + tempLoc.getSeqNumber() + '\n');
+            for (int i = 0; i < listOfConsumerCallers.size(); i++) {
+                if (listOfConsumerCallers.get(i).getSIMCardPhone().toString().equals(callerphone)) {
+                    System.out.println("The Consumers for :: " + listOfConsumerCallers.get(i).getName() + '\n');
+//                    locationConsumersArrayList = LocationConsumers.getAllConsumerPhone(
+//                            listOfConsumerCallers.get(i).getSIMCardPhone(), 91214,
+//                            1);
 					locationConsumersArrayList = LocationConsumers.getAllConsumerPhone(
 							listOfConsumerCallers.get(i).getSIMCardPhone(), tempLoc.getZIPCODE(),
 							tempLoc.getSeqNumber());
-					for (Long a : locationConsumersArrayList)
-						LCA.add(a.toString());
-					return LCA;
-				}
-			}
-		}
-		return LCA;
-	}
+                    for (Long a : locationConsumersArrayList)
+                        LCA.add(a.toString());
+                    return LCA;
+                }
+            }
+        }
+        return LCA;
+    }
 
     public static boolean deviceExists(String phonenumb) {
 
@@ -44,8 +54,8 @@ public class DatabaseClass {
     }
 
     public static boolean newConsumer(String phonenumb, String locationNum, String name) {
-    	long b = Long.parseLong(phonenumb, 10);
-    	int a = Integer.parseInt(locationNum);
+        long b = Long.parseLong(phonenumb, 10);
+        int a = Integer.parseInt(locationNum);
         return DatabaseHelper.newConsumer(b, a, name);
     }
 

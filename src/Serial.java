@@ -13,6 +13,7 @@ public class Serial {
 	
 	public static void main(String[] args) {
 		WaitForCalls two = new WaitForCalls("7472558416", "Incoming Calls GSM", 1);
+		delay(2000);
 		ArrayList<MissedCalls> three = new ArrayList<>();
 		three.add(new MissedCalls("4086370230", "MissedCalls 1", 0));
 		three.add(new MissedCalls("8186439252", "MissedCalls 2", 0));
@@ -31,6 +32,9 @@ public class Serial {
 				two.removeNumber(devices.get(a));
 				for (int i = 0; i < three.size(); i++) {
 					ArrayList<String> partPhone = DatabaseClass.getConsumers(x, three.get(i).getPhoneNumber());
+					for(int j = 0; j < partPhone.size(); j++){
+						partPhone.set(j, CC + partPhone.get(j));
+					}
 					System.out.println(three.get(i) + ": assigned " + partPhone);
 					three.get(i).phoneNumbers(partPhone);
 				}

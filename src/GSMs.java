@@ -12,8 +12,9 @@ public abstract class GSMs extends GSM implements Runnable {
 		threadName = name;
 		function = fun;
 		System.out.println(threadName + ": creating");
-		for (int i = 0; i <= 20; i++) {
+		for (int i = 0; i <= 10; i++) {
 			String port = "COM" + i;
+			System.out.println(threadName + ": " + port);
 			setPortDescription(port);
 			try {
 				if (openConnection()) {
@@ -23,13 +24,17 @@ public abstract class GSMs extends GSM implements Runnable {
 						t.start();
 						break;
 					}
+					else {
+						System.out.println(threadName + ": " + port + " wrong number");
+					}
 				}
 			} catch (Exception e) {
 				closeConnection();
 				throw e;
 			}
-			if (i == 20)
-				System.out.println("FAILED CONNECTION");
+			closeConnection();
+			if (i == 10)
+				System.out.println(threadName + ": FAILED CONNECTION");
 		}
 	}
 
