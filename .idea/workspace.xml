@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6fb18b51-a07b-4240-b73f-d87ea4281214" name="Default" comment="Rajesh Test for Commit File">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WaterNotifier/com/waternotifier/waternotifierlibrary/Displayconsumers$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WaterNotifier/com/waternotifier/waternotifierlibrary/Displayconsumers$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DatabaseClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DatabaseClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GSMs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GSMs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Serial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Serial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Displayconsumers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Displayconsumers.java" afterDir="false" />
-    </list>
+    <list default="true" id="6fb18b51-a07b-4240-b73f-d87ea4281214" name="Default" comment="Rajesh Test for Commit File" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />

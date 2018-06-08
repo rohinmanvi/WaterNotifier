@@ -20,7 +20,7 @@ public abstract class GSMs extends GSM implements Runnable {
 				if (openConnection()) {
 					checkConnection();
 					boolean v = false;
-					for(int j = 0; j < 5; j++) {
+					for(int j = 0; j < 10; j++) {
 						if (t == null && ownPhoneNumber()) {
 							t = new Thread(this, threadName);
 							t.start();
