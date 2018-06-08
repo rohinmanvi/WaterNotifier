@@ -19,6 +19,7 @@ public class MissedCalls extends GSMs{
 				break;
 			}
 			if(function == 0) {
+				delay(100);
 				notif();
 			}
 			if(function == 1) {

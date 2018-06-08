@@ -18,6 +18,7 @@ public class WaitForMessages extends GSMs {
 				break;
 			}
 			if (function == 0) {
+				delay(100);
 				notif();
 			}
 			if (function == 1) {
