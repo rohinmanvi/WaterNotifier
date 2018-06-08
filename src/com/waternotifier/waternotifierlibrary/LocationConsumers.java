@@ -513,6 +513,62 @@ public class LocationConsumers {
     }
 
     /**
+     * @param inLocationCode -- If 0 or "" , Returns false
+     * @return Boolean - "True" - Able to delete at database, otherwise "False".
+     */
+    public static Boolean deleteToDatabase(int inLocationCode) {
+
+        Location tempL = new Location();
+
+        inLocationCode = Math.abs(inLocationCode);
+
+        if (!(Location.validZIPCODESeqNumber(inLocationCode))) {
+            return false;
+        }
+
+        if (!Location.locationExists(inLocationCode)) {
+            return false;
+        }
+
+        tempL = Location.getZIPCODESeqNumber(inLocationCode);
+
+        Date datetime = new Date();
+
+        String updateSQL = "UPDATE LocationConsumers "
+                + " SET RegisteredFlag = 'N', "
+                + " UpdateDateTime = " + " '" + datetime.toString() + "', "
+                + " ConsumerCallerPhone = " + 0 + " "
+                + " WHERE LocationZIPCODE =  " + tempL.getZIPCODE() + " "
+                + " AND LocationSeqNumber =  " + tempL.getSeqNumber()  + " ; ";
+
+        try {
+
+            Connection dbconnection;
+            dbconnection = SqliteConnection.dbConnector();
+            PreparedStatement pst = dbconnection.prepareStatement(updateSQL);
+
+            int rs = pst.executeUpdate();
+
+            if (rs > 0) {
+                // Closing Statement
+                pst.close();
+                // Closing database connection
+                dbconnection.close();
+                return Boolean.TRUE;
+            }
+            // Closing Statement
+            pst.close();
+            // Closing database connection
+            dbconnection.close();
+        } catch (Exception e) {
+            System.err.println("Got an exception! ");
+            System.err.println(e.getMessage());
+        }
+        return Boolean.FALSE;
+
+    }
+
+    /**
      * @param inConsumerPhone            -- If 0 (empty), Returns 0L
      * @param inLocationZIPCODESeqNumber -- If 0 (empty), Returns 0L
      * @return Long - returnConsumerCallerPhone - inConsumerPhone exists for inLocationZIPCOde, inLocationSeqNumber.

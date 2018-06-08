@@ -74,18 +74,37 @@ public class Location {
     } // END of validSeqNumber
 
     public static Boolean validZIPCODESeqNumber(int inZIPCODESeqNumber) {
-
+//    public static Boolean validZIPCODESeqNumber(int inZIPCODESeqNumber, String country) {
+//        switch (country) {
+//            case "INDIA":
 ////        INDIA
-//        if (inZIPCODESeqNumber <= 9999999) {
+//                if (inZIPCODESeqNumber <= 999999) {
+//                    System.out.println("ZIPCODE+SeqNumber number " + inZIPCODESeqNumber + " must be of 7-digit or more in length!");
+//                    return Boolean.FALSE;
+//                }
+//                break;
+//            case "USA":
+////         USA
+//                if (inZIPCODESeqNumber <= 99999) {
+//                    System.out.println("ZIPCODE and SeqNumber number " + inZIPCODESeqNumber + " must be of 6-digit or more in length!");
+//                    return Boolean.FALSE;
+//                }
+//                break;
+//            default:
+//                break;
+//        }
+
+        ////        INDIA
+//        if (inZIPCODESeqNumber <= 999999) {
 //            System.out.println("ZIPCODE+SeqNumber number " + inZIPCODESeqNumber + " must be of 7-digit or more in length!");
 //            return Boolean.FALSE;
 //        }
 
-//         USA
-        if (inZIPCODESeqNumber <= 99999) {
-            System.out.println("ZIPCODE and SeqNumber number " + inZIPCODESeqNumber + " must be of 6-digit or more in length!");
-            return Boolean.FALSE;
-        }
+        //         USA
+                if (inZIPCODESeqNumber <= 99999) {
+                    System.out.println("ZIPCODE and SeqNumber number " + inZIPCODESeqNumber + " must be of 6-digit or more in length!");
+                    return Boolean.FALSE;
+                }
 
         return Boolean.TRUE;
     } // END of validZIPCODESeqNumber
@@ -377,13 +396,10 @@ public class Location {
     } // END of getLocationName
 
 
-
     /**
-     *
      * @param inNotifierPhone -- If "" (empty), Returns false
-
      * @return Boolean - "True" Valid notifier exists with Status = 'Y'.
-     *                   otherwise "False"
+     * otherwise "False"
      */
     public static Location getNotifierLocationZIPCODESeqNumber(Long inNotifierPhone) {
 

@@ -199,6 +199,13 @@ public class Displayconsumers {
 
 
 //                Long inNotifierPhone = 7472558416L;
+
+//                LocationConsumers.deleteToDatabase(5861041, "INDIA");
+//                LocationConsumers.deleteToDatabase(5861041);
+//                LocationConsumers.deleteToDatabase(912142, "USA");
+//                LocationConsumers.deleteToDatabase(912142);
+
+//                Long inNotifierPhone = 7472558828L;
                 Long inNotifierPhone = 7472558828L;
 
 

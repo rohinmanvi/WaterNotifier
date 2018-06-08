@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6fb18b51-a07b-4240-b73f-d87ea4281214" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/WaterNotifier_jar.xml" beforeDir="false" />
+    <list default="true" id="6fb18b51-a07b-4240-b73f-d87ea4281214" name="Default" comment="Rajesh Test for Commit File">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/WaterNotifier_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Displayconsumers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Displayconsumers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LocationConsumers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LocationConsumers.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -13,7 +18,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="DatabaseClass.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DatabaseClass.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -23,16 +28,217 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Displayconsumers.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Displayconsumers.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Displayconsumers.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="33" lean-forward="true" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+            <state relative-caret-position="233">
+              <caret line="208" column="51" lean-forward="true" selection-start-line="208" selection-start-column="51" selection-end-line="208" selection-end-column="51" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LocationConsumers.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LocationConsumers.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="669">
+              <caret line="539" column="39" selection-start-line="539" selection-start-column="39" selection-end-line="539" selection-end-column="39" />
+              <folding>
+                <element signature="e#548#880#0" />
+                <element signature="e#548#3083#0" />
+                <element signature="e#3089#3370#0" />
+                <element signature="e#3089#5586#0" />
+                <element signature="e#5592#5756#0" />
+                <element signature="e#5592#7523#0" />
+                <element signature="e#7529#7683#0" />
+                <element signature="e#7529#9497#0" />
+                <element signature="e#9503#9665#0" />
+                <element signature="e#9503#11117#0" />
+                <element signature="e#11123#11292#0" />
+                <element signature="e#11123#12629#0" />
+                <element signature="e#12635#12804#0" />
+                <element signature="e#12635#14219#0" />
+                <element signature="e#14225#14389#0" />
+                <element signature="e#14225#15919#0" />
+                <element signature="e#15925#16077#0" />
+                <element signature="e#15925#17724#0" />
+                <element signature="e#17730#18016#0" />
+                <element signature="e#20460#20742#0" />
+                <element signature="e#23084#23175#0" />
+                <element signature="e#25527#25536#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Location.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Location.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="29">
+              <caret line="94" column="11" lean-forward="true" selection-start-line="94" selection-start-column="11" selection-end-line="94" selection-end-column="11" />
+              <folding>
+                <element signature="e#16013#16014#0" expanded="true" />
+                <element signature="e#16071#16072#0" expanded="true" />
+                <element signature="e#16102#16103#0" expanded="true" />
+                <element signature="e#16132#16133#0" expanded="true" />
+                <element signature="e#16175#16176#0" expanded="true" />
+                <element signature="e#16213#16214#0" expanded="true" />
+                <element signature="e#16246#16247#0" expanded="true" />
+                <element signature="e#16278#16279#0" expanded="true" />
+                <element signature="e#16325#16326#0" expanded="true" />
+                <element signature="e#16367#16368#0" expanded="true" />
+                <element signature="e#16407#16408#0" expanded="true" />
+                <element signature="e#16446#16447#0" expanded="true" />
+                <element signature="e#16507#16508#0" expanded="true" />
+                <element signature="e#16563#16564#0" expanded="true" />
+                <element signature="e#16602#16603#0" expanded="true" />
+                <element signature="e#16637#16638#0" expanded="true" />
+                <element signature="e#16693#16694#0" expanded="true" />
+                <element signature="e#16741#16742#0" expanded="true" />
+                <element signature="e#16779#16780#0" expanded="true" />
+                <element signature="e#16815#16816#0" expanded="true" />
+                <element signature="e#16870#16871#0" expanded="true" />
+                <element signature="e#16915#16916#0" expanded="true" />
+                <element signature="e#16950#16951#0" expanded="true" />
+                <element signature="e#16981#16982#0" expanded="true" />
+                <element signature="e#17029#17030#0" expanded="true" />
+                <element signature="e#17069#17070#0" expanded="true" />
+                <element signature="e#17104#17105#0" expanded="true" />
+                <element signature="e#17135#17136#0" expanded="true" />
+                <element signature="e#17183#17184#0" expanded="true" />
+                <element signature="e#17223#17224#0" expanded="true" />
+                <element signature="e#17254#17255#0" expanded="true" />
+                <element signature="e#17281#17282#0" expanded="true" />
+                <element signature="e#17321#17322#0" expanded="true" />
+                <element signature="e#17353#17354#0" expanded="true" />
+                <element signature="e#17385#17386#0" expanded="true" />
+                <element signature="e#17413#17414#0" expanded="true" />
+                <element signature="e#17455#17456#0" expanded="true" />
+                <element signature="e#17489#17490#0" expanded="true" />
+                <element signature="e#17523#17524#0" expanded="true" />
+                <element signature="e#17553#17554#0" expanded="true" />
+                <element signature="e#17599#17600#0" expanded="true" />
+                <element signature="e#17637#17638#0" expanded="true" />
+                <element signature="e#17672#17673#0" expanded="true" />
+                <element signature="e#17703#17704#0" expanded="true" />
+                <element signature="e#17751#17752#0" expanded="true" />
+                <element signature="e#17791#17792#0" expanded="true" />
+                <element signature="e#17823#17824#0" expanded="true" />
+                <element signature="e#17851#17852#0" expanded="true" />
+                <element signature="e#17893#17894#0" expanded="true" />
+                <element signature="e#17927#17928#0" expanded="true" />
+                <element signature="e#17959#17960#0" expanded="true" />
+                <element signature="e#17987#17988#0" expanded="true" />
+                <element signature="e#18029#18030#0" expanded="true" />
+                <element signature="e#18063#18064#0" expanded="true" />
+                <element signature="e#18095#18096#0" expanded="true" />
+                <element signature="e#18123#18124#0" expanded="true" />
+                <element signature="e#18165#18166#0" expanded="true" />
+                <element signature="e#18199#18200#0" expanded="true" />
+                <element signature="e#18233#18234#0" expanded="true" />
+                <element signature="e#18266#18267#0" expanded="true" />
+                <element signature="e#18315#18316#0" expanded="true" />
+                <element signature="e#18359#18360#0" expanded="true" />
+                <element signature="e#18398#18399#0" expanded="true" />
+                <element signature="e#18433#18434#0" expanded="true" />
+                <element signature="e#18489#18490#0" expanded="true" />
+                <element signature="e#18537#18538#0" expanded="true" />
+                <element signature="e#18567#18568#0" expanded="true" />
+                <element signature="e#18595#18596#0" expanded="true" />
+                <element signature="e#18635#18636#0" expanded="true" />
+                <element signature="e#18669#18670#0" expanded="true" />
+                <element signature="e#18713#18714#0" expanded="true" />
+                <element signature="e#18753#18754#0" expanded="true" />
+                <element signature="e#18819#18820#0" expanded="true" />
+                <element signature="e#18877#18878#0" expanded="true" />
+                <element signature="e#18922#18923#0" expanded="true" />
+                <element signature="e#18966#18967#0" expanded="true" />
+                <element signature="e#19158#19159#0" expanded="true" />
+                <element signature="e#19212#19213#0" expanded="true" />
+                <element signature="e#19430#19431#0" expanded="true" />
+                <element signature="e#19470#19471#0" expanded="true" />
+                <element signature="e#19513#19514#0" expanded="true" />
+                <element signature="e#19555#19556#0" expanded="true" />
+                <element signature="e#19622#19623#0" expanded="true" />
+                <element signature="e#19684#19685#0" expanded="true" />
+                <element signature="e#19724#19725#0" expanded="true" />
+                <element signature="e#19763#19764#0" expanded="true" />
+                <element signature="e#19824#19825#0" expanded="true" />
+                <element signature="e#19880#19881#0" expanded="true" />
+                <element signature="e#19919#19920#0" expanded="true" />
+                <element signature="e#19957#19958#0" expanded="true" />
+                <element signature="e#20016#20017#0" expanded="true" />
+                <element signature="e#20070#20071#0" expanded="true" />
+                <element signature="e#20116#20117#0" expanded="true" />
+                <element signature="e#20161#20162#0" expanded="true" />
+                <element signature="e#20352#20353#0" expanded="true" />
+                <element signature="e#20401#20402#0" expanded="true" />
+                <element signature="e#20599#20600#0" expanded="true" />
+                <element signature="e#20639#20640#0" expanded="true" />
+                <element signature="e#20702#20703#0" expanded="true" />
+                <element signature="e#20760#20761#0" expanded="true" />
+                <element signature="e#20811#20812#0" expanded="true" />
+                <element signature="e#20861#20862#0" expanded="true" />
+                <element signature="e#21074#21075#0" expanded="true" />
+                <element signature="e#21125#21126#0" expanded="true" />
+                <element signature="e#21349#21350#0" expanded="true" />
+                <element signature="e#21407#21408#0" expanded="true" />
+                <element signature="e#21653#21654#0" expanded="true" />
+                <element signature="e#21702#21703#0" expanded="true" />
+                <element signature="e#21908#21909#0" expanded="true" />
+                <element signature="e#21953#21954#0" expanded="true" />
+                <element signature="e#22136#22137#0" expanded="true" />
+                <element signature="e#22177#22178#0" expanded="true" />
+                <element signature="e#22242#22243#0" expanded="true" />
+                <element signature="e#22302#22303#0" expanded="true" />
+                <element signature="e#22339#22340#0" expanded="true" />
+                <element signature="e#22375#22376#0" expanded="true" />
+                <element signature="e#22430#22431#0" expanded="true" />
+                <element signature="e#22480#22481#0" expanded="true" />
+                <element signature="e#22521#22522#0" expanded="true" />
+                <element signature="e#22558#22559#0" expanded="true" />
+                <element signature="e#22618#22619#0" expanded="true" />
+                <element signature="e#22670#22671#0" expanded="true" />
+                <element signature="e#22711#22712#0" expanded="true" />
+                <element signature="e#22748#22749#0" expanded="true" />
+                <element signature="e#22808#22809#0" expanded="true" />
+                <element signature="e#22860#22861#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataOperations.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/DataOperations.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConsumerCallers.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/ConsumerCallers.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="199">
+              <caret line="173" column="23" selection-start-line="173" selection-start-column="23" selection-end-line="173" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>UPDATE</find>
+      <find>validZIPCODESeqNumber</find>
+      <find>\&quot;</find>
+      <find>ZIPCODE+SeqNumber number</find>
+      <find>912141</find>
+      <find>7</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -40,7 +246,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LocationConsumers.java" />
         <option value="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Displayconsumers.java" />
+        <option value="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Location.java" />
       </list>
     </option>
   </component>
@@ -55,7 +263,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -68,18 +276,26 @@
               <item name="WaterNotifier" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="WaterNotifier" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WaterNotifier" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="waternotifierlibrary" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -94,6 +310,17 @@
     </option>
   </component>
   <component name="RunManager">
+    <configuration name="Displayconsumers" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.waternotifier.waternotifierlibrary.Displayconsumers" />
+      <module name="WaterNotifier" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.waternotifier.waternotifierlibrary.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -135,6 +362,11 @@
       <properties />
       <listeners />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Displayconsumers" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -161,31 +393,31 @@
     <frame x="-6" y="-6" width="1292" height="732" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" weight="0.329582" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info id="Image Layers" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info id="Capture Tool" />
-      <window_info id="Designer" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
-      <window_info id="Learn" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.329582" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.329582" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info id="Learn" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info id="UI Designer" order="2" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39871383" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
     </layout>
@@ -196,6 +428,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Rajesh Test for Commit File" />
     <option name="LAST_COMMIT_MESSAGE" value="Rajesh Test for Commit File" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/DatabaseClass.java">
@@ -209,6 +446,206 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="33" lean-forward="true" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DatabaseClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/ConsumerCallers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="173" column="23" selection-start-line="173" selection-start-column="23" selection-end-line="173" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/DataOperations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LocationConsumers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="669">
+          <caret line="539" column="39" selection-start-line="539" selection-start-column="39" selection-end-line="539" selection-end-column="39" />
+          <folding>
+            <element signature="e#548#880#0" />
+            <element signature="e#548#3083#0" />
+            <element signature="e#3089#3370#0" />
+            <element signature="e#3089#5586#0" />
+            <element signature="e#5592#5756#0" />
+            <element signature="e#5592#7523#0" />
+            <element signature="e#7529#7683#0" />
+            <element signature="e#7529#9497#0" />
+            <element signature="e#9503#9665#0" />
+            <element signature="e#9503#11117#0" />
+            <element signature="e#11123#11292#0" />
+            <element signature="e#11123#12629#0" />
+            <element signature="e#12635#12804#0" />
+            <element signature="e#12635#14219#0" />
+            <element signature="e#14225#14389#0" />
+            <element signature="e#14225#15919#0" />
+            <element signature="e#15925#16077#0" />
+            <element signature="e#15925#17724#0" />
+            <element signature="e#17730#18016#0" />
+            <element signature="e#20460#20742#0" />
+            <element signature="e#23084#23175#0" />
+            <element signature="e#25527#25536#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Displayconsumers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="208" column="51" lean-forward="true" selection-start-line="208" selection-start-column="51" selection-end-line="208" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Location.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="94" column="11" lean-forward="true" selection-start-line="94" selection-start-column="11" selection-end-line="94" selection-end-column="11" />
+          <folding>
+            <element signature="e#16013#16014#0" expanded="true" />
+            <element signature="e#16071#16072#0" expanded="true" />
+            <element signature="e#16102#16103#0" expanded="true" />
+            <element signature="e#16132#16133#0" expanded="true" />
+            <element signature="e#16175#16176#0" expanded="true" />
+            <element signature="e#16213#16214#0" expanded="true" />
+            <element signature="e#16246#16247#0" expanded="true" />
+            <element signature="e#16278#16279#0" expanded="true" />
+            <element signature="e#16325#16326#0" expanded="true" />
+            <element signature="e#16367#16368#0" expanded="true" />
+            <element signature="e#16407#16408#0" expanded="true" />
+            <element signature="e#16446#16447#0" expanded="true" />
+            <element signature="e#16507#16508#0" expanded="true" />
+            <element signature="e#16563#16564#0" expanded="true" />
+            <element signature="e#16602#16603#0" expanded="true" />
+            <element signature="e#16637#16638#0" expanded="true" />
+            <element signature="e#16693#16694#0" expanded="true" />
+            <element signature="e#16741#16742#0" expanded="true" />
+            <element signature="e#16779#16780#0" expanded="true" />
+            <element signature="e#16815#16816#0" expanded="true" />
+            <element signature="e#16870#16871#0" expanded="true" />
+            <element signature="e#16915#16916#0" expanded="true" />
+            <element signature="e#16950#16951#0" expanded="true" />
+            <element signature="e#16981#16982#0" expanded="true" />
+            <element signature="e#17029#17030#0" expanded="true" />
+            <element signature="e#17069#17070#0" expanded="true" />
+            <element signature="e#17104#17105#0" expanded="true" />
+            <element signature="e#17135#17136#0" expanded="true" />
+            <element signature="e#17183#17184#0" expanded="true" />
+            <element signature="e#17223#17224#0" expanded="true" />
+            <element signature="e#17254#17255#0" expanded="true" />
+            <element signature="e#17281#17282#0" expanded="true" />
+            <element signature="e#17321#17322#0" expanded="true" />
+            <element signature="e#17353#17354#0" expanded="true" />
+            <element signature="e#17385#17386#0" expanded="true" />
+            <element signature="e#17413#17414#0" expanded="true" />
+            <element signature="e#17455#17456#0" expanded="true" />
+            <element signature="e#17489#17490#0" expanded="true" />
+            <element signature="e#17523#17524#0" expanded="true" />
+            <element signature="e#17553#17554#0" expanded="true" />
+            <element signature="e#17599#17600#0" expanded="true" />
+            <element signature="e#17637#17638#0" expanded="true" />
+            <element signature="e#17672#17673#0" expanded="true" />
+            <element signature="e#17703#17704#0" expanded="true" />
+            <element signature="e#17751#17752#0" expanded="true" />
+            <element signature="e#17791#17792#0" expanded="true" />
+            <element signature="e#17823#17824#0" expanded="true" />
+            <element signature="e#17851#17852#0" expanded="true" />
+            <element signature="e#17893#17894#0" expanded="true" />
+            <element signature="e#17927#17928#0" expanded="true" />
+            <element signature="e#17959#17960#0" expanded="true" />
+            <element signature="e#17987#17988#0" expanded="true" />
+            <element signature="e#18029#18030#0" expanded="true" />
+            <element signature="e#18063#18064#0" expanded="true" />
+            <element signature="e#18095#18096#0" expanded="true" />
+            <element signature="e#18123#18124#0" expanded="true" />
+            <element signature="e#18165#18166#0" expanded="true" />
+            <element signature="e#18199#18200#0" expanded="true" />
+            <element signature="e#18233#18234#0" expanded="true" />
+            <element signature="e#18266#18267#0" expanded="true" />
+            <element signature="e#18315#18316#0" expanded="true" />
+            <element signature="e#18359#18360#0" expanded="true" />
+            <element signature="e#18398#18399#0" expanded="true" />
+            <element signature="e#18433#18434#0" expanded="true" />
+            <element signature="e#18489#18490#0" expanded="true" />
+            <element signature="e#18537#18538#0" expanded="true" />
+            <element signature="e#18567#18568#0" expanded="true" />
+            <element signature="e#18595#18596#0" expanded="true" />
+            <element signature="e#18635#18636#0" expanded="true" />
+            <element signature="e#18669#18670#0" expanded="true" />
+            <element signature="e#18713#18714#0" expanded="true" />
+            <element signature="e#18753#18754#0" expanded="true" />
+            <element signature="e#18819#18820#0" expanded="true" />
+            <element signature="e#18877#18878#0" expanded="true" />
+            <element signature="e#18922#18923#0" expanded="true" />
+            <element signature="e#18966#18967#0" expanded="true" />
+            <element signature="e#19158#19159#0" expanded="true" />
+            <element signature="e#19212#19213#0" expanded="true" />
+            <element signature="e#19430#19431#0" expanded="true" />
+            <element signature="e#19470#19471#0" expanded="true" />
+            <element signature="e#19513#19514#0" expanded="true" />
+            <element signature="e#19555#19556#0" expanded="true" />
+            <element signature="e#19622#19623#0" expanded="true" />
+            <element signature="e#19684#19685#0" expanded="true" />
+            <element signature="e#19724#19725#0" expanded="true" />
+            <element signature="e#19763#19764#0" expanded="true" />
+            <element signature="e#19824#19825#0" expanded="true" />
+            <element signature="e#19880#19881#0" expanded="true" />
+            <element signature="e#19919#19920#0" expanded="true" />
+            <element signature="e#19957#19958#0" expanded="true" />
+            <element signature="e#20016#20017#0" expanded="true" />
+            <element signature="e#20070#20071#0" expanded="true" />
+            <element signature="e#20116#20117#0" expanded="true" />
+            <element signature="e#20161#20162#0" expanded="true" />
+            <element signature="e#20352#20353#0" expanded="true" />
+            <element signature="e#20401#20402#0" expanded="true" />
+            <element signature="e#20599#20600#0" expanded="true" />
+            <element signature="e#20639#20640#0" expanded="true" />
+            <element signature="e#20702#20703#0" expanded="true" />
+            <element signature="e#20760#20761#0" expanded="true" />
+            <element signature="e#20811#20812#0" expanded="true" />
+            <element signature="e#20861#20862#0" expanded="true" />
+            <element signature="e#21074#21075#0" expanded="true" />
+            <element signature="e#21125#21126#0" expanded="true" />
+            <element signature="e#21349#21350#0" expanded="true" />
+            <element signature="e#21407#21408#0" expanded="true" />
+            <element signature="e#21653#21654#0" expanded="true" />
+            <element signature="e#21702#21703#0" expanded="true" />
+            <element signature="e#21908#21909#0" expanded="true" />
+            <element signature="e#21953#21954#0" expanded="true" />
+            <element signature="e#22136#22137#0" expanded="true" />
+            <element signature="e#22177#22178#0" expanded="true" />
+            <element signature="e#22242#22243#0" expanded="true" />
+            <element signature="e#22302#22303#0" expanded="true" />
+            <element signature="e#22339#22340#0" expanded="true" />
+            <element signature="e#22375#22376#0" expanded="true" />
+            <element signature="e#22430#22431#0" expanded="true" />
+            <element signature="e#22480#22481#0" expanded="true" />
+            <element signature="e#22521#22522#0" expanded="true" />
+            <element signature="e#22558#22559#0" expanded="true" />
+            <element signature="e#22618#22619#0" expanded="true" />
+            <element signature="e#22670#22671#0" expanded="true" />
+            <element signature="e#22711#22712#0" expanded="true" />
+            <element signature="e#22748#22749#0" expanded="true" />
+            <element signature="e#22808#22809#0" expanded="true" />
+            <element signature="e#22860#22861#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -228,6 +665,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -235,7 +673,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited />
+          <last-edited>No facets are configured</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
