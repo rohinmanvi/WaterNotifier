@@ -9,14 +9,25 @@ import com.waternotifier.waternotifierlibrary.Location;
 import com.waternotifier.waternotifierlibrary.LocationConsumers;
 
 public class Serial {
-	private static String CC = "1";
+	private static String receiveCalls = "7472558416";
+	private static String CC = "91";
+	private static String CC2 = "1";
+	private static ArrayList<String> USnumbers = new ArrayList<>();
 	
 	public static void main(String[] args) {
-		WaitForCalls two = new WaitForCalls("7472558416", "Incoming Calls GSM", 1);
-		delay(2000);
+		USnumbers.add("8189135171");
+		USnumbers.add("8189678112");
+		USnumbers.add("8189570369");
+		
+		WaitForCalls two = new WaitForCalls(receiveCalls, "Incoming Calls GSM", 0);
+		waitFor(two);
+		function(two, 1);
+
 		ArrayList<MissedCalls> three = new ArrayList<>();
 		three.add(new MissedCalls("4086370230", "MissedCalls 1", 0));
+		waitFor(three.get(0));
 		three.add(new MissedCalls("8186439252", "MissedCalls 2", 0));
+		waitFor(three.get(1));
 
 		while (true) {
 			waitFor(two);
@@ -33,7 +44,17 @@ public class Serial {
 				for (int i = 0; i < three.size(); i++) {
 					ArrayList<String> partPhone = DatabaseClass.getConsumers(x, three.get(i).getPhoneNumber());
 					for(int j = 0; j < partPhone.size(); j++){
-						partPhone.set(j, CC + partPhone.get(j));
+						boolean b = true;
+						for(String c : USnumbers){
+							if(c.equals(partPhone.get(j))) {
+								b = false;
+								break;
+							}
+						}
+						if(b)
+							partPhone.set(j, CC + partPhone.get(j));
+						else
+							partPhone.set(j, CC2 + partPhone.get(j));
 					}
 					System.out.println(three.get(i) + ": assigned " + partPhone);
 					three.get(i).phoneNumbers(partPhone);

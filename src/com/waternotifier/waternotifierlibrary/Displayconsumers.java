@@ -204,13 +204,13 @@ public class Displayconsumers {
 //                LocationConsumers.deleteToDatabase(912142);
 
 
-//                DatabaseHelper dbHelp = new DatabaseHelper();
-//
-//                DatabaseHelper.updateAllConsumersForCallerPhone();
+                DatabaseHelper dbHelp = new DatabaseHelper();
+
+                DatabaseHelper.updateAllConsumersForCallerPhone();
 
 
-//                Long inNotifierPhone = 7472558828L;
-                Long inNotifierPhone = 8189135171L;
+                Long inNotifierPhone = 7472558828L;
+//                Long inNotifierPhone = 8189135171L;
 
 
 

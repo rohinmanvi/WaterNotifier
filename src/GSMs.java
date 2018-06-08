@@ -19,14 +19,19 @@ public abstract class GSMs extends GSM implements Runnable {
 			try {
 				if (openConnection()) {
 					checkConnection();
-					if (t == null && ownPhoneNumber()) {
-						t = new Thread(this, threadName);
-						t.start();
+					boolean v = false;
+					for(int j = 0; j < 5; j++) {
+						if (t == null && ownPhoneNumber()) {
+							t = new Thread(this, threadName);
+							t.start();
+							v = true;
+							break;
+						} else {
+							System.out.println(threadName + ": " + port + " wrong number");
+						}
+					}
+					if(v)
 						break;
-					}
-					else {
-						System.out.println(threadName + ": " + port + " wrong number");
-					}
 				}
 			} catch (Exception e) {
 				closeConnection();
