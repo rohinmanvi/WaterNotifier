@@ -12,7 +12,7 @@ public abstract class GSMs extends GSM implements Runnable {
 		threadName = name;
 		function = fun;
 		System.out.println(threadName + ": creating");
-		for (int i = 0; i <= 10; i++) {
+		for (int i = 0; i <= 20; i++) {
 			String port = "COM" + i;
 			System.out.println(threadName + ": " + port);
 			setPortDescription(port);
