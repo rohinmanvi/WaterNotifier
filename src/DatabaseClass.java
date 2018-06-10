@@ -12,6 +12,8 @@ public class DatabaseClass {
     public static ArrayList<String> getConsumers(String phonenumb, String callerphone) {
         if(phonenumb == null || callerphone == null)
             return new ArrayList<>();
+        phonenumb = phonenumb.replaceAll("\\s+","");
+        callerphone = callerphone.replaceAll("\\s+","");
         ArrayList<Long> locationConsumersArrayList = new ArrayList<>();
         ArrayList<String> LCA = new ArrayList<>();
         if(!checkNumber(phonenumb) || !checkNumber(callerphone))
@@ -62,6 +64,7 @@ public class DatabaseClass {
     public static boolean deviceExists(String phonenumb) {
         if(phonenumb == null)
             return false;
+        phonenumb = phonenumb.replaceAll("\\s+","");
         boolean a = false;
         if(!checkNumber(phonenumb))
             return false;
@@ -78,8 +81,11 @@ public class DatabaseClass {
     public static boolean newConsumer(String phonenumb, String locationNum, String name) {
         if(phonenumb == null || locationNum == null || name == null)
             return false;
+        phonenumb = phonenumb.replaceAll("\\s+","");
+        locationNum = locationNum.replaceAll("\\s+","");
+        name = name.replaceAll("\\s+","");
         boolean x = false;
-        name.replaceAll("\\s+","");
+        name = name.replaceAll("\\s+","");
         if(!checkNumber(phonenumb) || !checkNumber(locationNum))
             return false;
         if(!checkLetters(name))
@@ -99,6 +105,7 @@ public class DatabaseClass {
     public static String notifierLocation(String locationNum) {
         if(locationNum == null)
             return "";
+        locationNum = locationNum.replaceAll("\\s+","");
         String a = "";
         if(!checkNumber(locationNum))
             return "";
@@ -115,12 +122,14 @@ public class DatabaseClass {
     private static boolean checkNumber(String a){
         if(a == null)
             return false;
+        a = a.replaceAll("\\s+","");
         return a.matches("\\d+");
     }
 
     private static boolean checkLetters(String a){
         if(a == null)
             return false;
+        a = a.replaceAll("\\s+","");
         Pattern p = Pattern.compile("^[ A-Za-z]+$");
         Matcher m = p.matcher(a);
         return m.matches();
