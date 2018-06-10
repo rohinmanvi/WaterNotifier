@@ -223,6 +223,48 @@ public class ConsumerCallers {
         return consumerCallersArrayList;
     }
 
+    /**
+     * Provides list of ALL Unique ConsumerCallers in a  Array of Long list -
+     *
+     * @return - Arraylist of ConsumerCallers phone numbers as Array of Long list.
+     */
+    public static ArrayList<Long> getAllUniquePhoneNumbers() {
+        ArrayList<Long> consumerCallersArrayList = new ArrayList<Long>();
+        String querySelect;
+
+        try {
+            Connection dbconnection;
+            dbconnection = SqliteConnection.dbConnector();
+
+            querySelect = "SELECT DISTINCT(cc.SimCardPhone)" + " "
+                    + " FROM ConsumerCallers as cc, SIMCard as sc " + " "
+                    + " WHERE cc.SIMCardPhone = sc.Phone " + " "
+                    + " AND sc.Active = 'Y' " + " "
+                    + " AND cc.Status = 'Y' " + " "
+                    + " GROUP BY cc.SimCardPhone " + " "
+                    + " ; ";
+
+            PreparedStatement pst = dbconnection.prepareStatement(querySelect);
+
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                do {
+                    consumerCallersArrayList.add(rs.getLong("SIMCardPhone"));
+                } while (rs.next());
+            }
+            // Closing Statement
+            pst.close();
+            // Closing database connection
+            dbconnection.close();
+        } catch (Exception e) {
+            System.err.println("Got an exception! ");
+            System.err.println(e.getMessage());
+        }
+
+        return consumerCallersArrayList;
+    }
+
 
     public static Boolean assignPhone(long inConsumerPhone, int inLocationCode) {
 

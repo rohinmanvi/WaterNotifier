@@ -17,8 +17,6 @@ public class VoiceCallDetails {
      */
     public static Boolean insertToDatabase(Long SenderPhone, Long ReceiverPhone) {
 
-        ConsumerOperations conOp = new ConsumerOperations();
-
         if (!(ConsumerOperations.IsValidPhone(SenderPhone.toString()))) {
             return false;
         }
