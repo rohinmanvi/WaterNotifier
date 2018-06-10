@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 public class MissedCalls extends GSMs{
 	
-	private ArrayList<String> phoneNumbers;
-	private String phoneNumber;
-	private String message;
+	private ArrayList<String> phoneNumbers = new ArrayList<>();
+	private String phoneNumber = "";
+	private String message = "";
 	
 	public MissedCalls(String phone, String name, int fun) {
 		super(phone, name, fun);

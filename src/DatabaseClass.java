@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import com.waternotifier.waternotifierlibrary.*;
 import com.waternotifier.waternotifierlibrary.Location;
@@ -8,59 +10,119 @@ import com.waternotifier.waternotifierlibrary.DatabaseHelper;
 public class DatabaseClass {
 
     public static ArrayList<String> getConsumers(String phonenumb, String callerphone) {
+        if(phonenumb == null || callerphone == null)
+            return new ArrayList<>();
         ArrayList<Long> locationConsumersArrayList = new ArrayList<>();
         ArrayList<String> LCA = new ArrayList<>();
-        Long inNotifierPhone = Long.parseLong(phonenumb, 10);
-        System.out.println("device number found: " + inNotifierPhone + " MissedCall number: " + callerphone);
-        Location tempLoc = new Location();
-        tempLoc = Location.getNotifierLocationZIPCODESeqNumber(inNotifierPhone);
-        ArrayList<ConsumerCallers> listOfConsumerCallers = new ArrayList<ConsumerCallers>();
-        if (tempLoc == null) {
-            System.out.println(
-                    "System could not find Location details for given Notifier Phone : " + inNotifierPhone + " !");
-        }
-		listOfConsumerCallers = ConsumerCallers.getAll(tempLoc.getZIPCODE(), tempLoc.getSeqNumber());
+        if(!checkNumber(phonenumb) || !checkNumber(callerphone))
+            return new ArrayList<>();
+        try {
+            Long inNotifierPhone = Long.parseLong(phonenumb, 10);
+            System.out.println("device number found: " + inNotifierPhone + " MissedCall number: " + callerphone);
+            Location tempLoc = new Location();
+            tempLoc = Location.getNotifierLocationZIPCODESeqNumber(inNotifierPhone);
+            ArrayList<ConsumerCallers> listOfConsumerCallers = new ArrayList<ConsumerCallers>();
+            if (tempLoc == null) {
+                System.out.println(
+                        "System could not find Location details for given Notifier Phone : " + inNotifierPhone + " !");
+            }
+            listOfConsumerCallers = ConsumerCallers.getAll(tempLoc.getZIPCODE(), tempLoc.getSeqNumber());
 //        listOfConsumerCallers = ConsumerCallers.getAll(91214, 1);
-        System.out.println("ZIPCODE found: " + tempLoc.getZIPCODE() + " Seq number: " + tempLoc.getSeqNumber());
+            System.out.println("ZIPCODE found: " + tempLoc.getZIPCODE() + " Seq number: " + tempLoc.getSeqNumber());
 
-        if (listOfConsumerCallers.isEmpty() || listOfConsumerCallers == null) {
-            System.out.println("There are no Consumer Callers for given Notifier Phone : " + inNotifierPhone
-                    + " at LocationCode : " + tempLoc.getZIPCODE() + tempLoc.getSeqNumber());
-        } else {
-            System.out.println("There are TOTAL of " + listOfConsumerCallers.size()
-                    + "  Consumer Callers for given Notifier Phone : " + inNotifierPhone + " at LocationCode : "
-                    + tempLoc.getZIPCODE() + tempLoc.getSeqNumber() + '\n');
-            for (int i = 0; i < listOfConsumerCallers.size(); i++) {
-                if (listOfConsumerCallers.get(i).getSIMCardPhone().toString().equals(callerphone)) {
-                    System.out.println("The Consumers for :: " + listOfConsumerCallers.get(i).getName() + '\n');
+            if (listOfConsumerCallers.isEmpty() || listOfConsumerCallers == null) {
+                System.out.println("There are no Consumer Callers for given Notifier Phone : " + inNotifierPhone
+                        + " at LocationCode : " + tempLoc.getZIPCODE() + tempLoc.getSeqNumber());
+            } else {
+                System.out.println("There are TOTAL of " + listOfConsumerCallers.size()
+                        + "  Consumer Callers for given Notifier Phone : " + inNotifierPhone + " at LocationCode : "
+                        + tempLoc.getZIPCODE() + tempLoc.getSeqNumber() + '\n');
+                for (int i = 0; i < listOfConsumerCallers.size(); i++) {
+                    if (listOfConsumerCallers.get(i).getSIMCardPhone().toString().equals(callerphone)) {
+                        System.out.println("The Consumers for :: " + listOfConsumerCallers.get(i).getName() + '\n');
 //                    locationConsumersArrayList = LocationConsumers.getAllConsumerPhone(
 //                            listOfConsumerCallers.get(i).getSIMCardPhone(), 91214,
 //                            1);
-					locationConsumersArrayList = LocationConsumers.getAllConsumerPhone(
-							listOfConsumerCallers.get(i).getSIMCardPhone(), tempLoc.getZIPCODE(),
-							tempLoc.getSeqNumber());
-                    for (Long a : locationConsumersArrayList)
-                        LCA.add(a.toString());
-                    return LCA;
+                        locationConsumersArrayList = LocationConsumers.getAllConsumerPhone(
+                                listOfConsumerCallers.get(i).getSIMCardPhone(), tempLoc.getZIPCODE(),
+                                tempLoc.getSeqNumber());
+                        for (Long a : locationConsumersArrayList)
+                            LCA.add(a.toString());
+                    }
                 }
             }
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+            return new ArrayList<>();
         }
         return LCA;
     }
 
     public static boolean deviceExists(String phonenumb) {
-
-        return Notifier.notifierExists(Long.parseLong(phonenumb, 10));
+        if(phonenumb == null)
+            return false;
+        boolean a = false;
+        if(!checkNumber(phonenumb))
+            return false;
+        try {
+            a = Notifier.notifierExists(Long.parseLong(phonenumb, 10));
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        return a;
     }
 
     public static boolean newConsumer(String phonenumb, String locationNum, String name) {
-        long b = Long.parseLong(phonenumb, 10);
-        int a = Integer.parseInt(locationNum);
-        return DatabaseHelper.newConsumer(b, a, name);
+        if(phonenumb == null || locationNum == null || name == null)
+            return false;
+        boolean x = false;
+        name.replaceAll("\\s+","");
+        if(!checkNumber(phonenumb) || !checkNumber(locationNum))
+            return false;
+        if(!checkLetters(name))
+            return false;
+        try {
+            long b = Long.parseLong(phonenumb, 10);
+            int a = Integer.parseInt(locationNum);
+            x = DatabaseHelper.newConsumer(b, a, name);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        return x;
     }
 
     public static String notifierLocation(String locationNum) {
+        if(locationNum == null)
+            return "";
+        String a = "";
+        if(!checkNumber(locationNum))
+            return "";
+        try {
+            a = Location.getLocationNameByLocationCode(Integer.parseInt(locationNum));
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            return "";
+        }
+        return a;
+    }
 
-        return Location.getLocationNameByLocationCode(Integer.parseInt(locationNum));
+    private static boolean checkNumber(String a){
+        if(a == null)
+            return false;
+        return a.matches("\\d+");
+    }
+
+    private static boolean checkLetters(String a){
+        if(a == null)
+            return false;
+        Pattern p = Pattern.compile("^[ A-Za-z]+$");
+        Matcher m = p.matcher(a);
+        return m.matches();
     }
 }

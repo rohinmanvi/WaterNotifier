@@ -2,9 +2,9 @@ import java.util.concurrent.TimeUnit;
 
 public abstract class GSMs extends GSM implements Runnable {
 	private Thread t;
-	public String threadName;
-	public int function;
-	private String phoneNumber;
+	public String threadName = "";
+	public int function = 0;
+	private String phoneNumber = "";
 
 	public GSMs(String phone, String name, int fun) {
 		super();

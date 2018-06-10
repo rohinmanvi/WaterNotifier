@@ -1,7 +1,7 @@
 public class WaitForMessages extends GSMs {
 
-	private String phoneNumber;
-	private String message;
+	private String phoneNumber = "";
+	private String message = "";
 	private String testingPhone = "18189135171";
 
 	public WaitForMessages(String phone, String name, int fun) {
@@ -34,7 +34,7 @@ public class WaitForMessages extends GSMs {
 						} catch (Exception e) {
 							throw e;
 						}
-						if (mess == null) {
+						if (mess.isEmpty()) {
 							break;
 						}
 						System.out.println(threadName + ": Message Received: \n" + mess);

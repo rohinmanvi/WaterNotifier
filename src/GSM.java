@@ -3,9 +3,9 @@ import java.util.concurrent.TimeUnit;
 import arduino.Arduino;
 
 public class GSM extends Arduino {
-	private String port;
+	private String port = "";
 	private boolean service;
-	private int baud;
+	private int baud = 0;
 	private String imei = "";
 	private String ccid = "";
 	private String number = "";
@@ -164,8 +164,8 @@ public class GSM extends Arduino {
 				return a.substring(a.lastIndexOf('\"') + 1, a.lastIndexOf('O') - 1);
 			}
 		}
-		number = null;
-		return null;
+		number = "";
+		return "";
 	}
 
 	public String phoneNum() {
@@ -173,7 +173,7 @@ public class GSM extends Arduino {
 	}
 
 	public String waitForCall() {
-		String b;
+		String b = "";
 		String a = "";
 		while (true) {
 			b = serialRead();
@@ -199,7 +199,7 @@ public class GSM extends Arduino {
 	}
 
 	public String waitForCall(double s) {
-		String b;
+		String b = "";
 		String a = "";
 		for (int i = 0; i < (s * 1000); i++) {
 			b = serialRead();
@@ -226,7 +226,7 @@ public class GSM extends Arduino {
 	}
 
 	public boolean call(String n) {
-		String b;
+		String b = "";
 		for (int i = 0; i < 3; i++) {
 			if (send("ATD+" + n)) {
 				while (true) {
@@ -247,7 +247,7 @@ public class GSM extends Arduino {
 	}
 
 	public boolean missedCall(String n, int s) {
-		String b;
+		String b = "";
 		for (int i = 0; i < 3; i++) {
 			if (send("ATD+" + n, 5)) {
 				while (true) {
