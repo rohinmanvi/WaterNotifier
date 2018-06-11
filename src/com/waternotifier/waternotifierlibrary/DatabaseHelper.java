@@ -62,6 +62,9 @@ public class DatabaseHelper {
                 }
             }
         }
+
+        ConsumerCallers.updateConsumerCallerCount();
+        Location.updateLocationConsumerCount();
     }
 
     public static boolean deleteConsumer(Long inConsumerPhone, int inLocationCode) {

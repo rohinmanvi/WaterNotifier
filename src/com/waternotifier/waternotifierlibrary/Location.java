@@ -3,6 +3,7 @@ package com.waternotifier.waternotifierlibrary;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Date;
 
 public class Location {
     private int ZIPCODE;
@@ -460,6 +461,48 @@ public class Location {
         return outLocation;
     } // END of getNotifierLocationZIPCODESeqNumber
 
+    /**
+     * @return Boolean - "True" - Able to update to database, otherwise "False".
+     */
+    public static Boolean updateLocationConsumerCount() {
+
+        Date datetime = new Date();
+
+        String updateSQL = " UPDATE Location "
+                + " SET ConsumerCount = (SELECT COUNT(*) "
+                + " FROM LocationConsumers as LC1 "
+                + " WHERE LC1.RegisteredFlag = 'Y' "
+                + " AND Location.ZIPCODE = LC1.LocationZIPCODE " + " "
+                + " AND Location.SeqNumber = LC1.LocationSeqNumber " + " "
+                + " GROUP BY LC1.LocationZIPCODE, LC1.LocationSeqNumber, LC1.RegisteredFlag)   " + ", "
+                + " UpdateDateTime = " + " \"" + datetime.toString() + "\" "
+                + "; ";
+
+        try {
+
+            Connection dbconnection;
+            dbconnection = SqliteConnection.dbConnector();
+            PreparedStatement pst = dbconnection.prepareStatement(updateSQL);
+
+            int rs = pst.executeUpdate();
+
+            if (rs > 0) {
+                // Closing Statement
+                pst.close();
+                // Closing database connection
+                dbconnection.close();
+                return Boolean.TRUE;
+            }
+            // Closing Statement
+            pst.close();
+            // Closing database connection
+            dbconnection.close();
+        } catch (Exception e) {
+            System.err.println("Got an exception! ");
+            System.err.println(e.getMessage());
+        }
+        return Boolean.FALSE;
+    }
 
     public void setnoofhomesPerVALVE(int noofhomesPerVALVE) {
         this.noofhomesPerVALVE = noofhomesPerVALVE;

@@ -710,7 +710,7 @@ public class LocationConsumers {
     } // END of getConsumerCallerPhone
 
     /**
-     * @return ArrayList<LocationConsumers> - List of LocationConsumers Objects
+     * @return ArrayList<LocationConsumers> - List of 'RegisteredFlag' = "Y" LocationConsumers Objects
      */
     public static ArrayList<LocationConsumers> getAllActiveDatabaseLocationConsumers() {
 
@@ -726,7 +726,9 @@ public class LocationConsumers {
 
             querySelect = " SELECT LocationZIPCODE, LocationSeqNumber, ConsumersPhone, ConsumerCallerPhone, CreateDateTime, UpdateDateTime, RegisteredFlag, RegisteredDateTime, DeleteDateTime "
                     + " FROM LocationConsumers "
-                    + " WHERE RegisteredFlag = 'Y' ; ";
+                    + " WHERE RegisteredFlag = 'Y' " + " "
+                    + " AND ConsumerCallerPhone <> 0 " + " "
+                    + " ;";
 
             PreparedStatement pst = dbconnection.prepareStatement(querySelect);
 

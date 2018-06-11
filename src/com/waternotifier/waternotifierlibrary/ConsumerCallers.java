@@ -386,6 +386,59 @@ public class ConsumerCallers {
         return Boolean.FALSE;
     }
 
+   /**
+     * @return Boolean - "True" - Able to update to database, otherwise "False".
+     */
+    public static Boolean updateConsumerCallerCount() {
+
+        Date datetime = new Date();
+//
+//        String updateSQL = "UPDATE ConsumerCallers "
+//                + " SET ConsumerCount = " + callerCount + ", "
+//                + " UpdateDateTime = " + " \"" + datetime.toString() + "\" "
+//                + " WHERE SIMCardPhone = " + callerPhoneNumber + " "
+//                + " AND LocationZIPCODE = " + inZipcode + " "
+//                + " AND LocationSeqNumber = " + inSeqNum + " "
+//                + "; ";
+
+
+        String updateSQL = " UPDATE ConsumerCallers "
+                + " SET ConsumerCount = (SELECT COUNT(*) "
+                + " FROM LocationConsumers as LC1 "
+                + " WHERE LC1.RegisteredFlag = 'Y' "
+                + " AND ConsumerCallers.SIMCardPhone = LC1.ConsumerCallerPhone " + " "
+                + " AND ConsumerCallers.LocationZIPCODE = LC1.LocationZIPCODE " + " "
+                + " AND ConsumerCallers.LocationSeqNumber = LC1.LocationSeqNumber " + " "
+                + " GROUP BY LC1.LocationZIPCODE, LC1.LocationSeqNumber, LC1.ConsumerCallerPhone, LC1.RegisteredFlag)   " + ", "
+                + " UpdateDateTime = " + " \"" + datetime.toString() + "\" "
+                + "; ";
+
+        try {
+
+            Connection dbconnection;
+            dbconnection = SqliteConnection.dbConnector();
+            PreparedStatement pst = dbconnection.prepareStatement(updateSQL);
+
+            int rs = pst.executeUpdate();
+
+            if (rs > 0) {
+                // Closing Statement
+                pst.close();
+                // Closing database connection
+                dbconnection.close();
+                return Boolean.TRUE;
+            }
+            // Closing Statement
+            pst.close();
+            // Closing database connection
+            dbconnection.close();
+        } catch (Exception e) {
+            System.err.println("Got an exception! ");
+            System.err.println(e.getMessage());
+        }
+        return Boolean.FALSE;
+    }
+
     public String getIMEINumber() {
         return IMEINumber;
     }

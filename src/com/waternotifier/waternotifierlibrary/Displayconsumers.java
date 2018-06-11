@@ -209,7 +209,7 @@ public class Displayconsumers {
 
 // Function "DatabaseHelper.updateAllConsumersForCallerPhone()" will UPDATE all Active - LocationConsumers
 // with ConsumerCaller phone number.
-//                DatabaseHelper.updateAllConsumersForCallerPhone();
+                DatabaseHelper.updateAllConsumersForCallerPhone();
 
 //Function "ConsumerCallers.getAllUniquePhoneNumbers()" will return unique all active ConsumerCallers from the database.
                 ArrayList<Long> listOfUniqueConsumerCallers = ConsumerCallers.getAllUniquePhoneNumbers();
@@ -221,7 +221,8 @@ public class Displayconsumers {
                     }
                 }
 
-                Long inNotifierPhone = 7472558828L;
+//                Long inNotifierPhone = 7472558828L;
+                Long inNotifierPhone = 8189678112L;
 //                Long inNotifierPhone = 8189135171L;
 
                 Location tempLoc = new Location();
