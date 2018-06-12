@@ -28,28 +28,28 @@ public class DatabaseClass {
             callerphone = callerphone.substring(2);
         try {
             Long inNotifierPhone = Long.parseLong(phonenumb, 10);
-            System.out.println("device number found: " + inNotifierPhone + " MissedCall number: " + callerphone);
+//            System.out.println("device number found: " + inNotifierPhone + " MissedCall number: " + callerphone);
             Location tempLoc = new Location();
             tempLoc = Location.getNotifierLocationZIPCODESeqNumber(inNotifierPhone);
             ArrayList<ConsumerCallers> listOfConsumerCallers = new ArrayList<ConsumerCallers>();
             if (tempLoc == null) {
-                System.out.println(
-                        "System could not find Location details for given Notifier Phone : " + inNotifierPhone + " !");
+//                System.out.println(
+//                        "System could not find Location details for given Notifier Phone : " + inNotifierPhone + " !");
             }
             listOfConsumerCallers = ConsumerCallers.getAll(tempLoc.getZIPCODE(), tempLoc.getSeqNumber());
 //        listOfConsumerCallers = ConsumerCallers.getAll(91214, 1);
-            System.out.println("ZIPCODE found: " + tempLoc.getZIPCODE() + " Seq number: " + tempLoc.getSeqNumber());
+//            System.out.println("ZIPCODE found: " + tempLoc.getZIPCODE() + " Seq number: " + tempLoc.getSeqNumber());
 
             if (listOfConsumerCallers.isEmpty() || listOfConsumerCallers == null) {
-                System.out.println("There are no Consumer Callers for given Notifier Phone : " + inNotifierPhone
-                        + " at LocationCode : " + tempLoc.getZIPCODE() + tempLoc.getSeqNumber());
+//                System.out.println("There are no Consumer Callers for given Notifier Phone : " + inNotifierPhone
+//                        + " at LocationCode : " + tempLoc.getZIPCODE() + tempLoc.getSeqNumber());
             } else {
-                System.out.println("There are TOTAL of " + listOfConsumerCallers.size()
-                        + "  Consumer Callers for given Notifier Phone : " + inNotifierPhone + " at LocationCode : "
-                        + tempLoc.getZIPCODE() + tempLoc.getSeqNumber() + '\n');
+//                System.out.println("There are TOTAL of " + listOfConsumerCallers.size()
+//                        + "  Consumer Callers for given Notifier Phone : " + inNotifierPhone + " at LocationCode : "
+//                        + tempLoc.getZIPCODE() + tempLoc.getSeqNumber() + '\n');
                 for (int i = 0; i < listOfConsumerCallers.size(); i++) {
                     if (listOfConsumerCallers.get(i).getSIMCardPhone().toString().equals(callerphone)) {
-                        System.out.println("The Consumers for :: " + listOfConsumerCallers.get(i).getName() + '\n');
+//                        System.out.println("The Consumers for :: " + listOfConsumerCallers.get(i).getName() + '\n');
 //                    locationConsumersArrayList = LocationConsumers.getAllConsumerPhone(
 //                            listOfConsumerCallers.get(i).getSIMCardPhone(), 91214,
 //                            1);
@@ -63,7 +63,7 @@ public class DatabaseClass {
             }
         }
         catch(Exception e) {
-            e.printStackTrace();
+            e.printStackTrace(); System.out.println("CONTINUING");
             return new ArrayList<>();
         }
         return LCA;
@@ -84,7 +84,7 @@ public class DatabaseClass {
             a = Notifier.notifierExists(Long.parseLong(phonenumb, 10));
         }
         catch(Exception e){
-            e.printStackTrace();
+            e.printStackTrace(); System.out.println("CONTINUING");
             return false;
         }
         return a;
@@ -112,7 +112,7 @@ public class DatabaseClass {
             x = DatabaseHelper.newConsumer(b, a, name);
         }
         catch(Exception e){
-            e.printStackTrace();
+            e.printStackTrace(); System.out.println("CONTINUING");
             return false;
         }
         return x;
@@ -129,7 +129,7 @@ public class DatabaseClass {
             a = Location.getLocationNameByLocationCode(Integer.parseInt(locationNum));
         }
         catch(Exception e){
-            e.printStackTrace();
+            e.printStackTrace(); System.out.println("CONTINUING");
             return "";
         }
         return a;
@@ -163,7 +163,7 @@ public class DatabaseClass {
             x = VoiceCallDetails.insertToDatabase(Long.parseLong(sender, 10), Long.parseLong(receiver, 10));
         }
         catch(Exception e){
-            e.printStackTrace();
+            e.printStackTrace(); System.out.println("CONTINUING");
             return false;
         }
         return x;
@@ -189,7 +189,7 @@ public class DatabaseClass {
             x = SMSDetails.insertToDatabase(Long.parseLong(sender, 10), Long.parseLong(receiver, 10), message);
         }
         catch(Exception e){
-            e.printStackTrace();
+            e.printStackTrace(); System.out.println("CONTINUING");
             return false;
         }
         return x;

@@ -58,7 +58,7 @@ public class MissedCalls extends GSMs{
 				}
 			}
 			catch(Exception e){
-				e.printStackTrace();
+				e.printStackTrace(); System.out.println("CONTINUING");
 			}
 		}
 	}

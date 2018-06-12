@@ -34,7 +34,7 @@ public class Serial {
 
         while (true) {
             waitFor(two);
-            ArrayList<String> devices = two.phoneNumbers();
+            ArrayList<String> devices = two.getNumbersCall();
             function(two, 1);
             System.out.println("devices found: " + devices);
             for (int a = 0; a < devices.size(); a++) {
@@ -43,7 +43,7 @@ public class Serial {
                     x = devices.get(a).substring(1);
                 if (devices.get(a).length() == 12)
                     x = devices.get(a).substring(2);
-                two.removeNumber(devices.get(a));
+                two.removeNumberCall(devices.get(a));
                 for (int i = 0; i < three.size(); i++) {
                     ArrayList<String> partPhone = DatabaseClass.getConsumers(x, three.get(i).getPhoneNumber());
                     for (int j = 0; j < partPhone.size(); j++) {
@@ -69,6 +69,12 @@ public class Serial {
                     waitFor(b);
                 }
             }
+//            ArrayList<Message> people = new ArrayList<>();
+//            for(int i = 0; i < people.size(); i++){
+//                String mess = people.get(i).getMessage();
+//                String phone = people.get(i).getPhoneNumber();
+//                if()
+//            }
         }
     }
 

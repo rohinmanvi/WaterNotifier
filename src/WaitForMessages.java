@@ -59,7 +59,7 @@ public class WaitForMessages extends GSMs {
                                     }
                                 }
                             } catch (Exception e) {
-                                e.printStackTrace();
+                                e.printStackTrace(); System.out.println("CONTINUING");
                                 break;
                             }
                             delay(2000);
@@ -68,7 +68,7 @@ public class WaitForMessages extends GSMs {
                     }
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                e.printStackTrace(); System.out.println("CONTINUING");
             }
         }
     }

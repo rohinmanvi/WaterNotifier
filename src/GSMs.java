@@ -44,7 +44,7 @@ public abstract class GSMs extends GSM implements Runnable {
                                         COMports.remove(0);
                                     }
                                 } catch (Exception e) {
-                                    e.printStackTrace();
+                                    e.printStackTrace(); System.out.println("CONTINUING");
                                 }
                                 v = true;
                                 COMport = port;
@@ -58,7 +58,7 @@ public abstract class GSMs extends GSM implements Runnable {
                     }
                 } catch (Exception e) {
                     closeConnection();
-                    e.printStackTrace();
+                    e.printStackTrace(); System.out.println("CONTINUING");
                     v = false;
                 }
                 closeConnection();
@@ -108,7 +108,7 @@ public abstract class GSMs extends GSM implements Runnable {
                                         COMports.remove(i);
                                     }
                                 } catch (Exception e) {
-                                    e.printStackTrace();
+                                    e.printStackTrace(); System.out.println("CONTINUING");
                                 }
                                 break;
                             } else {
@@ -121,7 +121,7 @@ public abstract class GSMs extends GSM implements Runnable {
                     }
                 } catch (Exception e) {
                     closeConnection();
-                    e.printStackTrace();
+                    e.printStackTrace(); System.out.println("CONTINUING");
                     v = false;
                 }
                 closeConnection();
