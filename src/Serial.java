@@ -60,7 +60,7 @@ public class Serial {
                             partPhone.set(j, CC2 + partPhone.get(j));
                     }
                     System.out.println(three.get(i) + ": assigned " + partPhone);
-                    three.get(i).phoneNumbers(partPhone);
+                    three.get(i).setPhoneNumbers(partPhone);
                 }
                 for (MissedCalls b : three) {
                     function(b, 1);

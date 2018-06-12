@@ -78,7 +78,7 @@ public class WaitForCalls extends GSMs {
                         delay(2000);
                     }
                     deleteMessages();
-                    String a = waitForCall(1);
+                    String a = waitForCall(0);
                     if (!a.isEmpty()) {
                         DatabaseClass.newCallLog(a, getPhoneNumber());
                         System.out.println(threadName + ": got a call = " + a);

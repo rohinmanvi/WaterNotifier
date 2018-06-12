@@ -2,9 +2,8 @@ import java.util.ArrayList;
 
 public class MissedCalls extends GSMs{
 	
+	private ArrayList<Message> messages = new ArrayList<>();
 	private ArrayList<String> phoneNumbers = new ArrayList<>();
-	private String phoneNumber = "";
-	private String message = "";
 
 	public MissedCalls(int comports, String phone, String name, int fun) {
 		super(comports, phone, name, fun);
@@ -36,23 +35,9 @@ public class MissedCalls extends GSMs{
 				}
 				if (function == 2) {
 					System.out.println(threadName + ": sendingMessages");
-					for (String a : phoneNumbers) {
-						DatabaseClass.newMessageLog(getPhoneNumber(), a, "Water has been supplied");
-						System.out.println(threadName + ": " + sendMessage(a, "Water has been supplied"));
-					}
-					function = 0;
-				}
-				if (function == 3) {
-					System.out.println(threadName + ": sendingReply");
-					DatabaseClass.newMessageLog(getPhoneNumber(), phoneNumber, message);
-					System.out.println(threadName + ": " + sendMessage(phoneNumber, message));
-					function = 0;
-				}
-				if (function == 4) {
-					System.out.println(threadName + ": sendingMessages");
-					for (String a : phoneNumbers) {
-						DatabaseClass.newMessageLog(getPhoneNumber(), a, message);
-						System.out.println(threadName + ": " + sendMessage(a, message));
+					for (Message a : messages) {
+						DatabaseClass.newMessageLog(getPhoneNumber(), a.getPhoneNumber(), a.getMessage());
+						System.out.println(threadName + ": " + sendMessage(a.getPhoneNumber(), a.getMessage()));
 					}
 					function = 0;
 				}
@@ -62,16 +47,12 @@ public class MissedCalls extends GSMs{
 			}
 		}
 	}
-	
-	public void message(String a) {
-		message = a;
+
+	public void setMessages(ArrayList<Message> a) {
+		messages = a;
 	}
-	
-	public void phoneNumber(String a) {
-		phoneNumber = a;
-	}
-	
-	public void phoneNumbers(ArrayList<String> a) {
+
+	public void setPhoneNumbers(ArrayList<String> a){
 		phoneNumbers = a;
 	}
 }
