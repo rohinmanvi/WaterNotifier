@@ -72,6 +72,62 @@ public class Notifier {
         return Boolean.FALSE;
     } // END of notifierExists
 
+    /**
+     * @param inNotifierZipCodeSeqNumber -- If "" (empty), Returns false
+     * @return  Notifiers - Long SIMCardPhone number - for Valid notifier exists with Status = 'Y'.
+     * otherwise "False"
+     */
+    public static Long getSIMCardPhone(int inNotifierZipCodeSeqNumber) {
+
+        Location tempL = new Location();
+        Long outNotifierPhone = 0L;
+        String queryString = "";
+
+        if (inNotifierZipCodeSeqNumber == 0) {
+            return outNotifierPhone;
+        }
+
+        if (Location.validZIPCODESeqNumber(inNotifierZipCodeSeqNumber)) {
+            tempL = Location.getZIPCODESeqNumber(inNotifierZipCodeSeqNumber);
+        }
+
+        if (tempL == null || tempL.getZIPCODE() == 0 || tempL.getSeqNumber() == 0) {
+            return outNotifierPhone;
+        }
+
+        try {
+
+            Connection dbconnection;
+            dbconnection = SqliteConnection.dbConnector();
+
+            queryString = "SELECT n.SIMCardPhone"
+                    + " FROM SIMCard as sc, Notifiers as n "
+                    + " WHERE sc.Phone = n.SIMCardPhone "
+                    + " AND n.Status = 'Y' "
+                    + " AND sc.Active = 'Y' OR sc.Active IS NULL" + " "
+                    + " AND n.LocationZIPCODE = " + tempL.getZIPCODE() + " "
+                    + " AND n.LocationSeqNumber = " + tempL.getSeqNumber() + " "
+                    + " ; ";
+
+            PreparedStatement pst = dbconnection.prepareStatement(queryString);
+
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                outNotifierPhone = rs.getLong("SIMCardPhone");
+            }
+            // Closing Statement
+            pst.close();
+            // Closing database connection
+            dbconnection.close();
+        } catch (Exception e) {
+            System.err.println("Got an exception! ");
+            System.err.println(e.getMessage());
+        }
+
+        return outNotifierPhone;
+    } // END of getSIMCardPhone
+
     public String getIMEINumber() {
         return IMEINumber;
     }

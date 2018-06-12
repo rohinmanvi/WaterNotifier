@@ -141,7 +141,6 @@ public class Displayconsumers {
                 }
 
 
-
 //                if (DatabaseHelper.newConsumer(8189678112L, 912142, "Rajesh Manvi")) {
 //                    System.out.println("Successfully added user Rajesh Manvi to database." + '\n');
 //                }
@@ -209,17 +208,8 @@ public class Displayconsumers {
 
 // Function "DatabaseHelper.updateAllConsumersForCallerPhone()" will UPDATE all Active - LocationConsumers
 // with ConsumerCaller phone number.
-                DatabaseHelper.updateAllConsumersForCallerPhone();
+//                DatabaseHelper.updateAllConsumersForCallerPhone();
 
-//Function "ConsumerCallers.getAllUniquePhoneNumbers()" will return unique all active ConsumerCallers from the database.
-                ArrayList<Long> listOfUniqueConsumerCallers = ConsumerCallers.getAllUniquePhoneNumbers();
-
-                if (!(listOfUniqueConsumerCallers.isEmpty() || listOfUniqueConsumerCallers == null)) {
-                    System.out.println("There are total of " + listOfUniqueConsumerCallers.size() + " UNIQUE Consumer Callers in the system : \n");
-                    for (int j = 0; j < listOfUniqueConsumerCallers.size(); j++) {
-                        System.out.println( Integer.valueOf(j+1) + " :: " + listOfUniqueConsumerCallers.get(j) + '\n');
-                    }
-                }
 
 //                Long inNotifierPhone = 7472558828L;
                 Long inNotifierPhone = 8189678112L;
@@ -227,6 +217,7 @@ public class Displayconsumers {
 
                 Location tempLoc = new Location();
                 tempLoc = Location.getNotifierLocationZIPCODESeqNumber(inNotifierPhone);
+
 
                 List<ConsumerCallers> listOfConsumerCallers = new ArrayList<ConsumerCallers>();
 
@@ -238,10 +229,10 @@ public class Displayconsumers {
 
                 if (listOfConsumerCallers.isEmpty() || listOfConsumerCallers == null) {
                     System.out.println("There are no Consumer Callers for given Notifier Phone : " + inNotifierPhone +
-                                        " at LocationCode : " + tempLoc.getZIPCODE()+tempLoc.getSeqNumber() );
+                            " at LocationCode : " + tempLoc.getZIPCODE() + tempLoc.getSeqNumber());
                 } else {
                     System.out.println("There are TOTAL of " + listOfConsumerCallers.size() + "  Consumer Callers for given Notifier Phone : " + inNotifierPhone +
-                            " at LocationCode : " + tempLoc.getZIPCODE()+tempLoc.getSeqNumber() + '\n');
+                            " at LocationCode : " + tempLoc.getZIPCODE() + tempLoc.getSeqNumber() + '\n');
                     for (int i = 0; i < listOfConsumerCallers.size(); i++) {
                         System.out.println("The Consumers for :: " + listOfConsumerCallers.get(i).getName() + '\n');
 
@@ -251,12 +242,43 @@ public class Displayconsumers {
                                 tempLoc.getZIPCODE(), tempLoc.getSeqNumber());
 
                         for (int j = 0; j < locationConsumersArrayList.size(); j++) {
-                            System.out.println( Integer.valueOf(j+1) + " :: " + locationConsumersArrayList.get(j) + '\n');
+                            System.out.println(Integer.valueOf(j + 1) + " :: " + locationConsumersArrayList.get(j) + '\n');
                             VoiceCallDetails.insertToDatabase(listOfConsumerCallers.get(i).getSIMCardPhone(), locationConsumersArrayList.get(j));
                         }
                     }
 
                 }
+
+
+                //Function "ConsumerCallers.getAllUniquePhoneNumbers()" will return unique all active ConsumerCallers from the database.
+                ArrayList<Long> listOfUniqueConsumerCallers = ConsumerCallers.getAllUniquePhoneNumbers();
+
+                if (!(listOfUniqueConsumerCallers.isEmpty() || listOfUniqueConsumerCallers == null)) {
+                    System.out.println("There are total of " + listOfUniqueConsumerCallers.size() + " UNIQUE Consumer Callers in the system : \n");
+                    for (int j = 0; j < listOfUniqueConsumerCallers.size(); j++) {
+                        System.out.println(Integer.valueOf(j + 1) + " :: " + listOfUniqueConsumerCallers.get(j) + '\n');
+                    }
+                }
+
+//                Following function will return value of Notifier Phone number for given LocationZIPCODESeqNumber
+                Long tempNotifierPhone = 0L;
+                int tempNotifierZIPCODESeqNumber = 0;
+
+                tempNotifierZIPCODESeqNumber = 912144;
+                tempNotifierPhone = Notifier.getSIMCardPhone(tempNotifierZIPCODESeqNumber);
+                System.out.println("The Notifier Phone Number for given NotifierZIPCODESeqNumber :: " + tempNotifierZIPCODESeqNumber + " is =  " + tempNotifierPhone + '\n');
+
+
+                tempNotifierZIPCODESeqNumber = 912141;
+                tempNotifierPhone = Notifier.getSIMCardPhone(tempNotifierZIPCODESeqNumber);
+                System.out.println("The Notifier Phone Number for given NotifierZIPCODESeqNumber :: " + tempNotifierZIPCODESeqNumber + " is =  " + tempNotifierPhone + '\n');
+
+
+                tempNotifierZIPCODESeqNumber = 5861041;
+                tempNotifierPhone = Notifier.getSIMCardPhone(tempNotifierZIPCODESeqNumber);
+                System.out.println("The Notifier Phone Number for given NotifierZIPCODESeqNumber :: " + tempNotifierZIPCODESeqNumber + " is =  " + tempNotifierPhone + '\n');
+
+
             }
         });
 
