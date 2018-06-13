@@ -48,8 +48,10 @@ public class ConsumerCallers {
                     + " AND Status = 'Y' " + "; ";
 
             PreparedStatement pst = dbconnection.prepareStatement(querySelect);
-
-            ResultSet rs = pst.executeQuery();
+            ResultSet rs = null;
+            if (pst != null) {
+                rs = pst.executeQuery();
+            }
 
             if (rs.next()) {
                 // Closing Statement
@@ -305,7 +307,7 @@ public class ConsumerCallers {
 
 
         if (tempL != null) {
-            assignConsumerCallerPhoneStatus = Consumer.updateCallerPhone(inConsumerPhone, tempL.getZIPCODE(), tempL.getSeqNumber(), callerPhoneNumber);
+            assignConsumerCallerPhoneStatus = LocationConsumers.updateCallerPhone(inConsumerPhone, tempL.getZIPCODE(), tempL.getSeqNumber(), callerPhoneNumber);
         } else {
             return Boolean.FALSE;
         }
