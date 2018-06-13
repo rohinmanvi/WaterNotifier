@@ -52,15 +52,22 @@ public class Location {
     public static Boolean validZIPCODE(int inLocationZIPCODE) {
         Boolean retValue = Boolean.FALSE;
 
-        //        INDIA
-        if (Integer.toString(inLocationZIPCODE).length() == 6) {
-            if (inLocationZIPCODE <= 99999) {
-                System.out.println("ZIPCODE+SeqNumber number " + inLocationZIPCODE + " must be of 6-digit in length!");
-            } else {
-                retValue = Boolean.TRUE;
-            }
+        //        INDIA OR USA
+        if ((Integer.toString(inLocationZIPCODE).length() == 6) || (Integer.toString(inLocationZIPCODE).length() == 5)) {
+            retValue = Boolean.TRUE;
+        } else {
+            System.out.println("ZIPCODE number " + inLocationZIPCODE + " must be of 5-digit OR 6-digit in length!");
         }
 
+//        //        INDIA
+//        if (Integer.toString(inLocationZIPCODE).length() == 6) {
+//            if (inLocationZIPCODE <= 99999) {
+//                System.out.println("ZIPCODE+SeqNumber number " + inLocationZIPCODE + " must be of 6-digit in length!");
+//            } else {
+//                retValue = Boolean.TRUE;
+//            }
+//        }
+//
 //        //         USA
 //        if (Integer.toString(inLocationZIPCODE).length() == 5) {
 //            if (inLocationZIPCODE <= 9999) {
@@ -105,14 +112,21 @@ public class Location {
 //                break;
 //        }
 
-        //        INDIA
-        if (Integer.toString(inZIPCODESeqNumber).length() >= 7) {
-            if (inZIPCODESeqNumber <= 999999) {
-                System.out.println("ZIPCODE+SeqNumber number " + inZIPCODESeqNumber + " must be of 7-digit or more in length!");
-            } else {
-                retValue = Boolean.TRUE;
-            }
+        //        INDIA OR USA
+        if ((Integer.toString(inZIPCODESeqNumber).length() >= 7) || (Integer.toString(inZIPCODESeqNumber).length() >= 6)) {
+            retValue = Boolean.TRUE;
+        } else {
+            System.out.println("ZIPCODE+SeqNumber number " + inZIPCODESeqNumber + " must be of 6-digit for USA AND 7-digit for INDIA or more in length!");
         }
+//
+//        //        INDIA
+//        if (Integer.toString(inZIPCODESeqNumber).length() >= 7) {
+//            if (inZIPCODESeqNumber <= 999999) {
+//                System.out.println("ZIPCODE+SeqNumber number " + inZIPCODESeqNumber + " must be of 7-digit or more in length!");
+//            } else {
+//                retValue = Boolean.TRUE;
+//            }
+//        }
 //
 //        //         USA
 //        if (Integer.toString(inZIPCODESeqNumber).length() >= 6) {
