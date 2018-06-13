@@ -20,8 +20,8 @@ public class WaitForCalls extends GSMs {
 
     public void running() {
         System.out.println(threadName + ": waitForCalls");
-        while (true) {
-            try {
+        try {
+            while (true) {
                 if (function == -1) {
                     closeConnection();
                     System.out.println(threadName + " exiting.");
@@ -37,43 +37,37 @@ public class WaitForCalls extends GSMs {
                     checkService();
                     for (int i = 1; i <= 100; i++) {
                         String mess = "";
-                        try {
-                            mess = checkMessage(i);
-                            if (mess.isEmpty() || mess == null) {
-                                break;
-                            }
-                            System.out.println(threadName + ": Message Received: \n" + mess);
-                            if (mess.length() > 3 && (super.phoneNum().length() == 11 || super.phoneNum().length() == 12)
-                                    && mess.indexOf(',') > -1 && mess.indexOf('!') > -1) {
-                                message = mess;
-                                String locationNum = message.substring(message.indexOf('!') + 1, message.indexOf(','));
-                                String name = message.substring(message.indexOf(',') + 1);
-                                name = name.replaceAll("\\s+", "");
-                                locationNum = locationNum.replaceAll("\\s+", "");
-                                phoneNumber = super.phoneNum();
-                                phoneNumber = phoneNumber.replaceAll("\\s+", "");
-                                DatabaseClass.newMessageLog(phoneNumber, getPhoneNumber(), message);
-                                if (DatabaseClass.newConsumer(phoneNumber, locationNum, name)) {
-                                    System.out.println(phoneNumber + " " + locationNum + " " + name);
-                                    sendMessages.add(new Message(phoneNumber, phoneNumber + " has been subscribed to the "
-                                            + DatabaseClass.notifierLocation(locationNum) + " notifier"));
-                                }
-                            }
-                            if (mess.length() > 4 && (super.phoneNum().length() == 11 || super.phoneNum().length() == 12)
-                                    && mess.indexOf('(') > -1 && mess.indexOf(')') > -1 && mess.indexOf('(') < mess.indexOf(')') && mess.indexOf("WN") > -1) {
-                                message = mess;
-                                String locationNum = message.substring(message.indexOf('(') + 1, message.indexOf(')'));
-                                locationNum = locationNum.replaceAll("\\s+", "");
-                                phoneNumber = super.phoneNum();
-                                phoneNumber = phoneNumber.replaceAll("\\s+", "");
-                                DatabaseClass.newMessageLog(phoneNumber, getPhoneNumber(), message);
-                                System.out.println("RECEIVED MESSAGE: " + locationNum);
-                                receiveMessages.add(new Message(phoneNumber, locationNum));
-                            }
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            System.out.println("CONTINUING");
+                        mess = checkMessage(i);
+                        if (mess.isEmpty() || mess == null) {
                             break;
+                        }
+                        System.out.println(threadName + ": Message Received: \n" + mess);
+                        if (mess.length() > 3 && (super.phoneNum().length() == 11 || super.phoneNum().length() == 12)
+                                && mess.indexOf(',') > -1 && mess.indexOf('!') > -1) {
+                            message = mess;
+                            String locationNum = message.substring(message.indexOf('!') + 1, message.indexOf(','));
+                            String name = message.substring(message.indexOf(',') + 1);
+                            name = name.replaceAll("\\s+", "");
+                            locationNum = locationNum.replaceAll("\\s+", "");
+                            phoneNumber = super.phoneNum();
+                            phoneNumber = phoneNumber.replaceAll("\\s+", "");
+                            DatabaseClass.newMessageLog(phoneNumber, getPhoneNumber(), message);
+                            if (DatabaseClass.newConsumer(phoneNumber, locationNum, name)) {
+                                System.out.println(phoneNumber + " " + locationNum + " " + name);
+                                sendMessages.add(new Message(phoneNumber, phoneNumber + " has been subscribed to the "
+                                        + DatabaseClass.notifierLocation(locationNum) + " notifier"));
+                            }
+                        }
+                        if (mess.length() > 4 && (super.phoneNum().length() == 11 || super.phoneNum().length() == 12)
+                                && mess.indexOf('(') > -1 && mess.indexOf(')') > -1 && mess.indexOf('(') < mess.indexOf(')') && mess.indexOf("WN") > -1) {
+                            message = mess;
+                            String locationNum = message.substring(message.indexOf('(') + 1, message.indexOf(')'));
+                            locationNum = locationNum.replaceAll("\\s+", "");
+                            phoneNumber = super.phoneNum();
+                            phoneNumber = phoneNumber.replaceAll("\\s+", "");
+                            DatabaseClass.newMessageLog(phoneNumber, getPhoneNumber(), message);
+                            System.out.println("RECEIVED MESSAGE: " + locationNum);
+                            receiveMessages.add(new Message(phoneNumber, locationNum));
                         }
                         delay(2000);
                     }
@@ -97,12 +91,21 @@ public class WaitForCalls extends GSMs {
                         phoneNumbersCall.add(a);
                     function = 0;
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
-                System.out.println("CONTINUING");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("CONTINUING");
+            if (checkConnection()) {
+                System.out.println("RECONNECTING");
+                run();
+            } else {
+                closeConnection();
+                COMStart(20);
+                run();
             }
         }
     }
+
 
     public synchronized ArrayList<String> getNumbersCall() {
         return phoneNumbersCall;

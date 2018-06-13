@@ -18,59 +18,12 @@ public abstract class GSMs extends GSM implements Runnable {
         function = fun;
         threadName += " (" + phone + ")";
         System.out.println(threadName + ": creating");
-        boolean v = false;
-        boolean reset = false;
-        int count = 0;
-        while (!v || (COMports.size() < DatabaseClass.getConsumerCallers().size())) {
-            if(reset)
-                reset = false;
-            if (count >= 3 && COMports.size() > 0){
-                count = 0;
-                reset = true;
-            }
-            if(count >= 100)
-                count = 0;
-            for (int i = 0; i <= comports; i++) {
-                String port = "COM" + i;
-                System.out.println(threadName + ": " + port);
-                setPortDescription(port);
-                try {
-                    if (openConnection()) {
-                        if (checkConnection()) {
-                            COMports.add(0, port);
-                            if (t == null && ownPhoneNumber()) {
-                                try {
-                                    if (COMports.size() > 0) {
-                                        COMports.remove(0);
-                                    }
-                                } catch (Exception e) {
-                                    e.printStackTrace(); System.out.println("CONTINUING");
-                                }
-                                v = true;
-                                COMport = port;
-                            } else {
-                                System.out.println(threadName + ": " + port + " wrong number");
-                            }
-                            if(reset) {
-                                completeReset();
-                            }
-                        }
-                    }
-                } catch (Exception e) {
-                    closeConnection();
-                    e.printStackTrace(); System.out.println("CONTINUING");
-                    v = false;
-                }
-                closeConnection();
-                System.out.println(v + " " + COMports.size());
-            }
-            COMports = removeDuplicates(COMports);
-        }
-        setPortDescription(COMport);
-        openConnection();
+        COMStart(comports);
         threadName += " (" + COMport + ")";
-        t = new Thread(this, threadName);
-        t.start();
+        if(t == null) {
+            t = new Thread(this, threadName);
+            t.start();
+        }
     }
 
     public GSMs(String phone, String name, int fun) {
@@ -129,6 +82,59 @@ public abstract class GSMs extends GSM implements Runnable {
             count++;
             COMports = removeDuplicates(COMports);
         }
+    }
+
+    public void COMStart(int comports){
+        boolean v = false;
+        boolean reset = false;
+        int count = 0;
+        while (!v || (COMports.size() < DatabaseClass.getConsumerCallers().size())) {
+            if(reset)
+                reset = false;
+            if (count >= 3 && COMports.size() > 0){
+                count = 0;
+                reset = true;
+            }
+            if(count >= 100)
+                count = 0;
+            for (int i = 0; i <= comports; i++) {
+                String port = "COM" + i;
+                System.out.println(threadName + ": " + port);
+                setPortDescription(port);
+                try {
+                    if (openConnection()) {
+                        if (checkConnection()) {
+                            COMports.add(0, port);
+                            if (ownPhoneNumber()) {
+                                try {
+                                    if (COMports.size() > 0) {
+                                        COMports.remove(0);
+                                    }
+                                } catch (Exception e) {
+                                    e.printStackTrace(); System.out.println("CONTINUING");
+                                }
+                                v = true;
+                                COMport = port;
+                            } else {
+                                System.out.println(threadName + ": " + port + " wrong number");
+                            }
+                            if(reset) {
+                                completeReset();
+                            }
+                        }
+                    }
+                } catch (Exception e) {
+                    closeConnection();
+                    e.printStackTrace(); System.out.println("CONTINUING");
+                    v = false;
+                }
+                closeConnection();
+                System.out.println(v + " " + COMports.size());
+            }
+            COMports = removeDuplicates(COMports);
+        }
+        setPortDescription(COMport);
+        openConnection();
     }
 
     public void run() {
