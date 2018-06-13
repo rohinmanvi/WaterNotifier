@@ -50,19 +50,27 @@ public class Location {
      * @return True - if zipcode conditions are met, otherwise False.
      */
     public static Boolean validZIPCODE(int inLocationZIPCODE) {
+        Boolean retValue = Boolean.FALSE;
 
-//        INDIA
-//        if (inLocationZIPCODE <= 99999) {
-//            System.out.println("ZIPCODE " + inLocationZIPCODE + " must be of 6-digit or more in length!");
-//            return Boolean.FALSE;
+        //        INDIA
+        if (Integer.toString(inLocationZIPCODE).length() == 6) {
+            if (inLocationZIPCODE <= 99999) {
+                System.out.println("ZIPCODE+SeqNumber number " + inLocationZIPCODE + " must be of 6-digit in length!");
+            } else {
+                retValue = Boolean.TRUE;
+            }
+        }
+
+//        //         USA
+//        if (Integer.toString(inLocationZIPCODE).length() == 5) {
+//            if (inLocationZIPCODE <= 9999) {
+//                System.out.println("ZIPCODE and SeqNumber number " + inLocationZIPCODE + " must be of 5-digit in length!");
+//            } else {
+//                retValue = Boolean.TRUE;
+//            }
 //        }
 
-//        USA
-        if (inLocationZIPCODE <= 9999) {
-            System.out.println("ZIPCODE " + inLocationZIPCODE + " must be of 5-digit or more in length!");
-            return Boolean.FALSE;
-        }
-        return Boolean.TRUE;
+        return retValue;
     } // END of validZIPCODE
 
     public static Boolean validSeqNumber(int inLocationSeqNumber) {
@@ -75,6 +83,8 @@ public class Location {
     } // END of validSeqNumber
 
     public static Boolean validZIPCODESeqNumber(int inZIPCODESeqNumber) {
+
+        Boolean retValue = Boolean.FALSE;
 //    public static Boolean validZIPCODESeqNumber(int inZIPCODESeqNumber, String country) {
 //        switch (country) {
 //            case "INDIA":
@@ -95,19 +105,25 @@ public class Location {
 //                break;
 //        }
 
-        ////        INDIA
-//        if (inZIPCODESeqNumber <= 999999) {
-//            System.out.println("ZIPCODE+SeqNumber number " + inZIPCODESeqNumber + " must be of 7-digit or more in length!");
-//            return Boolean.FALSE;
+        //        INDIA
+        if (Integer.toString(inZIPCODESeqNumber).length() >= 7) {
+            if (inZIPCODESeqNumber <= 999999) {
+                System.out.println("ZIPCODE+SeqNumber number " + inZIPCODESeqNumber + " must be of 7-digit or more in length!");
+            } else {
+                retValue = Boolean.TRUE;
+            }
+        }
+//
+//        //         USA
+//        if (Integer.toString(inZIPCODESeqNumber).length() >= 6) {
+//            if (inZIPCODESeqNumber <= 99999) {
+//                System.out.println("ZIPCODE and SeqNumber number " + inZIPCODESeqNumber + " must be of 6-digit or more in length!");
+//            } else {
+//                retValue = Boolean.TRUE;
+//            }
 //        }
 
-        //         USA
-                if (inZIPCODESeqNumber <= 99999) {
-                    System.out.println("ZIPCODE and SeqNumber number " + inZIPCODESeqNumber + " must be of 6-digit or more in length!");
-                    return Boolean.FALSE;
-                }
-
-        return Boolean.TRUE;
+        return retValue;
     } // END of validZIPCODESeqNumber
 
 
@@ -120,8 +136,7 @@ public class Location {
 
     public static Boolean locationExists(int inLocationZIPCODE, int inLocationSeqNumber) {
 
-        String queryString = "", whereAdditionalConditions = "", querySelect = "";
-        DataOperations dataOperations = new DataOperations();
+        String querySelect = "";
 
         if (inLocationZIPCODE == 0 || inLocationSeqNumber == 0) {
             return Boolean.FALSE;
@@ -172,8 +187,7 @@ public class Location {
 
     public static Boolean locationExists(int inLocationZIPCODESeqNumber) {
 
-        String queryString = "", whereAdditionalConditions = "", querySelect = "";
-        DataOperations dataOperations = new DataOperations();
+        String querySelect = "";
 
         if (inLocationZIPCODESeqNumber == 0) {
             return Boolean.FALSE;
@@ -223,8 +237,7 @@ public class Location {
 
     public static Location getZIPCODESeqNumber(int inLocationZIPCODESeqNumber) {
 
-        String queryString = "", whereAdditionalConditions = "", querySelect = "";
-        DataOperations dataOperations = new DataOperations();
+        String querySelect = "";
 
         Location outLocation = new Location();
 
@@ -280,7 +293,6 @@ public class Location {
 
         String returnValue = "";
         String queryString = "", whereAdditionalConditions = "", querySelect = "";
-        DataOperations dataOperations = new DataOperations();
 
         if (inNotifierPhone == 0) {
             return returnValue;
@@ -343,7 +355,6 @@ public class Location {
 
         String returnValue = "";
         String queryString = "", whereAdditionalConditions = "", querySelect = "";
-        DataOperations dataOperations = new DataOperations();
 
         if (inLocationZIPCODESeqNumber == 0) {
             return returnValue;

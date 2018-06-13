@@ -579,7 +579,6 @@ public class LocationConsumers {
         Long returnConsumerCallerPhone = 0L;
 
         String querySelect = "";
-        DataOperations dataOperations = new DataOperations();
 
         inConsumerPhone = Math.abs(inConsumerPhone);
         inLocationZIPCODESeqNumber = Math.abs(inLocationZIPCODESeqNumber);
