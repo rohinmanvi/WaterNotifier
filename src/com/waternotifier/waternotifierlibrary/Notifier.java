@@ -104,7 +104,7 @@ public class Notifier {
                     + " FROM SIMCard as sc, Notifiers as n "
                     + " WHERE sc.Phone = n.SIMCardPhone "
                     + " AND n.Status = 'Y' "
-                    + " AND sc.Active = 'Y' OR sc.Active IS NULL" + " "
+                    + " AND sc.Active = 'Y' " + " "
                     + " AND n.LocationZIPCODE = " + tempL.getZIPCODE() + " "
                     + " AND n.LocationSeqNumber = " + tempL.getSeqNumber() + " "
                     + " ; ";

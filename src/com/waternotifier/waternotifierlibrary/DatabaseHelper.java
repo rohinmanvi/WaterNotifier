@@ -54,7 +54,7 @@ public class DatabaseHelper {
         listLocationConsumers = LocationConsumers.getAllActiveDatabaseLocationConsumers();
 
         String locationCode = "";
-        if (!(listLocationConsumers.isEmpty())) {
+        if (!(listLocationConsumers.isEmpty()) || (listLocationConsumers.size() == 0)) {
             for (int i = 0; i < listLocationConsumers.size(); i++) {
                 locationCode = "" + listLocationConsumers.get(i).getLocationZIPCODE() + listLocationConsumers.get(i).getLocationSeqNumber();
                 if (ConsumerCallers.assignPhone(listLocationConsumers.get(i).getConsumersPhone(), Integer.valueOf(locationCode))) {

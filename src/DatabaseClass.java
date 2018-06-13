@@ -40,7 +40,7 @@ public class DatabaseClass {
 //        listOfConsumerCallers = ConsumerCallers.getAll(91214, 1);
 //            System.out.println("ZIPCODE found: " + tempLoc.getZIPCODE() + " Seq number: " + tempLoc.getSeqNumber());
 
-            if (listOfConsumerCallers.isEmpty() || listOfConsumerCallers == null) {
+            if (listOfConsumerCallers.isEmpty() || listOfConsumerCallers == null || listOfConsumerCallers.size() == 0) {
 //                System.out.println("There are no Consumer Callers for given Notifier Phone : " + inNotifierPhone
 //                        + " at LocationCode : " + tempLoc.getZIPCODE() + tempLoc.getSeqNumber());
             } else {

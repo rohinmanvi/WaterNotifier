@@ -27,8 +27,6 @@ public class ConsumerCallers {
 
         String querySelect;
 
-        DataOperations dataOperations = new DataOperations();
-
         if (inConsumerCallerPhone == 0) {
             return Boolean.FALSE;
         }
