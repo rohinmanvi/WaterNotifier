@@ -37,10 +37,6 @@ public class Serial {
                 waitFor(two);
                 ArrayList<String> devices = two.getNumbersCall();
                 function(two, 1);
-                for (MissedCalls b : three) {
-                    b.setPhoneNumbers(new ArrayList<String>());
-                    b.setMessages(new ArrayList<Message>());
-                }
                 ArrayList<Message> people = two.getReceiveMessages();
                 for (int a = 0; a < people.size(); a++) {
                     String mess = people.get(a).getMessage();

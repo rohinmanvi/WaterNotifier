@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class WaitForCalls extends GSMs {
@@ -90,6 +92,9 @@ public class WaitForCalls extends GSMs {
                             function = 0;
                         }
                     }
+                    removeDuplicatesString(phoneNumbersCall);
+                    removeDuplicatesMessage(receiveMessages);
+                    removeDuplicatesMessage(sendMessages);
                 }
                 if (function == 2) {
                     System.out.println(threadName + ": waitForCalls");
@@ -141,6 +146,22 @@ public class WaitForCalls extends GSMs {
         for (int i = 0; i < receiveMessages.size(); i++)
             if (mess.equals(receiveMessages.get(i)))
                 receiveMessages.remove(i);
+    }
+
+    private ArrayList<Message> removeDuplicatesMessage(ArrayList<Message> a){
+        Set<Message> hs = new HashSet<>();
+        hs.addAll(a);
+        a.clear();
+        a.addAll(hs);
+        return a;
+    }
+
+    private ArrayList<String> removeDuplicatesString(ArrayList<String> a){
+        Set<String> hs = new HashSet<>();
+        hs.addAll(a);
+        a.clear();
+        a.addAll(hs);
+        return a;
     }
 
 }
