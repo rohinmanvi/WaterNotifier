@@ -168,7 +168,7 @@ public class Location {
                     + " FROM Location as l "
                     + " WHERE l.ZIPCODE = " + inLocationZIPCODE + " "
                     + " AND l.SeqNumber = " + inLocationSeqNumber + " "
-                    + " ";
+                    + " ; ";
 
             PreparedStatement pst = dbconnection.prepareStatement(querySelect);
 
@@ -462,17 +462,13 @@ public class Location {
                     + " AND n.Status = 'Y' "
                     + " ;";
 
-
             PreparedStatement pst = dbconnection.prepareStatement(querySelect);
 
             ResultSet rs = pst.executeQuery();
 
             if (rs.next()) {
-                System.out.println("ZIPCODE SQL Statement is : " + querySelect + " ");
-
                 outLocation.setZIPCODE(Integer.valueOf(rs.getString("ZIPCODE")));
                 outLocation.setSeqNumber(Integer.valueOf(rs.getString("SeqNumber")));
-                System.out.println("ZIPCODE found: " + outLocation.getZIPCODE() + " Seq number: " + outLocation.getSeqNumber());
             }
             // Closing Statement
             pst.close();

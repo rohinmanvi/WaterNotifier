@@ -273,6 +273,7 @@ public class LocationConsumers {
         return insertConsumerLocationStatus;
     }
 
+
     /**
      * @param inLocationConsumers -- If Object is null, Returns false
      * @return Boolean - "True" - Able to update to database, otherwise "False".
@@ -317,6 +318,96 @@ public class LocationConsumers {
         }
         return Boolean.FALSE;
     }
+
+    /**
+     *
+     * @param inConsumerPhone - -- If 0 or invalid phone number, Returns false
+     * @param inZipcode -- If 0 or invalid ZIPCODE number, Returns false
+     * @param inLocSeqNum -- If 0 or invalid SeqNumber , Returns false
+     * @param callerPhoneNumber -- If 0 or invalid phone number, Returns false
+     * @return Boolean - "True" - Able to update to database, otherwise "False".
+     */
+    public static Boolean updateCallerPhone(Long inConsumerPhone, int inZipcode, int inLocSeqNum, Long callerPhoneNumber) {
+        boolean existingConsumer = false,
+                existingLocation = false,
+                existingLocationConsumer = false;
+
+        if (inConsumerPhone == 0) {
+            return Boolean.FALSE;
+        }
+
+        if (!(ConsumerOperations.IsValidPhone(inConsumerPhone.toString()))) {
+            return Boolean.FALSE;
+        }
+
+        if (callerPhoneNumber == 0) {
+            return Boolean.FALSE;
+        }
+
+        if (!(ConsumerOperations.IsValidPhone(callerPhoneNumber.toString()))) {
+            return Boolean.FALSE;
+        }
+
+        if (!(Location.validZIPCODE(inZipcode))) {
+            return false;
+        }
+
+        if (!(Location.validSeqNumber(inLocSeqNum))) {
+            return false;
+        }
+
+        existingLocation = Location.locationExists(inZipcode, inLocSeqNum);
+        existingConsumer = (Consumer.consumerExists(inConsumerPhone));
+
+        if (!(existingConsumer)) {
+            return false;
+        }
+
+        if (existingConsumer && existingLocation) {
+
+            String inLocationCode = "" + inZipcode + inLocSeqNum;
+            existingLocationConsumer = (LocationConsumers.exists(inConsumerPhone, Integer.valueOf(inLocationCode)));
+
+            if (existingLocationConsumer) {
+                Date datetime = new Date();
+
+                String updateSQL = "UPDATE LocationConsumers "
+                        + " SET ConsumerCallerPhone = " + callerPhoneNumber + ", "
+                        + " UpdateDateTime = " + " \"" + datetime.toString() + "\" "
+                        + " WHERE ConsumersPhone = " + inConsumerPhone + " "
+                        + " AND LocationZIPCODE = " + inZipcode + " "
+                        + " AND LocationSeqNumber = " + inLocSeqNum + " "
+                        + "; ";
+
+                try {
+
+                    Connection dbconnection;
+                    dbconnection = SqliteConnection.dbConnector();
+                    PreparedStatement pst = dbconnection.prepareStatement(updateSQL);
+
+                    int rs = pst.executeUpdate();
+
+                    if (rs > 0) {
+                        // Closing Statement
+                        pst.close();
+                        // Closing database connection
+                        dbconnection.close();
+                        return Boolean.TRUE;
+                    }
+                    // Closing Statement
+                    pst.close();
+                    // Closing database connection
+                    dbconnection.close();
+                } catch (Exception e) {
+                    System.err.println("Got an exception! ");
+                    System.err.println(e.getMessage());
+                }
+            }
+        }
+        return Boolean.FALSE;
+
+    } // END of updateCallerPhone
+
 
     /**
      * @param inConsumerPhone -- If 0 or invalid phone number, Returns false
@@ -513,62 +604,6 @@ public class LocationConsumers {
     }
 
     /**
-     * @param inLocationCode -- If 0 or "" , Returns false
-     * @return Boolean - "True" - Able to delete at database, otherwise "False".
-     */
-    public static Boolean deleteToDatabase(int inLocationCode) {
-
-        Location tempL = new Location();
-
-        inLocationCode = Math.abs(inLocationCode);
-
-        if (!(Location.validZIPCODESeqNumber(inLocationCode))) {
-            return false;
-        }
-
-        if (!Location.locationExists(inLocationCode)) {
-            return false;
-        }
-
-        tempL = Location.getZIPCODESeqNumber(inLocationCode);
-
-        Date datetime = new Date();
-
-        String updateSQL = "UPDATE LocationConsumers "
-                + " SET RegisteredFlag = 'N', "
-                + " UpdateDateTime = " + " '" + datetime.toString() + "', "
-                + " ConsumerCallerPhone = " + 0 + " "
-                + " WHERE LocationZIPCODE =  " + tempL.getZIPCODE() + " "
-                + " AND LocationSeqNumber =  " + tempL.getSeqNumber()  + " ; ";
-
-        try {
-
-            Connection dbconnection;
-            dbconnection = SqliteConnection.dbConnector();
-            PreparedStatement pst = dbconnection.prepareStatement(updateSQL);
-
-            int rs = pst.executeUpdate();
-
-            if (rs > 0) {
-                // Closing Statement
-                pst.close();
-                // Closing database connection
-                dbconnection.close();
-                return Boolean.TRUE;
-            }
-            // Closing Statement
-            pst.close();
-            // Closing database connection
-            dbconnection.close();
-        } catch (Exception e) {
-            System.err.println("Got an exception! ");
-            System.err.println(e.getMessage());
-        }
-        return Boolean.FALSE;
-
-    }
-
-    /**
      * @param inConsumerPhone            -- If 0 (empty), Returns 0L
      * @param inLocationZIPCODESeqNumber -- If 0 (empty), Returns 0L
      * @return Long - returnConsumerCallerPhone - inConsumerPhone exists for inLocationZIPCOde, inLocationSeqNumber.
@@ -579,6 +614,7 @@ public class LocationConsumers {
         Long returnConsumerCallerPhone = 0L;
 
         String querySelect = "";
+        DataOperations dataOperations = new DataOperations();
 
         inConsumerPhone = Math.abs(inConsumerPhone);
         inLocationZIPCODESeqNumber = Math.abs(inLocationZIPCODESeqNumber);
@@ -709,7 +745,61 @@ public class LocationConsumers {
     } // END of getConsumerCallerPhone
 
     /**
-     * @return ArrayList<LocationConsumers> - List of 'RegisteredFlag' = "Y" LocationConsumers Objects
+     * @return ArrayList<LocationConsumers> - List of LocationConsumers Objects
+     */
+    public static ArrayList<LocationConsumers> getAllActiveDatabaseLocationConsumersWithNoConsumerCaller() {
+
+        ArrayList<LocationConsumers> outLocationConsumersList = new ArrayList<LocationConsumers>();
+
+
+        String querySelect = "";
+        DataOperations dataOperations = new DataOperations();
+
+        try {
+            Connection dbconnection;
+            dbconnection = SqliteConnection.dbConnector();
+
+            querySelect = " SELECT LocationZIPCODE, LocationSeqNumber, ConsumersPhone, ConsumerCallerPhone, CreateDateTime, UpdateDateTime, RegisteredFlag, RegisteredDateTime, DeleteDateTime "
+                    + " FROM LocationConsumers "
+                    + " WHERE RegisteredFlag = 'Y' " + " "
+                    + " AND ConsumerCallerPhone = 0 " + " "
+                    + " ; ";
+
+            PreparedStatement pst = dbconnection.prepareStatement(querySelect);
+
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                do {
+                    LocationConsumers locationConsumer = new LocationConsumers();
+
+                    locationConsumer.setLocationZIPCODE(rs.getInt("LocationZIPCODE"));
+                    locationConsumer.setLocationSeqNumber(rs.getInt("LocationSeqNumber"));
+                    locationConsumer.setConsumersPhone(rs.getLong("ConsumersPhone"));
+                    locationConsumer.setConsumerCallerPhone(rs.getLong("ConsumerCallerPhone"));
+                    locationConsumer.setCreateDateTime(rs.getString("CreateDateTime"));
+                    locationConsumer.setUpdateDateTime(rs.getString("UpdateDateTime"));
+                    locationConsumer.setRegisteredFlag(rs.getString("RegisteredFlag"));
+                    locationConsumer.setRegisteredDateTime(rs.getString("RegisteredDateTime"));
+                    locationConsumer.setDeleteDateTime(rs.getString("DeleteDateTime"));
+
+                    outLocationConsumersList.add(locationConsumer);
+                } while (rs.next());
+            }
+            // Closing Statement
+            pst.close();
+            // Closing database connection
+            dbconnection.close();
+        } catch (Exception e) {
+            System.err.println("Got an exception! ");
+            System.err.println(e.getMessage());
+        }
+
+        return outLocationConsumersList;
+    } // END of getAllActiveDatabaseLocationConsumers
+
+    /**
+     * @return ArrayList<LocationConsumers> - List of LocationConsumers Objects
      */
     public static ArrayList<LocationConsumers> getAllActiveDatabaseLocationConsumers() {
 
@@ -726,8 +816,7 @@ public class LocationConsumers {
             querySelect = " SELECT LocationZIPCODE, LocationSeqNumber, ConsumersPhone, ConsumerCallerPhone, CreateDateTime, UpdateDateTime, RegisteredFlag, RegisteredDateTime, DeleteDateTime "
                     + " FROM LocationConsumers "
                     + " WHERE RegisteredFlag = 'Y' " + " "
-                    + " AND ConsumerCallerPhone <> 0 " + " "
-                    + " ;";
+                    + " ; ";
 
             PreparedStatement pst = dbconnection.prepareStatement(querySelect);
 

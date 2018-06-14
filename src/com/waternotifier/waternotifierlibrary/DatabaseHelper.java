@@ -51,10 +51,10 @@ public class DatabaseHelper {
 
         ArrayList<LocationConsumers> listLocationConsumers = new ArrayList<>();
 
-        listLocationConsumers = LocationConsumers.getAllActiveDatabaseLocationConsumers();
+        listLocationConsumers = LocationConsumers.getAllActiveDatabaseLocationConsumersWithNoConsumerCaller();
 
         String locationCode = "";
-        if (!(listLocationConsumers.isEmpty()) || (listLocationConsumers.size() == 0)) {
+        if (!(listLocationConsumers.isEmpty() || listLocationConsumers.size() == 0)) {
             for (int i = 0; i < listLocationConsumers.size(); i++) {
                 locationCode = "" + listLocationConsumers.get(i).getLocationZIPCODE() + listLocationConsumers.get(i).getLocationSeqNumber();
                 if (ConsumerCallers.assignPhone(listLocationConsumers.get(i).getConsumersPhone(), Integer.valueOf(locationCode))) {

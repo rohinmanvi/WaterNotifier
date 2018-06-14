@@ -46,10 +46,8 @@ public class ConsumerCallers {
                     + " AND Status = 'Y' " + "; ";
 
             PreparedStatement pst = dbconnection.prepareStatement(querySelect);
-            ResultSet rs = null;
-            if (pst != null) {
-                rs = pst.executeQuery();
-            }
+
+            ResultSet rs = pst.executeQuery();
 
             if (rs.next()) {
                 // Closing Statement

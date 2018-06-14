@@ -3,7 +3,7 @@ package com.waternotifier.waternotifierlibrary;
 import java.awt.EventQueue;
 
 //import javax.swing.table.DefaultTableModel;
-//import net.proteanit.sql.DbUtils; // RAJESH TEST
+//import net.proteanit.sql.DbUtils;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
@@ -242,8 +242,7 @@ public class Displayconsumers {
                                 tempLoc.getZIPCODE(), tempLoc.getSeqNumber());
 
                         for (int j = 0; j < locationConsumersArrayList.size(); j++) {
-                            System.out.println(Integer.valueOf(j + 1) + " :: " + locationConsumersArrayList.get(j) + '\n');
-                            VoiceCallDetails.insertToDatabase(listOfConsumerCallers.get(i).getSIMCardPhone(), locationConsumersArrayList.get(j));
+                            System.out.println( Integer.valueOf(j+1) + " :: " + locationConsumersArrayList.get(j) + '\n');
                         }
                     }
 
