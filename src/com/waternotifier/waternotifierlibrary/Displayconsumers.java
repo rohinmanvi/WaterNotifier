@@ -208,7 +208,7 @@ public class Displayconsumers {
 
 // Function "DatabaseHelper.updateAllConsumersForCallerPhone()" will UPDATE all Active - LocationConsumers
 // with ConsumerCaller phone number.
-//                DatabaseHelper.updateAllConsumersForCallerPhone();
+                DatabaseHelper.updateAllConsumersForCallerPhone();
 
 
 //                Long inNotifierPhone = 7472558828L;

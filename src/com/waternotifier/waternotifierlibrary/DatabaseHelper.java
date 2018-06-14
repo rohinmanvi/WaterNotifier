@@ -61,6 +61,8 @@ public class DatabaseHelper {
                     System.out.println("Successfully updated user " + listLocationConsumers.get(i).getConsumersPhone() + " with LocationCode " + locationCode + " for ConsumerCallerPhone! " + '\n');
                 }
             }
+        } else {
+            System.out.println("There are NO LocationConsumers to be updated for Consumer Caller Phone Number." + '\n');
         }
 
         ConsumerCallers.updateConsumerCallerCount();
