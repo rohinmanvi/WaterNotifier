@@ -33,8 +33,13 @@ public class WaitForCalls extends GSMs {
                     notif();
                 }
                 if (function == 1) {
-                    startCommands();
-                    checkService();
+                    try {
+                        startCommands();
+                        checkService();
+                    }catch(Exception e){
+                        e.printStackTrace();
+                        System.out.println("CONTINUING");
+                    }
                     boolean v = false;
                     for (int i = 1; i <= 100; i++) {
                         String mess = "";
