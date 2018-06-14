@@ -28,39 +28,86 @@ public class Serial {
         ArrayList<MissedCalls> three = new ArrayList<>();
         ArrayList<String> callerPhone = DatabaseClass.getConsumerCallers();
         for (int i = 0; i < callerPhone.size(); i++) {
-            three.add(new MissedCalls(callerPhone.get(i), "MissedCalls " + (i+1), 0));
+            three.add(new MissedCalls(callerPhone.get(i), "MissedCalls " + (i + 1), 0));
             waitFor(three.get(i));
         }
 
         while (true) {
-            waitFor(two);
-            ArrayList<String> devices = two.getNumbersCall();
-            function(two, 1);
-            System.out.println("devices found: " + devices);
-            for (int a = 0; a < devices.size(); a++) {
-                String x = "";
-                if (devices.get(a).length() == 11)
-                    x = devices.get(a).substring(1);
-                if (devices.get(a).length() == 12)
-                    x = devices.get(a).substring(2);
-                two.removeNumberCall(devices.get(a));
-                for (int i = 0; i < three.size(); i++) {
-                    ArrayList<String> partPhone = DatabaseClass.getConsumers(x, three.get(i).getPhoneNumber());
-                    for (int j = 0; j < partPhone.size(); j++) {
-                        boolean b = true;
-                        for (String c : USnumbers) {
-                            if (c.equals(partPhone.get(j))) {
-                                b = false;
-                                break;
+            try {
+                waitFor(two);
+                ArrayList<String> devices = two.getNumbersCall();
+                function(two, 1);
+                for (MissedCalls b : three) {
+                    b.setPhoneNumbers(new ArrayList<String>());
+                    b.setMessages(new ArrayList<Message>());
+                }
+                ArrayList<Message> people = two.getReceiveMessages();
+                for (int a = 0; a < people.size(); a++) {
+                    String mess = people.get(a).getMessage();
+//                String phone = people.get(a).getPhoneNumber();
+                    boolean callormess = (mess.indexOf('(') > -1 && mess.indexOf(')') > -1 && mess.indexOf('(') < mess.lastIndexOf(')'));
+                    System.out.println("Call or message: " + callormess);
+                    String number = "";
+                    String message = "";
+                    if (callormess) {
+                        message = mess.substring(mess.indexOf('(') + 1, mess.lastIndexOf(')'));
+                        number = mess.substring(0, mess.indexOf('('));
+                    } else
+                        number = mess;
+                    two.removeMessage(people.get(a));
+                    for (int i = 0; i < three.size(); i++) {
+                        ArrayList<String> partPhone = DatabaseClass.getConsumers(number, three.get(i).getPhoneNumber());
+                        for (int j = 0; j < partPhone.size(); j++) {
+                            boolean b = true;
+                            for (String c : USnumbers) {
+                                if (c.equals(partPhone.get(j))) {
+                                    b = false;
+                                    break;
+                                }
                             }
+                            if (b)
+                                partPhone.set(j, CC + partPhone.get(j));
+                            else
+                                partPhone.set(j, CC2 + partPhone.get(j));
                         }
-                        if (b)
-                            partPhone.set(j, CC + partPhone.get(j));
-                        else
-                            partPhone.set(j, CC2 + partPhone.get(j));
+                        if (callormess) {
+                            System.out.println(three.get(i) + ": messages assigned " + partPhone);
+                            ArrayList<Message> messages = new ArrayList<>();
+                            for (String x : partPhone)
+                                messages.add(new Message(x, message));
+                            three.get(i).setMessages(messages);
+                        } else {
+                            System.out.println(three.get(i) + ": call assigned " + partPhone);
+                            three.get(i).setPhoneNumbers(partPhone);
+                        }
                     }
-                    System.out.println(three.get(i) + ": assigned " + partPhone);
-                    three.get(i).setPhoneNumbers(partPhone);
+                }
+                System.out.println("devices found: " + devices);
+                for (int a = 0; a < devices.size(); a++) {
+                    String x = "";
+                    if (devices.get(a).length() == 11)
+                        x = devices.get(a).substring(1);
+                    if (devices.get(a).length() == 12)
+                        x = devices.get(a).substring(2);
+                    two.removeNumberCall(devices.get(a));
+                    for (int i = 0; i < three.size(); i++) {
+                        ArrayList<String> partPhone = DatabaseClass.getConsumers(x, three.get(i).getPhoneNumber());
+                        for (int j = 0; j < partPhone.size(); j++) {
+                            boolean b = true;
+                            for (String c : USnumbers) {
+                                if (c.equals(partPhone.get(j))) {
+                                    b = false;
+                                    break;
+                                }
+                            }
+                            if (b)
+                                partPhone.set(j, CC + partPhone.get(j));
+                            else
+                                partPhone.set(j, CC2 + partPhone.get(j));
+                        }
+                        System.out.println(three.get(i) + ": assigned " + partPhone);
+                        three.get(i).setPhoneNumbers(partPhone);
+                    }
                 }
                 for (MissedCalls b : three) {
                     function(b, 1);
@@ -68,13 +115,11 @@ public class Serial {
                 for (MissedCalls b : three) {
                     waitFor(b);
                 }
+                System.out.println("END OF LOOP");
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println("CONTINUING");
             }
-//            ArrayList<Message> people = new ArrayList<>();
-//            for(int i = 0; i < people.size(); i++){
-//                String mess = people.get(i).getMessage();
-//                String phone = people.get(i).getPhoneNumber();
-//                if()
-//            }
         }
     }
 

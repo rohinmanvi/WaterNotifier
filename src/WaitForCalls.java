@@ -35,6 +35,7 @@ public class WaitForCalls extends GSMs {
                 if (function == 1) {
                     startCommands();
                     checkService();
+                    boolean v = false;
                     for (int i = 1; i <= 100; i++) {
                         String mess = "";
                         mess = checkMessage(i);
@@ -59,18 +60,21 @@ public class WaitForCalls extends GSMs {
                             }
                         }
                         if (mess.length() > 4 && (super.phoneNum().length() == 11 || super.phoneNum().length() == 12)
-                                && mess.indexOf('(') > -1 && mess.indexOf(')') > -1 && mess.indexOf('(') < mess.indexOf(')') && mess.indexOf("WN") > -1) {
+                                && mess.indexOf('(') > -1 && mess.indexOf(')') > -1 && mess.indexOf('(') < mess.lastIndexOf(')') && mess.indexOf("WN") > -1) {
                             message = mess;
-                            String locationNum = message.substring(message.indexOf('(') + 1, message.indexOf(')'));
-                            locationNum = locationNum.replaceAll("\\s+", "");
+                            String mes = message.substring(message.indexOf('(') + 1, message.lastIndexOf(')'));
+                            mes = mes.replace('\n', ' ');
                             phoneNumber = super.phoneNum();
                             phoneNumber = phoneNumber.replaceAll("\\s+", "");
                             DatabaseClass.newMessageLog(phoneNumber, getPhoneNumber(), message);
-                            System.out.println("RECEIVED MESSAGE: " + locationNum);
-                            receiveMessages.add(new Message(phoneNumber, locationNum));
+                            System.out.println("RECEIVED MESSAGE: " + mes);
+                            receiveMessages.add(new Message(phoneNumber, mes));
+                            v = true;
                         }
                         delay(2000);
                     }
+                    if(v)
+                        function = 0;
                     deleteMessages();
                     String a = waitForCall(0);
                     if (!a.isEmpty()) {

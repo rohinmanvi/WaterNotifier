@@ -30,18 +30,21 @@ public class MissedCalls extends GSMs {
                 }
                 if (function == 1) {
                     System.out.println(threadName + ": missedCalls " + phoneNumbers);
-                    for (String a : phoneNumbers) {
-                        DatabaseClass.newCallLog(getPhoneNumber(), a);
-                        System.out.println(threadName + ": " + missedCall(a, 10000));
+                    for (int i = 0; i < phoneNumbers.size(); i++) {
+                        System.out.println(i+1);
+                        DatabaseClass.newCallLog(getPhoneNumber(), phoneNumbers.get(i));
+                        System.out.println(threadName + ": call " + phoneNumbers.get(i) + ":  " + missedCall(phoneNumbers.get(i), 10000));
                     }
-                    function = 0;
-                }
-                if (function == 2) {
                     System.out.println(threadName + ": sendingMessages");
-                    for (Message a : messages) {
+                    for (int i = 0; i < messages.size(); i++) {
+                        Message a = messages.get(i);
+                        System.out.println(i+1);
                         DatabaseClass.newMessageLog(getPhoneNumber(), a.getPhoneNumber(), a.getMessage());
-                        System.out.println(threadName + ": " + sendMessage(a.getPhoneNumber(), a.getMessage()));
+                        checkConnection();
+                        checkService();
+                        System.out.println(threadName + ": message " + a.getPhoneNumber() + ": " + sendMessage(a.getPhoneNumber(), a.getMessage()));
                     }
+                    messages = new ArrayList<>();
                     function = 0;
                 }
             }
