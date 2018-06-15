@@ -51,7 +51,7 @@ public class WaitForCalls extends GSMs {
                                 message = mess;
                                 String locationNum = message.substring(message.indexOf('!') + 1, message.indexOf(','));
                                 String name = message.substring(message.indexOf(',') + 1);
-                                name = name.replaceAll("\\s+", "");
+                                name = name.replace('\n', ' ');
                                 locationNum = locationNum.replaceAll("\\s+", "");
                                 phoneNumber = super.phoneNum();
                                 phoneNumber = phoneNumber.replaceAll("\\s+", "");
@@ -60,10 +60,11 @@ public class WaitForCalls extends GSMs {
                                     System.out.println(phoneNumber + " " + locationNum + " " + name);
                                     sendMessages.add(new Message(phoneNumber, phoneNumber + " has been subscribed to the "
                                             + DatabaseClass.notifierLocation(locationNum) + " notifier"));
+                                    v = true;
                                 }
                             }
                             if (mess.length() > 4 && (super.phoneNum().length() == 11 || super.phoneNum().length() == 12)
-                                    && mess.indexOf('(') > -1 && mess.indexOf(')') > -1 && mess.indexOf('(') < mess.lastIndexOf(')') && mess.indexOf("WN") > -1) {
+                                    && mess.indexOf('(') > -1 && mess.indexOf(')') > -1 && mess.indexOf('(') < mess.lastIndexOf(')') && mess.indexOf("WN(") > -1) {
                                 message = mess;
                                 String mes = message.substring(message.indexOf('(') + 1, message.lastIndexOf(')'));
                                 mes = mes.replace('\n', ' ');
@@ -71,6 +72,7 @@ public class WaitForCalls extends GSMs {
                                 phoneNumber = phoneNumber.replaceAll("\\s+", "");
                                 DatabaseClass.newMessageLog(phoneNumber, getPhoneNumber(), message);
                                 System.out.println("RECEIVED MESSAGE: " + mes);
+                                sendMessages.add(new Message(phoneNumber, "OK: " + mes));
                                 receiveMessages.add(new Message(phoneNumber, mes));
                                 v = true;
                             }
