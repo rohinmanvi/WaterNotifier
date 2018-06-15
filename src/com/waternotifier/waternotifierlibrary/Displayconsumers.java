@@ -210,11 +210,11 @@ public class Displayconsumers {
 // with ConsumerCaller phone number.
                 DatabaseHelper.updateAllConsumersForCallerPhone();
 
-
 //                Long inNotifierPhone = 7472558828L;
 //                Long inNotifierPhone = 8189678112L;
 //                Long inNotifierPhone = 8189135171L;
-                Long inNotifierPhone = 9008349854L;
+//                Long inNotifierPhone = 9008349854L; // Tajpur - Sweet Water - Danayya Hiremath
+                Long inNotifierPhone = 8971766283L; // Nagathan - Siddu Arikeri - Madiwala Sarawad
 
                 Location tempLoc = new Location();
                 tempLoc = Location.getNotifierLocationZIPCODESeqNumber(inNotifierPhone);
