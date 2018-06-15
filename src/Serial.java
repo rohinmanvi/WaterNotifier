@@ -37,11 +37,11 @@ public class Serial {
                 waitFor(two);
                 ArrayList<String> devices = two.getNumbersCall();
                 function(two, 1);
-                for (MissedCalls b : three) {
-                    b.setPhoneNumbers(new ArrayList<String>());
-                    b.setMessages(new ArrayList<Message>());
-                }
                 ArrayList<Message> people = two.getReceiveMessages();
+                for(MissedCalls b : three) {
+                    b.setMessages(new ArrayList<Message>());
+                    b.setPhoneNumbers(new ArrayList<String>());
+                }
                 for (int a = 0; a < people.size(); a++) {
                     String mess = people.get(a).getMessage();
 //                String phone = people.get(a).getPhoneNumber();
@@ -105,10 +105,12 @@ public class Serial {
                             else
                                 partPhone.set(j, CC2 + partPhone.get(j));
                         }
-                        System.out.println(three.get(i) + ": assigned " + partPhone);
+                        System.out.println(three.get(i) + ": call assigned " + partPhone);
                         three.get(i).setPhoneNumbers(partPhone);
                     }
                 }
+                ArrayList<Message> send = two.getSendMessages();
+                three.get(0).addMessages(send);
                 for (MissedCalls b : three) {
                     function(b, 1);
                 }

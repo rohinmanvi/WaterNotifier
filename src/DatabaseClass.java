@@ -95,12 +95,12 @@ public class DatabaseClass {
             return false;
         phonenumb = phonenumb.replaceAll("\\s+","");
         locationNum = locationNum.replaceAll("\\s+","");
-        name = name.replaceAll("\\s+","");
+        String repname = name.replaceAll("\\s+","");
+        name = name.replace('\n', ' ');
         boolean x;
-        name = name.replaceAll("\\s+","");
         if(!checkNumber(phonenumb) || !checkNumber(locationNum))
             return false;
-        if(!checkLetters(name))
+        if(!checkLetters(repname))
             return false;
         if(phonenumb.length() == 11)
             phonenumb = phonenumb.substring(1);

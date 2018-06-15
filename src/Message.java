@@ -7,11 +7,11 @@ public class Message {
         message = mess;
     }
 
-    public String getMessage() {
+    public synchronized String getMessage() {
         return message;
     }
 
-    public String getPhoneNumber() {
+    public synchronized String getPhoneNumber() {
         return phoneNumber;
     }
 }
