@@ -36,8 +36,24 @@ public class WaitForCalls extends GSMs {
                 }
                 if (function == 1) {
                     try {
-                        startCommands();
-                        checkService();
+                        try {
+                            int counts = 0;
+//                            while (!checkService()) {
+//                                if (counts > 5) {
+//                                    reset();
+//                                    checkConnection();
+//                                    startCommands();
+//                                    counts = 0;
+//                                }
+//                                counts++;
+//                                System.out.println(threadName + ": trying to get service");
+//                                delay(5000);
+//                            }
+                            checkService();
+                        } catch(Exception e){
+                            e.printStackTrace();
+                            System.out.println("CONTINUING");
+                        }
                         boolean v = false;
                         for (int i = 1; i <= 100; i++) {
                             String mess = "";
@@ -59,7 +75,7 @@ public class WaitForCalls extends GSMs {
                                 if (DatabaseClass.newConsumer(phoneNumber, locationNum, name)) {
                                     System.out.println(phoneNumber + " " + locationNum + " " + name);
                                     sendMessages.add(new Message(phoneNumber, phoneNumber + " has been subscribed to the "
-                                            + DatabaseClass.notifierLocation(locationNum) + " notifier"));
+                                            + DatabaseClass.getNotifierLocation(locationNum) + " notifier"));
                                     v = true;
                                 }
                             }
@@ -110,7 +126,7 @@ public class WaitForCalls extends GSMs {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("CONTINUING");
+            System.out.println("CONTINUING: major");
             if (checkConnection()) {
                 System.out.println("RECONNECTING");
                 run();

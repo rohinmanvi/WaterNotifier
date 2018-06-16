@@ -20,7 +20,7 @@ public abstract class GSMs extends GSM implements Runnable {
         System.out.println(threadName + ": creating");
         COMStart(comports);
         threadName += " (" + COMport + ")";
-        if(t == null) {
+        if (t == null) {
             t = new Thread(this, threadName);
             t.start();
         }
@@ -37,9 +37,9 @@ public abstract class GSMs extends GSM implements Runnable {
         boolean reset = false;
         int count = 0;
         while (!v) {
-            if(reset)
+            if (reset)
                 reset = false;
-            if (count >= 3){
+            if (count >= 3) {
                 count = 0;
                 reset = true;
             }
@@ -61,20 +61,22 @@ public abstract class GSMs extends GSM implements Runnable {
                                         COMports.remove(i);
                                     }
                                 } catch (Exception e) {
-                                    e.printStackTrace(); System.out.println("CONTINUING");
+                                    e.printStackTrace();
+                                    System.out.println("CONTINUING");
                                 }
                                 break;
                             } else {
                                 System.out.println(threadName + ": " + port + " wrong number");
                             }
-                            if(reset) {
+                            if (reset) {
                                 completeReset();
                             }
                         }
                     }
                 } catch (Exception e) {
                     closeConnection();
-                    e.printStackTrace(); System.out.println("CONTINUING");
+                    e.printStackTrace();
+                    System.out.println("CONTINUING");
                     v = false;
                 }
                 closeConnection();
@@ -84,18 +86,18 @@ public abstract class GSMs extends GSM implements Runnable {
         }
     }
 
-    public void COMStart(int comports){
+    public void COMStart(int comports) {
         boolean v = false;
         boolean reset = false;
         int count = 0;
         while (!v || (COMports.size() < DatabaseClass.getConsumerCallers().size())) {
-            if(reset)
+            if (reset)
                 reset = false;
-            if (count >= 3 && COMports.size() > 0){
+            if (count >= 3 && COMports.size() > 0) {
                 count = 0;
                 reset = true;
             }
-            if(count >= 100)
+            if (count >= 100)
                 count = 0;
             for (int i = 0; i <= comports; i++) {
                 String port = "COM" + i;
@@ -111,21 +113,23 @@ public abstract class GSMs extends GSM implements Runnable {
                                         COMports.remove(0);
                                     }
                                 } catch (Exception e) {
-                                    e.printStackTrace(); System.out.println("CONTINUING");
+                                    e.printStackTrace();
+                                    System.out.println("CONTINUING");
                                 }
                                 v = true;
                                 COMport = port;
                             } else {
                                 System.out.println(threadName + ": " + port + " wrong number");
                             }
-                            if(reset) {
+                            if (reset) {
                                 completeReset();
                             }
                         }
                     }
                 } catch (Exception e) {
                     closeConnection();
-                    e.printStackTrace(); System.out.println("CONTINUING");
+                    e.printStackTrace();
+                    System.out.println("CONTINUING");
                     v = false;
                 }
                 closeConnection();
@@ -141,7 +145,15 @@ public abstract class GSMs extends GSM implements Runnable {
         checkConnection();
         startCommands();
         System.out.println(threadName + ": running");
+        int count = 0;
         while (!checkService()) {
+            if (count > 5) {
+                reset();
+                checkConnection();
+                startCommands();
+                count = 0;
+            }
+            count++;
             System.out.println(threadName + ": trying to get service");
             delay(5000);
         }
@@ -184,13 +196,21 @@ public abstract class GSMs extends GSM implements Runnable {
         return COMports;
     }
 
-    public boolean completeReset(){
+    public boolean completeReset() {
         System.out.println(threadName + ": resetting");
-        if(send("AT+CFUN=1,1")) {
+        if (send("AT+CFUN=1,1")) {
             delay(3000);
             checkConnection();
             startCommands();
+            int count = 0;
             while (!checkService()) {
+                if (count > 5) {
+                    reset();
+                    checkConnection();
+                    startCommands();
+                    count = 0;
+                }
+                count++;
                 System.out.println(threadName + ": trying to get service");
                 delay(5000);
             }
@@ -200,18 +220,18 @@ public abstract class GSMs extends GSM implements Runnable {
         return false;
     }
 
-    public boolean reset(){
+    public boolean reset() {
         System.out.println(threadName + ": resetting");
-        if(send("AT+CFUN=1,1")) {
+        if (send("AT+CFUN=1,1")) {
             delay(3000);
-            while(!checkConnection())
+            while (!checkConnection())
                 delay(1000);
             return true;
         }
         return false;
     }
 
-    private ArrayList<String> removeDuplicates(ArrayList<String> a){
+    private ArrayList<String> removeDuplicates(ArrayList<String> a) {
         Set<String> hs = new HashSet<>();
         hs.addAll(a);
         a.clear();

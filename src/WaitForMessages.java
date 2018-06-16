@@ -30,8 +30,24 @@ public class WaitForMessages extends GSMs {
                     }
                     if (function == 1) {
                         count++;
-                        startCommands();
-                        checkService();
+                        try {
+                            int counts = 0;
+//                            while (!checkService()) {
+//                                if (counts > 5) {
+//                                    reset();
+//                                    checkConnection();
+//                                    startCommands();
+//                                    counts = 0;
+//                                }
+//                                counts++;
+//                                System.out.println(threadName + ": trying to get service");
+//                                delay(5000);
+//                            }
+                            checkService();
+                        } catch(Exception e){
+                            e.printStackTrace();
+                            System.out.println("CONTINUING");
+                        }
                         System.out.println(threadName + ": testing " + count + " = " + sendMessage(testingPhone, "Notifier is still alive: " + count));
                         for (int j = 0; j < 1000; j++) {
                             for (int i = 1; i <= 100; i++) {
@@ -56,7 +72,7 @@ public class WaitForMessages extends GSMs {
                                             System.out.println(phoneNumber + " " + locationNum + " " + name);
                                             checkConnection();
                                             System.out.println(sendMessage(phoneNumber, phoneNumber + " has been subscribed to the "
-                                                    + DatabaseClass.notifierLocation(locationNum) + " notifier"));
+                                                    + DatabaseClass.getNotifierLocation(locationNum) + " notifier"));
                                         }
                                     }
                                 } catch (Exception e) {
@@ -72,7 +88,7 @@ public class WaitForMessages extends GSMs {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("CONTINUING");
+            System.out.println("CONTINUING: major");
             if (checkConnection()) {
                 System.out.println("RECONNECTING");
                 run();

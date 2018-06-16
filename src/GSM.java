@@ -38,18 +38,12 @@ public class GSM extends Arduino {
     }
 
     public boolean checkConnection() {
-        for (int i = 0; i < 10; i++) {
-            if (send("AT", 0.1))
-                return true;
-            print("trying to connect");
-        }
-        return false;
+        return send("AT", 5);
     }
 
     public boolean send(String a) {
-        serialWrite(a + '\r' + '\n');
-        for (int i = 0; i < 10; i++) {
-            delay(100);
+        for (int i = 0; i < 100; i++) {
+            serialWrite(a + '\r' + '\n');
             String b = serialRead();
             print(b);
             if (b.indexOf("OK") > -1) {
@@ -62,9 +56,8 @@ public class GSM extends Arduino {
     }
 
     public boolean send(String a, double s) {
-        serialWrite(a + '\r' + '\n');
         for (int i = 0; i < s; i++) {
-            delay(100);
+            serialWrite(a + '\r' + '\n');
             String b = serialRead();
             print(b);
             if (b.indexOf("OK") > -1) {
@@ -76,11 +69,35 @@ public class GSM extends Arduino {
         return false;
     }
 
-    public String jsend(String a, double s) {
+    public boolean send(String a, String f, int s) {
         String b = "";
+        for (int i = 0; i < s; i++) {
+            serialWrite(a + '\r' + '\n');
+            b = serialRead();
+            print(b);
+            if (b.indexOf(f) > -1) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean oldsend(String a, int s){
         serialWrite(a + '\r' + '\n');
         for (int i = 0; i < s; i++) {
             delay(100);
+            String b = serialRead();
+            if (b.indexOf("OK") > -1) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public String jsend(String a, double s) {
+        String b = "";
+        for (int i = 0; i < s; i++) {
+            serialWrite(a + '\r' + '\n');
             b = serialRead();
             print(b);
             if (b.indexOf("OK") > -1 || b.indexOf("ERROR") > -1 || b.indexOf("CMS") > -1 || b.indexOf("CME") > -1
@@ -93,9 +110,8 @@ public class GSM extends Arduino {
 
     public String jsend(String a) {
         String b = "";
-        serialWrite(a + '\r' + '\n');
-        for (int i = 0; i < 10; i++) {
-            delay(100);
+        for (int i = 0; i < 100; i++) {
+            serialWrite(a + '\r' + '\n');
             b = serialRead();
             print(b);
             if (b.indexOf("OK") > -1 || b.indexOf("ERROR") > -1 || b.indexOf("CMS") > -1 || b.indexOf("CME") > -1
@@ -106,34 +122,26 @@ public class GSM extends Arduino {
         return b;
     }
 
-    public boolean send(String a, String f, int s) {
-        String b = "";
-        serialWrite(a + '\r' + '\n');
-        for (int i = 0; i < s; i++) {
-            delay(100);
-            b = serialRead();
-            print(b);
-            if (b.indexOf(f) > -1) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public void startCommands() {
+        send("ATE0");
         send("AT+CFUN=1");
         send("AT+CPMS=\"SM\",\"SM\",\"SM\"");
         send("AT+CMGF=1");
     }
 
     public boolean checkService() {
-        if (jsend("AT+CIND?").substring(jsend("AT+CIND?").indexOf("+CIND:")).substring(11, 12).equals("1")) {
-            service = true;
-            return true;
-        } else {
-            service = false;
-            return false;
+        String a = jsend("AT+CIND?");
+        int b = a.indexOf("+CIND:");
+        if (b > -1 && a.length() > b) {
+            a = a.substring(b);
+            if (a.length() > 11)
+                if (a.substring(11, 12).equals("1")) {
+                    service = true;
+                    return true;
+                }
         }
+        service = false;
+        return false;
     }
 
     public boolean service() {
@@ -142,26 +150,30 @@ public class GSM extends Arduino {
 
     public boolean sendMessage(String phone, String message) {
         if (jsend("AT+CMGS=" + "\"+" + phone + '\"').indexOf('>') > -1) {
-            return send(message + (char) 26, 3000);
-        } else
-            return false;
+            return oldsend(message + (char) 26, 300);
+        } else {
+            return oldsend(message + (char) 26, 10);
+        }
     }
 
     public void deleteMessages() {
-        send("AT+CMGD=1,4", 2000);
+        send("AT+CMGD=1,4", 200);
     }
 
     public String checkMessage(int x) {
         if (send("AT+CMGR=" + x + '\r' + '\n')) {
-            serialWrite("AT+CMGR=" + x + '\r' + '\n');
-            delay(1000);
-            String a = serialRead();
-            if (a.indexOf('\"') != a.lastIndexOf('\"') && a.indexOf('+') > -1 && a.indexOf('O') > -1) {
-                number = a;
-                number = number.substring(0, number.lastIndexOf('\"') - 1);
-                number = number.substring(0, number.lastIndexOf('\"') - 1);
-                number = number.substring(number.lastIndexOf('+') + 1, number.lastIndexOf('\"'));
-                return a.substring(a.lastIndexOf('\"') + 1, a.lastIndexOf('O') - 1);
+            for (int i = 0; i < 10; i++) {
+                serialWrite("AT+CMGR=" + x + '\r' + '\n');
+                String a = serialRead();
+                if (a.indexOf('\"') != a.lastIndexOf('\"') && a.indexOf('+') > -1 && a.indexOf('O') > -1) {
+                    number = a;
+                    number = number.substring(0, number.lastIndexOf('\"') - 1);
+                    number = number.substring(0, number.lastIndexOf('\"') - 1);
+                    if (number.indexOf('+') < number.indexOf('\"') && a.lastIndexOf('\"') + 1 < a.lastIndexOf('O') - 1) {
+                        number = number.substring(number.lastIndexOf('+') + 1, number.lastIndexOf('\"'));
+                        return a.substring(a.lastIndexOf('\"') + 1, a.lastIndexOf('O') - 1);
+                    }
+                }
             }
         }
         number = "";
@@ -184,7 +196,7 @@ public class GSM extends Arduino {
                         break;
                 }
                 for (int k = 0; k < 3; k++) {
-                    if (send("AT+CHUP", "CALL\",0", 5) || send("AT+CHUP", "CME", 5)) {
+                    if (send("AT+CHUP", "CALL\",0", 500) || send("AT+CHUP", "CME", 500)) {
                         break;
                     }
                 }
@@ -194,14 +206,14 @@ public class GSM extends Arduino {
                 } else
                     return "";
             }
-            delay(1);
+
         }
     }
 
     public String waitForCall(int s) {
         String b = "";
         String a = "";
-        delay(s * 1000);
+        delay(s);
         b = serialRead();
         if (b.indexOf("RING") > -1) {
             for (int k = 0; k < 3; k++) {
@@ -212,7 +224,7 @@ public class GSM extends Arduino {
             if (!(a.indexOf("CMS") > -1)) {
                 a = a.substring(a.indexOf("\"") + 1, a.lastIndexOf("\""));
                 for (int k = 0; k < 3; k++) {
-                    if (send("AT+CHUP", "CALL\",0", 5) || send("AT+CHUP", "CME", 5)) {
+                    if (send("AT+CHUP", "CALL\",0", 500) || send("AT+CHUP", "CME", 500)) {
                         break;
                     }
                 }
@@ -232,12 +244,12 @@ public class GSM extends Arduino {
                     print(b);
                     if (b.indexOf("SOUNDER\",0") > -1 || b.indexOf("ERROR") > -1) {
                         for (int k = 0; k < 5; k++) {
-                            if (send("AT+CHUP", "CALL\",0", 5) || send("AT+CHUP", "CME", 5)) {
+                            if (send("AT+CHUP", "CALL\",0", 500) || send("AT+CHUP", "CME", 500)) {
                                 return true;
                             }
                         }
                     }
-                    delay(1);
+
                 }
             }
         }
@@ -246,21 +258,21 @@ public class GSM extends Arduino {
 
     public boolean missedCall(String n, int s) {
         String b = "";
-        for (int i = 0; i < 3; i++) {
-            if (send("ATD+" + n, 5)) {
+        for (int i = 0; i < 10; i++) {
+            if (send("ATD+" + n)) {
                 while (true) {
                     b = serialRead();
                     print(b);
                     if (b.indexOf("SO") > -1 || b.indexOf("DER") > -1 || b.indexOf("ERROR") > -1) {
                         delay(s);
                         for (int k = 0; k < 5; k++) {
-                            if (send("AT+CHUP", "CALL\",0", 5) || send("AT+CHUP", "CME", 5)) {
+                            if (send("AT+CHUP", "CALL\",0", 500) || send("AT+CHUP", "CME", 500)) {
                                 return true;
                             }
                         }
                         return false;
                     }
-                    delay(1);
+
                 }
             }
         }

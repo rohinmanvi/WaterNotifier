@@ -23,32 +23,62 @@ public class MissedCalls extends GSMs {
                     break;
                 }
                 if (function == 0) {
-                    if(checkConnection())
+                    try {
+                        int counts = 0;
+//                            while (!checkService()) {
+//                                if (counts > 5) {
+//                                    reset();
+//                                    checkConnection();
+//                                    startCommands();
+//                                    counts = 0;
+//                                }
+//                                counts++;
+//                                System.out.println(threadName + ": trying to get service");
+//                                delay(5000);
+//                            }
                         checkService();
+                        checkService();
+                    } catch(Exception e){
+                        e.printStackTrace();
+                        System.out.println("CONTINUING");
+                    }
                     delay(100);
                     notif();
                 }
                 if (function == 1) {
-                    System.out.println(threadName + ": missedCalls ");
-                    for (int i = 0; i < phoneNumbers.size(); i++) {
-                        DatabaseClass.newCallLog(getPhoneNumber(), phoneNumbers.get(i));
-                        System.out.println(threadName + ": call " + phoneNumbers.get(i) + ":  " + missedCall(phoneNumbers.get(i), 10000));
-                    }
-                    System.out.println(threadName + ": sendingMessages");
+                    ArrayList<String> mess = new ArrayList<>();
+                    for(Message a : messages)
+                        mess.add(a.getPhoneNumber());
+                    System.out.println(threadName + ": sendingMessages: " + mess);
                     for (int i = 0; i < messages.size(); i++) {
                         Message a = messages.get(i);
                         DatabaseClass.newMessageLog(getPhoneNumber(), a.getPhoneNumber(), a.getMessage());
-                        checkConnection();
-                        checkService();
+                        try {
+                            checkConnection();
+                            checkService();
+                        } catch(Exception e){
+                            e.printStackTrace();
+                            System.out.println("CONTINUING");
+                        }
                         System.out.println(threadName + ": message " + a.getPhoneNumber() + ": " + sendMessage(a.getPhoneNumber(), a.getMessage()));
+                        messages.remove(i);
+                        if(messages.size() >= i)
+                            i--;
                     }
-                    messages = new ArrayList<>();
+                    System.out.println(threadName + ": missedCalls: " + phoneNumbers);
+                    for (int i = 0; i < phoneNumbers.size(); i++) {
+                        DatabaseClass.newCallLog(getPhoneNumber(), phoneNumbers.get(i));
+                        System.out.println(threadName + ": call " + phoneNumbers.get(i) + ":  " + missedCall(phoneNumbers.get(i), 10000));
+                        phoneNumbers.remove(i);
+                        if(messages.size() >= i)
+                            i--;
+                    }
                     function = 0;
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("CONTINUING");
+            System.out.println("CONTINUING: major");
             if (checkConnection()) {
                 run();
             } else {
@@ -71,5 +101,14 @@ public class MissedCalls extends GSMs {
     public synchronized void addMessages(ArrayList<Message> a){
         for(Message b : a)
             messages.add(b);
+    }
+
+    public synchronized void addMessage(Message a){
+        messages.add(a);
+    }
+
+    public synchronized void addPhoneNumbers(ArrayList<String> a){
+        for(String b : a)
+            phoneNumbers.add(b);
     }
 }

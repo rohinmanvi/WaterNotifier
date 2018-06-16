@@ -38,13 +38,26 @@ public class Serial {
                 ArrayList<String> devices = two.getNumbersCall();
                 function(two, 1);
                 ArrayList<Message> people = two.getReceiveMessages();
-                for(MissedCalls b : three) {
-                    b.setMessages(new ArrayList<Message>());
-                    b.setPhoneNumbers(new ArrayList<String>());
+//                for(MissedCalls b : three) {
+//                    b.setMessages(new ArrayList<Message>());
+//                    b.setPhoneNumbers(new ArrayList<String>());
+//                }
+                ArrayList<Message> send = two.getSendMessages();
+                for(int i = 0; i < send.size(); i++){
+                    String devicenumber = DatabaseClass.getCallerOfConsumer(send.get(i).getPhoneNumber());
+                    System.out.println("devicenumber: " + devicenumber + " : " + send.get(i).getPhoneNumber());
+                    for(MissedCalls a : three){
+                        if(a.getPhoneNumber().equals(devicenumber)) {
+                            a.addMessage(send.get(i));
+                        }
+                    }
                 }
+                for(int i = 0; i < send.size(); i++){
+                    two.removeMessage(send.get(i));
+                }
+
                 for (int a = 0; a < people.size(); a++) {
                     String mess = people.get(a).getMessage();
-//                String phone = people.get(a).getPhoneNumber();
                     boolean callormess = (mess.indexOf('(') > -1 && mess.indexOf(')') > -1 && mess.indexOf('(') < mess.lastIndexOf(')'));
                     System.out.println("Call or message: " + callormess);
                     String number = "";
@@ -75,10 +88,10 @@ public class Serial {
                             ArrayList<Message> messages = new ArrayList<>();
                             for (String x : partPhone)
                                 messages.add(new Message(x, message));
-                            three.get(i).setMessages(messages);
+                            three.get(i).addMessages(messages);
                         } else {
                             System.out.println(three.get(i) + ": call assigned " + partPhone);
-                            three.get(i).setPhoneNumbers(partPhone);
+                            three.get(i).addPhoneNumbers(partPhone);
                         }
                     }
                 }
@@ -106,21 +119,19 @@ public class Serial {
                                 partPhone.set(j, CC2 + partPhone.get(j));
                         }
                         System.out.println(three.get(i) + ": call assigned " + partPhone);
-                        three.get(i).setPhoneNumbers(partPhone);
+                        three.get(i).addPhoneNumbers(partPhone);
                     }
                 }
-                ArrayList<Message> send = two.getSendMessages();
-                three.get(0).addMessages(send);
                 for (MissedCalls b : three) {
                     function(b, 1);
                 }
-                for (MissedCalls b : three) {
-                    waitFor(b);
-                }
+//                for (MissedCalls b : three) {
+//                    waitFor(b);
+//                }
                 System.out.println("END OF LOOP");
             } catch (Exception e) {
                 e.printStackTrace();
-                System.out.println("CONTINUING");
+                System.out.println("CONTINUING: major");
             }
         }
     }
