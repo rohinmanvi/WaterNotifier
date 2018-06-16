@@ -128,6 +128,51 @@ public class Notifier {
         return outNotifierPhone;
     } // END of getSIMCardPhone
 
+    public static ArrayList<Notifier> getAll() {
+        ArrayList<Notifier> NotifierArrayList = new ArrayList<Notifier>();
+        String querySelect;
+        try {
+            Connection dbconnection;
+            dbconnection = SqliteConnection.dbConnector();
+
+
+            querySelect = "SELECT IMEINumber, SIMCardPhone, LocationZIPCODE, LocationSeqNumber, NotifierName, CreateDateTime, UpdateDateTime, Status " + " "
+                    + " FROM Notifiers " + " "
+                    + " WHERE Status = 'Y'"
+                    + " ORDER BY LocationZIPCODE, LocationSeqNumber, SIMCardPhone " + " "
+                    + " ;";
+
+            PreparedStatement pst = dbconnection.prepareStatement(querySelect);
+
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                do {
+                    Notifier dataNotifier = new Notifier();
+                    dataNotifier.setIMEINumber(rs.getString("IMEINumber"));
+                    dataNotifier.setSIMCardPhone(rs.getLong("SIMCardPhone"));
+                    dataNotifier.setLocationZIPCODE(rs.getInt("LocationZIPCODE"));
+                    dataNotifier.setLocationSeqNumber(rs.getInt("LocationSeqNumber"));
+                    dataNotifier.setNotifierName(rs.getString("NotifierName"));
+                    dataNotifier.setCreateDateTime(rs.getString("CreateDateTime"));
+                    dataNotifier.setUpdateDateTime(rs.getString("UpdateDateTime"));
+                    dataNotifier.setStatus(rs.getString("Status"));
+                    NotifierArrayList.add(dataNotifier);
+                } while (rs.next());
+            }
+            // Closing Statement
+            pst.close();
+            // Closing database connection
+            dbconnection.close();
+        } catch (Exception e) {
+            System.err.println("Got an exception! ");
+            System.err.println(e.getMessage());
+        }
+
+
+        return NotifierArrayList;
+    }
+
     public String getIMEINumber() {
         return IMEINumber;
     }

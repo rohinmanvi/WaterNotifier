@@ -278,6 +278,14 @@ public class Displayconsumers {
                 tempNotifierPhone = Notifier.getSIMCardPhone(tempNotifierZIPCODESeqNumber);
                 System.out.println("The Notifier Phone Number for given NotifierZIPCODESeqNumber :: " + tempNotifierZIPCODESeqNumber + " is =  " + tempNotifierPhone + '\n');
 
+                ArrayList<Notifier> listOfNotifiers = new ArrayList<Notifier>();
+                listOfNotifiers = Notifier.getAll();
+                System.out.println("There are total of " + listOfNotifiers.size() + " UNIQUE Notifiers in the system : \n");
+                for (int j = 0; j < listOfNotifiers.size(); j++) {
+                    System.out.println(Integer.valueOf(j + 1) + " :: PHONE : " + listOfNotifiers.get(j).getSIMCardPhone()
+                            + " || ZIPCODE + SeqNumber : " +  listOfNotifiers.get(j).getLocationZIPCODE() + " + " +  listOfNotifiers.get(j).getLocationSeqNumber()
+                            + '\n');
+                }
 
             }
         });
