@@ -162,8 +162,9 @@ public class GSM extends Arduino {
 
     public String checkMessage(int x) {
         if (send("AT+CMGR=" + x + '\r' + '\n')) {
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 5; i++) {
                 serialWrite("AT+CMGR=" + x + '\r' + '\n');
+                delay(400);
                 String a = serialRead();
                 if (a.indexOf('\"') != a.lastIndexOf('\"') && a.indexOf('+') > -1 && a.indexOf('O') > -1) {
                     number = a;
@@ -177,6 +178,28 @@ public class GSM extends Arduino {
             }
         }
         number = "";
+        return "";
+    }
+
+    public String checkMessageCommand(int x) {
+        if (send("AT+CMGR=" + x + '\r' + '\n')) {
+            for (int i = 0; i < 5; i++) {
+                serialWrite("AT+CMGR=" + x + '\r' + '\n');
+                delay(400);
+                String a = serialRead();
+                System.out.println(a);
+                if (a.indexOf("WN(") > -1 && a.lastIndexOf(')') > -1 && a.indexOf("WN(") < a.lastIndexOf(')')) {
+                    String b = a.substring(a.indexOf("WN(") + 3, a.lastIndexOf(')'));
+                    if(b.indexOf('(') > -1) {
+                        if(b.indexOf(')') > -1 && b.indexOf("WN(") < 0)
+                            return a.substring(a.indexOf("WN(") + 3, a.lastIndexOf(')'));
+                    }
+                    else
+                        if(a.substring(a.indexOf("WN(") + 3, a.lastIndexOf(')')).length() <= 12 && b.indexOf("WN(") < 0)
+                            return a.substring(a.indexOf("WN(") + 3, a.lastIndexOf(')'));
+                }
+            }
+        }
         return "";
     }
 

@@ -231,8 +231,16 @@ public abstract class GSMs extends GSM implements Runnable {
         return false;
     }
 
-    private ArrayList<String> removeDuplicates(ArrayList<String> a) {
+    public ArrayList<String> removeDuplicates(ArrayList<String> a) {
         Set<String> hs = new HashSet<>();
+        hs.addAll(a);
+        a.clear();
+        a.addAll(hs);
+        return a;
+    }
+
+    public ArrayList<Message> removeDuplicatesMessage(ArrayList<Message> a) {
+        Set<Message> hs = new HashSet<>();
         hs.addAll(a);
         a.clear();
         a.addAll(hs);

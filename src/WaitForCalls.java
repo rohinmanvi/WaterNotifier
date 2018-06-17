@@ -54,6 +54,8 @@ public class WaitForCalls extends GSMs {
                             e.printStackTrace();
                             System.out.println("CONTINUING");
                         }
+                        phoneNumber = "";
+                        message = "";
                         boolean v = false;
                         for (int i = 1; i <= 100; i++) {
                             String mess = "";
@@ -79,17 +81,30 @@ public class WaitForCalls extends GSMs {
                                     v = true;
                                 }
                             }
-                            if (mess.length() > 4 && (super.phoneNum().length() == 11 || super.phoneNum().length() == 12)
-                                    && mess.indexOf('(') > -1 && mess.indexOf(')') > -1 && mess.indexOf('(') < mess.lastIndexOf(')') && mess.indexOf("WN(") > -1) {
-                                message = mess;
-                                String mes = message.substring(message.indexOf('(') + 1, message.lastIndexOf(')'));
-                                mes = mes.replace('\n', ' ');
+                            if(mess.indexOf("WN(") > -1 && mess.indexOf(')') > -1 && mess.indexOf("WN(") < mess.lastIndexOf(')')){
+                                mess = mess.substring(mess.indexOf("WN(") + 3, mess.lastIndexOf(')'));
                                 phoneNumber = super.phoneNum();
                                 phoneNumber = phoneNumber.replaceAll("\\s+", "");
-                                DatabaseClass.newMessageLog(phoneNumber, getPhoneNumber(), message);
-                                System.out.println("RECEIVED MESSAGE: " + mes);
-                                sendMessages.add(new Message(phoneNumber, "OK: " + mes));
-                                receiveMessages.add(new Message(phoneNumber, mes));
+                            }
+                            else {
+                                mess = checkMessageCommand(i);
+                                if (mess.isEmpty() || mess == null) {
+                                    break;
+                                }
+                                System.out.println(threadName + ": Command Message Received: \n" + mess);
+                            }
+                            if (mess.length() >= 10) {
+                                message = mess;
+                                if(message.indexOf('(') > -1 && message.indexOf(')') > -1 && message.indexOf('(') < message.indexOf(')')) {
+                                    message = message.replace('\n', ' ');
+                                    System.out.println("RECEIVED COMMAND MESSAGE: " + message);
+                                    receiveMessages.add(new Message(phoneNumber, message));
+                                }
+                                else {
+                                    receiveMessages.add(new Message(phoneNumber, message));
+                                }
+                                if(phoneNumber.length() >= 10)
+                                    sendMessages.add(new Message(phoneNumber, "OK: " + message));
                                 v = true;
                             }
                             delay(2000);
@@ -110,7 +125,7 @@ public class WaitForCalls extends GSMs {
                             function = 0;
                         }
                     }
-                    removeDuplicatesString(phoneNumbersCall);
+                    removeDuplicates(phoneNumbersCall);
                     removeDuplicatesMessage(receiveMessages);
                     removeDuplicatesMessage(sendMessages);
                 }
@@ -164,22 +179,6 @@ public class WaitForCalls extends GSMs {
         for (int i = 0; i < receiveMessages.size(); i++)
             if (mess.equals(receiveMessages.get(i)))
                 receiveMessages.remove(i);
-    }
-
-    private ArrayList<Message> removeDuplicatesMessage(ArrayList<Message> a) {
-        Set<Message> hs = new HashSet<>();
-        hs.addAll(a);
-        a.clear();
-        a.addAll(hs);
-        return a;
-    }
-
-    private ArrayList<String> removeDuplicatesString(ArrayList<String> a) {
-        Set<String> hs = new HashSet<>();
-        hs.addAll(a);
-        a.clear();
-        a.addAll(hs);
-        return a;
     }
 
 }

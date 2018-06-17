@@ -44,18 +44,20 @@ public class Serial {
 //                }
                 ArrayList<Message> send = two.getSendMessages();
                 for(int i = 0; i < send.size(); i++){
+                    boolean v = false;
                     String devicenumber = DatabaseClass.getCallerOfConsumer(send.get(i).getPhoneNumber());
-                    System.out.println("devicenumber: " + devicenumber + " : " + send.get(i).getPhoneNumber());
                     for(MissedCalls a : three){
                         if(a.getPhoneNumber().equals(devicenumber)) {
                             a.addMessage(send.get(i));
+                            v = true;
                         }
                     }
+                    if(!v)
+                        three.get(0).addMessage(send.get(i));
                 }
                 for(int i = 0; i < send.size(); i++){
                     two.removeMessage(send.get(i));
                 }
-
                 for (int a = 0; a < people.size(); a++) {
                     String mess = people.get(a).getMessage();
                     boolean callormess = (mess.indexOf('(') > -1 && mess.indexOf(')') > -1 && mess.indexOf('(') < mess.lastIndexOf(')'));

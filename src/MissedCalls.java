@@ -37,7 +37,6 @@ public class MissedCalls extends GSMs {
 //                                delay(5000);
 //                            }
                         checkService();
-                        checkService();
                     } catch(Exception e){
                         e.printStackTrace();
                         System.out.println("CONTINUING");
@@ -46,6 +45,8 @@ public class MissedCalls extends GSMs {
                     notif();
                 }
                 if (function == 1) {
+                    removeDuplicates(phoneNumbers);
+                    removeDuplicatesMessage(messages);
                     ArrayList<String> mess = new ArrayList<>();
                     for(Message a : messages)
                         mess.add(a.getPhoneNumber());
