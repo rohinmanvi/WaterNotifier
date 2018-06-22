@@ -14,6 +14,8 @@ public class SendHTMLEmail {
         final String username = "indiawaternotifier@gmail.com";
         final String password = "Dont4get";
 
+        String mailBodyMessage = "";
+
 
         // Recipient's email ID needs to be mentioned.
 //        String to = "rohin.manvi@gmail.com";
@@ -75,9 +77,10 @@ public class SendHTMLEmail {
             message.setSubject("RENEW SIM Cards - Notice 1 - within one week - SSL Based Message");
 
             // Send the actual HTML message, as big as you like
-            message.setContent("<h1>This is actual message</h1>"
-                    + "<p>Dear India WN Administrator,</p>"
-                    + "<p> Please renew SIM Cards, by making payment online/with nearest dealer only a week left!</p>", "text/html");
+//            message.setContent("<h1>This is actual message</h1>"
+//                    + "<p>Dear India WN Administrator,</p>"
+//                    + "<p> Please renew SIM Cards, by making payment online/with nearest dealer only a week left!</p>", "text/html");
+            message.setContent(getMessageBody(), "text/html");
 
             // Send message
             Transport.send(message);
@@ -87,5 +90,24 @@ public class SendHTMLEmail {
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static String getMessageBody() {
+        String message = "";
+
+        ArrayList<SIMCard> listOfSIMCards = new ArrayList<SIMCard>();
+
+        listOfSIMCards = SIMCard.getAllActive();
+
+        message = "<h1>All active SIM Cards</h1>";
+
+        for (int i = 0; i < listOfSIMCards.size(); i++) {
+
+            message =  message + "<li>" + listOfSIMCards.get(i).getPhone() + " valid for " + listOfSIMCards.get(i).getValidityDays() + " "
+                    + listOfSIMCards.get(i).getRegisteredDate() + " "
+                    + "</li>";
+        }
+
+        return message;
     }
 }
