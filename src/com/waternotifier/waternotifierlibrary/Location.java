@@ -306,36 +306,27 @@ public class Location {
     public static String getLocationName(Long inNotifierPhone) {
 
         String returnValue = "";
-        String queryString = "", whereAdditionalConditions = "", querySelect = "";
-
-        if (inNotifierPhone == 0) {
-            return returnValue;
-        } else if (DataOperations.IsValidPhone(inNotifierPhone.toString())) {
-            whereAdditionalConditions = " AND n.SIMCardPhone = " + inNotifierPhone + " ";
-        }
+        String querySelect = "";
 
         try {
 
             Connection dbconnection;
             dbconnection = SqliteConnection.dbConnector();
 
-            querySelect = "SELECT DISTINCT(l.LocationName)"
-                    + " FROM SIMCard as sc, Notifiers as n, Location as l "
-                    + " WHERE sc.Phone = n.SIMCardPhone "
-                    + " AND n.Status = 'Y' "
-                    + " AND sc.Active = 'Y' OR sc.Active IS NULL "
-                    + " AND l.ZIPCODE = n.LocationZIPCODE "
-                    + " AND l.SeqNumber = n.LocationSeqNumber "
+//            querySelect = "SELECT l.LocationName" + " "
+//                    + " FROM Location as l " + " "
+//                    + " WHERE l.Phone = " + inNotifierPhone + " ";
+            querySelect = "SELECT DISTINCT(l.LocationName)" + " "
+                    + " FROM SIMCard as sc, Notifiers as n, Location as l " + " "
+                    + " WHERE sc.Phone = n.SIMCardPhone " + " "
+                    + " AND n.Status = 'Y' " + " "
+                    + " AND sc.Active = 'Y' " + " "
+                    + " AND l.ZIPCODE = n.LocationZIPCODE " + " "
+                    + " AND l.SeqNumber = n.LocationSeqNumber " + " "
+                    + " AND n.SIMCardPhone = " + inNotifierPhone + " ";
 
-            ;
 
-            if (whereAdditionalConditions == null) {
-                return returnValue;
-            } else {
-                queryString = querySelect + whereAdditionalConditions;
-            }
-
-            PreparedStatement pst = dbconnection.prepareStatement(queryString);
+            PreparedStatement pst = dbconnection.prepareStatement(querySelect);
 
             ResultSet rs = pst.executeQuery();
 

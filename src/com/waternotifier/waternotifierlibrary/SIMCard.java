@@ -24,6 +24,11 @@ public class SIMCard {
     private String CreateDateTime;
     private String UpdateDateTime;
 
+    private int CountryCode;
+    private String Country;
+    private String SIMCardRenewWebsiteLink;
+
+
     public static ArrayList<SIMCard> getAllActive() {
         ArrayList<SIMCard> SIMCardArrayList = new ArrayList<SIMCard>();
         String querySelect;
@@ -31,10 +36,10 @@ public class SIMCard {
             Connection dbconnection;
             dbconnection = SqliteConnection.dbConnector();
 
-            querySelect = "SELECT `Phone`, `SIMNumber`, `ServiceProvider`, `Active`, `RegisteredDate`, `PlaceOfPurchase`, `PurchaserFirstName`, `PurchaserLastName`, `Company`, `ValidityDays`, `CreateDateTime`, `UpdateDateTime` " + " "
+            querySelect = "SELECT `CountryCode`, `Phone`, `Country`, `SIMNumber`, `ServiceProvider`, `Active`, `RegisteredDate`, `PlaceOfPurchase`, `PurchaserFirstName`, `PurchaserLastName`, `Company`, `ValidityDays`, `CreateDateTime`, `UpdateDateTime`, `SIMCardRenewWebsiteLink` " + " "
                     + " FROM SIMCard " + " "
                     + " WHERE Active = 'Y'" + " "
-                    + " ORDER BY RegisteredDate DESC " + " "
+                    + " ORDER BY Country ASC, RegisteredDate DESC " + " "
                     + " ;";
 
             PreparedStatement pst = dbconnection.prepareStatement(querySelect);
@@ -44,7 +49,9 @@ public class SIMCard {
             if (rs.next()) {
                 do {
                     SIMCard dataSIMCard = new SIMCard();
+                    dataSIMCard.setCountryCode(rs.getInt("CountryCode"));
                     dataSIMCard.setPhone(rs.getLong("Phone"));
+                    dataSIMCard.setCountry(rs.getString("Country"));
                     dataSIMCard.setSIMNumber(rs.getString("SIMNumber"));
                     dataSIMCard.setServiceProvider(rs.getString("ServiceProvider"));
                     dataSIMCard.setActive(rs.getString("Active"));
@@ -57,7 +64,9 @@ public class SIMCard {
                     dataSIMCard.setValidityDays(rs.getInt("ValidityDays"));
                     dataSIMCard.setCreateDateTime(rs.getString("CreateDateTime"));
                     dataSIMCard.setUpdateDateTime(rs.getString("UpdateDateTime"));
+                    dataSIMCard.setSIMCardRenewWebsiteLink(rs.getString("SIMCardRenewWebsiteLink"));
 
+                    SIMCardArrayList.add(dataSIMCard);
                 } while (rs.next());
             }
             // Closing Statement
@@ -74,6 +83,22 @@ public class SIMCard {
     }
 
     public static void updateAllRegisteredDateTimeMilliSeconds() {
+        ArrayList<SIMCard> listOfSIMCards = new ArrayList<SIMCard>();
+
+        listOfSIMCards = SIMCard.getAllActive();
+
+        String message = "";
+
+        for (int i = 0; i < listOfSIMCards.size(); i++) {
+
+            message = message + "<li>" + listOfSIMCards.get(i).getPhone() + " "
+                    + "<p>Valid for :: " + listOfSIMCards.get(i).getValidityDays() + " Days</p>"
+                    + "<p>Due On :: " + listOfSIMCards.get(i).getRegisteredDate() + " + " + listOfSIMCards.get(i).getValidityDays() + " Days</p>"
+                    + "</li>";
+
+
+        }
+
         String queryUpdate;
         try {
             Connection dbconnection;
@@ -91,23 +116,9 @@ public class SIMCard {
             ResultSet rs = pst.executeQuery();
 
             if (rs.next()) {
-                do {
-                    SIMCard dataSIMCard = new SIMCard();
-                    dataSIMCard.setPhone(rs.getLong("Phone"));
-                    dataSIMCard.setSIMNumber(rs.getString("SIMNumber"));
-                    dataSIMCard.setServiceProvider(rs.getString("ServiceProvider"));
-                    dataSIMCard.setActive(rs.getString("Active"));
-                    dataSIMCard.setRegisteredDate(rs.getString("RegisteredDate"));
-                    dataSIMCard.setRegisteredDateTimeMilliSeconds(convertTextDateToMilliSeconds(rs.getString("RegisteredDate")));
-                    dataSIMCard.setPlaceOfPurchase(rs.getString("PlaceOfPurchase"));
-                    dataSIMCard.setPurchaserFirstName(rs.getString("PurchaserFirstName"));
-                    dataSIMCard.setPurchaserLastName(rs.getString("PurchaserLastName"));
-                    dataSIMCard.setCompany(rs.getString("Company"));
-                    dataSIMCard.setValidityDays(rs.getInt("ValidityDays"));
-                    dataSIMCard.setCreateDateTime(rs.getString("CreateDateTime"));
-                    dataSIMCard.setUpdateDateTime(rs.getString("UpdateDateTime"));
 
-                } while (rs.next());
+            } else {
+//                System.out.println("Could not update SIMCard with PHONE NO : ", listOfSIMCards.get(i).getPhone());
             }
             // Closing Statement
             pst.close();
@@ -124,8 +135,8 @@ public class SIMCard {
 
     public static Long convertTextDateToMilliSeconds(String inTextDate) {
         long oldMillis = 0;
-        String dateFormat = "dd MMMM yyyy hh:mm:ss:SSS zzzz";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(dateFormat, Locale.ENGLISH);
+        String dateFormat = "EEE MMM dd HH:mm:ss zzz yyyy";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(dateFormat, Locale.US);
         simpleDateFormat.setLenient(false);
 
         Date oldDate = new Date();
@@ -140,6 +151,31 @@ public class SIMCard {
         }
         return oldMillis;
     }
+
+    public void setCountryCode(int CountryCode) {
+        this.CountryCode = CountryCode;
+    }
+
+    public int getCountryCode() {
+        return CountryCode;
+    }
+
+    public void setCountry(String Country) {
+        this.Country = Country;
+    }
+
+    public String getCountry() {
+        return Country;
+    }
+
+    public void setSIMCardRenewWebsiteLink(String SIMCardRenewWebsiteLink) {
+        this.SIMCardRenewWebsiteLink = SIMCardRenewWebsiteLink;
+    }
+
+    public String getSIMCardRenewWebsiteLink() {
+        return SIMCardRenewWebsiteLink;
+    }
+
 
     public Long getPhone() {
         return Phone;

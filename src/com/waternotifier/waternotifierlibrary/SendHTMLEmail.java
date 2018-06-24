@@ -1,7 +1,9 @@
 package com.waternotifier.waternotifierlibrary;
 
-import java.util.ArrayList;
-import java.util.Properties;
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -80,7 +82,8 @@ public class SendHTMLEmail {
 //            message.setContent("<h1>This is actual message</h1>"
 //                    + "<p>Dear India WN Administrator,</p>"
 //                    + "<p> Please renew SIM Cards, by making payment online/with nearest dealer only a week left!</p>", "text/html");
-            message.setContent(getMessageBody(), "text/html");
+            String messageBody = getMessageBody();
+            message.setContent(messageBody, "text/html");
 
             // Send message
             Transport.send(message);
@@ -103,9 +106,43 @@ public class SendHTMLEmail {
 
         for (int i = 0; i < listOfSIMCards.size(); i++) {
 
-            message =  message + "<li>" + listOfSIMCards.get(i).getPhone() + " valid for " + listOfSIMCards.get(i).getValidityDays() + " "
-                    + listOfSIMCards.get(i).getRegisteredDate() + " "
-                    + "</li>";
+            long milliSecondsRegistered = listOfSIMCards.get(i).getRegisteredDateTimeMilliSeconds();
+            Calendar c = Calendar.getInstance();
+//            Calendar c =  new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+//Set time in milliseconds
+            c.setTimeInMillis(milliSecondsRegistered);
+            int mYear = c.get(Calendar.YEAR);
+            int mMonth = c.get(Calendar.MONTH);
+            int mDay = c.get(Calendar.DAY_OF_MONTH);
+            int hr = c.get(Calendar.HOUR);
+            int min = c.get(Calendar.MINUTE);
+            int sec = c.get(Calendar.SECOND);
+
+//            LocalDate endofCentury = LocalDate.of(2014, 01, 01);
+            LocalDate endofCentury = LocalDate.of(mYear, mMonth, mDay);
+            LocalDate now = LocalDate.now();
+
+            Period diff = Period.between(endofCentury, now);
+
+            Date datetime = new Date();
+            Long milliSecondsNow = datetime.getTime();
+
+            long diffInMillies = Math.abs(milliSecondsNow - milliSecondsRegistered);
+            long diffInDays = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+            String locationName = Location.getLocationName(listOfSIMCards.get(i).getPhone());
+
+            System.out.printf("Country and Location : %s  %s || Phone# : %d \n", listOfSIMCards.get(i).getCountry(), locationName, listOfSIMCards.get(i).getPhone());
+//            System.out.printf("Difference is %d years, %d months and %d days old\n", diff.getYears(), diff.getMonths(), diff.getDays());
+            System.out.printf("No of DAYS SIMCard has been used : %d\n", diffInDays);
+            System.out.printf("RENEW SIMCard in : %d Days\n", listOfSIMCards.get(i).getValidityDays()-diffInDays);
+
+            message =  message + "<li> " + listOfSIMCards.get(i).getCountry() + " "
+                    + " - " + locationName + " ||  +" + listOfSIMCards.get(i).getCountryCode() + listOfSIMCards.get(i).getPhone() + "   || "
+                    + "<a href=\"" + listOfSIMCards.get(i).getSIMCardRenewWebsiteLink() + "\">RECHARGE NOW</a>" + " "
+                    + "<p>" + "RENEW SIMCard in :: " + (listOfSIMCards.get(i).getValidityDays()-diffInDays) + " Days" + "</p>"
+                    + "<p>" + "Valid for :: " + listOfSIMCards.get(i).getValidityDays() + " Days" + "</p>"
+                    + "</li>"
+            + "<p></p>";
         }
 
         return message;
