@@ -158,6 +158,7 @@ public abstract class GSMs extends GSM implements Runnable {
             delay(5000);
         }
         System.out.println(threadName + ": service");
+
         running();
     }
 
@@ -226,6 +227,18 @@ public abstract class GSMs extends GSM implements Runnable {
             delay(3000);
             while (!checkConnection())
                 delay(1000);
+            int counts = 0;
+            while (!checkService()) {
+                if (counts > 5) {
+                    reset();
+                    checkConnection();
+                    startCommands();
+                    counts = 0;
+                }
+                counts++;
+                System.out.println(threadName + ": trying to get service");
+                delay(5000);
+            }
             return true;
         }
         return false;

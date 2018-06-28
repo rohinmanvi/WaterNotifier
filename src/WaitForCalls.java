@@ -22,8 +22,14 @@ public class WaitForCalls extends GSMs {
 
     public void running() {
         System.out.println(threadName + ": waitForCalls");
+        int counting = 0;
         try {
             while (true) {
+                counting++;
+                if(counting == 10000){
+                    counting = 0;
+                    reset();
+                }
                 if (function == -1) {
                     closeConnection();
                     System.out.println(threadName + " exiting.");
@@ -37,7 +43,7 @@ public class WaitForCalls extends GSMs {
                 if (function == 1) {
                     try {
                         try {
-                            int counts = 0;
+//                            int counts = 0;
 //                            while (!checkService()) {
 //                                if (counts > 5) {
 //                                    reset();
