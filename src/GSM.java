@@ -123,10 +123,7 @@ public class GSM extends Arduino {
     }
 
     public void startCommands() {
-        send("ATE0");
-        send("AT+CFUN=1");
-        send("AT+CPMS=\"SM\",\"SM\",\"SM\"");
-        send("AT+CMGF=1");
+        while(!(send("ATE0") && send("AT+CFUN=1") && send("AT+CPMS=\"SM\",\"SM\",\"SM\"") && send("AT+CMGF=1"))){}
     }
 
     public boolean checkService() {
@@ -166,6 +163,7 @@ public class GSM extends Arduino {
                 serialWrite("AT+CMGR=" + x + '\r' + '\n');
                 delay(400);
                 String a = serialRead();
+                System.out.println(a);
                 if (a.indexOf('\"') != a.lastIndexOf('\"') && a.indexOf('+') > -1 && a.indexOf('O') > -1) {
                     number = a;
                     number = number.substring(0, number.lastIndexOf('\"') - 1);
@@ -293,7 +291,7 @@ public class GSM extends Arduino {
                                 return true;
                             }
                         }
-                        return false;
+                        return true;
                     }
 
                 }

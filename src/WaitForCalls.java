@@ -84,6 +84,7 @@ public class WaitForCalls extends GSMs {
                                     System.out.println(phoneNumber + " " + locationNum + " " + name);
                                     sendMessages.add(new Message(phoneNumber, phoneNumber + " has been subscribed to the "
                                             + DatabaseClass.getNotifierLocation(locationNum) + " notifier"));
+                                    counting = 0;
                                     v = true;
                                 }
                             }
@@ -109,8 +110,10 @@ public class WaitForCalls extends GSMs {
                                 else {
                                     receiveMessages.add(new Message(phoneNumber, message));
                                 }
-                                if(phoneNumber.length() >= 10)
+                                if(phoneNumber.length() >= 10) {
                                     sendMessages.add(new Message(phoneNumber, "OK: " + message));
+                                    counting = 0;
+                                }
                                 v = true;
                             }
                             delay(2000);
