@@ -139,6 +139,7 @@ public class SendHTMLEmail {
             message =  message + "<li> " + listOfSIMCards.get(i).getCountry() + " "
                     + " - " + locationName + " ||  +" + listOfSIMCards.get(i).getCountryCode() + listOfSIMCards.get(i).getPhone() + "   || "
                     + "<a href=\"" + listOfSIMCards.get(i).getSIMCardRenewWebsiteLink() + "\">RECHARGE NOW</a>" + " "
+                    + "<p>" + "Registered Date :: " + (listOfSIMCards.get(i).getRegisteredDate()) + " " + "</p>"
                     + "<p>" + "RENEW SIMCard in :: " + (listOfSIMCards.get(i).getValidityDays()-diffInDays) + " Days" + "</p>"
                     + "<p>" + "Valid for :: " + listOfSIMCards.get(i).getValidityDays() + " Days" + "</p>"
                     + "</li>"
