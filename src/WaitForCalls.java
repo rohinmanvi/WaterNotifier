@@ -22,8 +22,14 @@ public class WaitForCalls extends GSMs {
 
     public void running() {
         System.out.println(threadName + ": waitForCalls");
+        int counting = 0;
         try {
             while (true) {
+                counting++;
+                if(counting == 10000){
+                    counting = 0;
+                    reset();
+                }
                 if (function == -1) {
                     closeConnection();
                     System.out.println(threadName + " exiting.");
@@ -37,7 +43,7 @@ public class WaitForCalls extends GSMs {
                 if (function == 1) {
                     try {
                         try {
-                            int counts = 0;
+//                            int counts = 0;
 //                            while (!checkService()) {
 //                                if (counts > 5) {
 //                                    reset();
@@ -78,6 +84,7 @@ public class WaitForCalls extends GSMs {
                                     System.out.println(phoneNumber + " " + locationNum + " " + name);
                                     sendMessages.add(new Message(phoneNumber, phoneNumber + " has been subscribed to the "
                                             + DatabaseClass.getNotifierLocation(locationNum) + " notifier"));
+                                    counting = 0;
                                     v = true;
                                 }
                             }
@@ -103,8 +110,10 @@ public class WaitForCalls extends GSMs {
                                 else {
                                     receiveMessages.add(new Message(phoneNumber, message));
                                 }
-                                if(phoneNumber.length() >= 10)
+                                if(phoneNumber.length() >= 10) {
                                     sendMessages.add(new Message(phoneNumber, "OK: " + message));
+                                    counting = 0;
+                                }
                                 v = true;
                             }
                             delay(2000);

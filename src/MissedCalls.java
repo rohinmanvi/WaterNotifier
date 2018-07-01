@@ -14,8 +14,14 @@ public class MissedCalls extends GSMs {
     }
 
     public void running() {
+        int counting = 0;
         try {
             while (true) {
+                counting++;
+                if(counting == 10000){
+                    counting = 0;
+                    reset();
+                }
                 if (function == -1) {
                     closeConnection();
                     System.out.println(threadName + " exiting.");
@@ -24,7 +30,7 @@ public class MissedCalls extends GSMs {
                 }
                 if (function == 0) {
                     try {
-                        int counts = 0;
+//                        int counts = 0;
 //                            while (!checkService()) {
 //                                if (counts > 5) {
 //                                    reset();
