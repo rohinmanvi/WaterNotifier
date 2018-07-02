@@ -156,7 +156,7 @@ public class GSM extends Arduino {
     }
 
     public void deleteMessages() {
-        send("AT+CMGD=1,4", 200);
+        send("AT+CMGD=1,4", 5);
     }
 
     public String checkMessage(int x) {
