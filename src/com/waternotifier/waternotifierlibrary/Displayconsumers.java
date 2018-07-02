@@ -210,11 +210,11 @@ public class Displayconsumers {
 // with ConsumerCaller phone number.
                 DatabaseHelper.updateAllConsumersForCallerPhone();
 
-//                Long inNotifierPhone = 7472558828L;
+                Long inNotifierPhone = 7472558828L; // Hanchinal - Sachin Hachadad
 //                Long inNotifierPhone = 8189678112L;
 //                Long inNotifierPhone = 8189135171L;
 //                Long inNotifierPhone = 9008349854L; // Tajpur - Sweet Water - Danayya Hiremath
-                Long inNotifierPhone = 8971766283L; // Nagathan - Siddu Arikeri - Madiwala Sarawad
+//                Long inNotifierPhone = 8971766283L; // Nagathan - Siddu Arikeri - Madiwala Sarawad
 
                 Location tempLoc = new Location();
                 tempLoc = Location.getNotifierLocationZIPCODESeqNumber(inNotifierPhone);
@@ -286,6 +286,18 @@ public class Displayconsumers {
                             + " || ZIPCODE + SeqNumber : " +  listOfNotifiers.get(j).getLocationZIPCODE() + " + " +  listOfNotifiers.get(j).getLocationSeqNumber()
                             + '\n');
                 }
+    
+                Date datetime = new Date();
+                Long milliseconds = datetime.getTime();
+                ArrayList<Long> listOfLocationConsumers = new ArrayList<Long>();
+                listOfLocationConsumers = LocationConsumers.getAllConsumerPhone(4086370230L, 91214, 4 );
+                for (int i = 0; i < listOfLocationConsumers.size(); i++) {
+                    System.out.println(Integer.valueOf(i + 1) + " :: PHONE : " + listOfLocationConsumers.get(i)
+                            + '\n');
+                    LocationConsumers.updateLastWaterNotificationCall(listOfLocationConsumers.get(i),91214, 4);
+                }
+                
+                
 
             }
         });

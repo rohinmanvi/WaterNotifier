@@ -456,6 +456,91 @@ public class LocationConsumers {
         return Boolean.FALSE;
     }
 
+
+    /**
+     *
+     * @param inConsumerPhone - -- If 0 or invalid phone number, Returns false
+     * @param inZipcode -- If 0 or invalid ZIPCODE number, Returns false
+     * @param inLocSeqNum -- If 0 or invalid SeqNumber , Returns false
+     * @return Boolean - "True" - Able to update to database, otherwise "False".
+     */
+    public static Boolean updateLastWaterNotificationCall(Long inConsumerPhone, int inZipcode, int inLocSeqNum) {
+        boolean existingConsumer = false,
+                existingLocation = false,
+                existingLocationConsumer = false;
+
+        if (inConsumerPhone == 0) {
+            return Boolean.FALSE;
+        }
+
+        if (!(ConsumerOperations.IsValidPhone(inConsumerPhone.toString()))) {
+            return Boolean.FALSE;
+        }
+
+        if (!(Location.validZIPCODE(inZipcode))) {
+            return false;
+        }
+
+        if (!(Location.validSeqNumber(inLocSeqNum))) {
+            return false;
+        }
+
+        existingLocation = Location.locationExists(inZipcode, inLocSeqNum);
+        existingConsumer = (Consumer.consumerExists(inConsumerPhone));
+
+        if (!(existingConsumer)) {
+            return false;
+        }
+
+        if (existingConsumer && existingLocation) {
+
+            String inLocationCode = "" + inZipcode + inLocSeqNum;
+            existingLocationConsumer = (LocationConsumers.exists(inConsumerPhone, Integer.valueOf(inLocationCode)));
+
+            if (existingLocationConsumer) {
+                Date datetime = new Date();
+                Long milliseconds = datetime.getTime();
+
+                String updateSQL = "UPDATE LocationConsumers "
+                        + " SET LastWaterNotificationCall = " + milliseconds + ", "
+                        + " UpdateDateTime = " + " \"" + datetime.toString() + "\" "
+                        + " WHERE ConsumersPhone = " + inConsumerPhone + " "
+                        + " AND LocationZIPCODE = " + inZipcode + " "
+                        + " AND LocationSeqNumber = " + inLocSeqNum + " "
+                        + "; ";
+
+                try {
+
+                    Connection dbconnection;
+                    dbconnection = SqliteConnection.dbConnector();
+                    PreparedStatement pst = dbconnection.prepareStatement(updateSQL);
+
+                    int rs = pst.executeUpdate();
+
+                    if (rs > 0) {
+                        // Closing Statement
+                        pst.close();
+                        // Closing database connection
+                        dbconnection.close();
+                        return Boolean.TRUE;
+                    }
+                    // Closing Statement
+                    pst.close();
+                    // Closing database connection
+                    dbconnection.close();
+                } catch (Exception e) {
+                    System.err.println("Got an exception! ");
+                    System.err.println(e.getMessage());
+                }
+            }
+        }
+        return Boolean.FALSE;
+
+    } // END of updateLastWaterNotificationCall
+
+
+
+
     /**
      * @param inConsumerPhone -- If 0 or invalid phone number, Returns false
      * @return Boolean - "True" - Able to delete at database, otherwise "False".
@@ -715,14 +800,24 @@ public class LocationConsumers {
 
             Connection dbconnection;
             dbconnection = SqliteConnection.dbConnector();
+            Date datetime = new Date();
+            Long milliseconds = datetime.getTime();
 
             //querySelect = "SELECT lc.LocationZIPCODE, lc.LocationSeqNumber, lc.ConsumersPhone, lc.ConsumerCallerPhone, lc.CreateDateTime, lc.UpdateDateTime, lc.RegisteredFlag, lc.RegisteredDateTime, lc.DeleteDateTime "
             querySelect = "SELECT lc.ConsumersPhone "
                     + " FROM LocationConsumers as lc "
                     + " WHERE lc.ConsumerCallerPhone = " + inConsumerCallerPhone + " "
                     + " AND lc.LocationZIPCODE = " + inZIPCODE + " "
-                    + " AND lc.LocationSeqNumber = " + inSeqNumber + "; ";
+                    + " AND lc.LocationSeqNumber = " + inSeqNumber + " "
+                    + " AND (( " + milliseconds + " - lc.LastWaterNotificationCall) > 3600000)" + " ; ";
+//querySelect = "SELECT lc.ConsumersPhone "
+//                    + " FROM LocationConsumers as lc "
+//                    + " WHERE lc.ConsumerCallerPhone = " + inConsumerCallerPhone + " "
+//                    + " AND lc.LocationZIPCODE = " + inZIPCODE + " "
+//                    + " AND lc.LocationSeqNumber = " + inSeqNumber + "; ";
 
+
+            
             PreparedStatement pst = dbconnection.prepareStatement(querySelect);
 
             ResultSet rs = pst.executeQuery();
