@@ -1,3 +1,5 @@
+import com.waternotifier.waternotifierlibrary.LocationConsumers;
+
 import java.util.ArrayList;
 
 public class MissedCalls extends GSMs {

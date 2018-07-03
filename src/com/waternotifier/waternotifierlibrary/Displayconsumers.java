@@ -57,6 +57,7 @@ public class Displayconsumers {
                     window.frmConsumersReport.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
+                    LogToFile.log(e,"info","At Displayconsumers class - run method.");
                 }
             }
         });
@@ -115,7 +116,7 @@ public class Displayconsumers {
 //							+ "where c.Phone = nc.ConsumerROWID " + "AND nc.NotifierROWID = n.IMEINumber ";
 //					queryOrderby = " order by n.LocationCityDistrict, c.CreateDateTime desc ";
 
-                    querySelect = "select c.FirstName, c.LastName, c.Phone from Consumers as c";
+                    querySelect = "select c.FirstName, c.LastName2, c.Phone from Consumers as c";
                     queryOrderby = " order by c.CreateDateTime desc ";
 
                     String queryString = "";
@@ -138,6 +139,8 @@ public class Displayconsumers {
 
                 } catch (Exception e1) {
                     e1.printStackTrace();
+                    LogToFile.log(e1,"warning","At Displayconsumers class - initialize method, SQL Error ?.");
+    
                 }
 
 

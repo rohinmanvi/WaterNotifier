@@ -1,6 +1,7 @@
 import java.util.concurrent.TimeUnit;
 
 import arduino.Arduino;
+import com.waternotifier.waternotifierlibrary.LocationConsumers;
 
 public class GSM extends Arduino {
     private String port = "";
@@ -291,6 +292,7 @@ public class GSM extends Arduino {
                     print(b);
                     if (b.indexOf("SO") > -1 || b.indexOf("DER") > -1 || b.indexOf("ERROR") > -1) {
                         delay(s);
+                        DatabaseClass.madeCall(n);
                         for (int k = 0; k < 5; k++) {
                             if (send("AT+CHUP", "CALL\",0", 5) || send("AT+CHUP", "CME", 5)) {
                                 return true;

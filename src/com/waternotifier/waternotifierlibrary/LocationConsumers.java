@@ -159,7 +159,68 @@ public class LocationConsumers {
 
         return Boolean.FALSE;
     } // END of exists
-
+    
+    /**
+     * @param inConsumerPhone            -- If 0 (empty), Returns false
+     * @return Boolean - "True" - inConsumerPhone exists.
+     * otherwise "False"
+     */
+    public static Boolean exists(Long inConsumerPhone) {
+        
+        String querySelect = "";
+        DataOperations dataOperations = new DataOperations();
+        
+        inConsumerPhone = Math.abs(inConsumerPhone);
+        
+        if (!(ConsumerOperations.IsValidPhone(inConsumerPhone.toString()))) {
+            return Boolean.FALSE;
+        }
+        
+        if (inConsumerPhone == 0) {
+            return Boolean.FALSE;
+        }
+        
+        if (!DataOperations.IsValidPhone(inConsumerPhone.toString())) {
+            return Boolean.FALSE;
+        }
+        
+        Location tempL = new Location();
+        
+        try {
+            
+            Connection dbconnection;
+            dbconnection = SqliteConnection.dbConnector();
+            
+            querySelect = "SELECT lc.ConsumersPhone "
+                    + " FROM LocationConsumers as lc "
+                    + " WHERE lc.ConsumersPhone = " + inConsumerPhone + " "
+                    + "; ";
+            
+            PreparedStatement pst = dbconnection.prepareStatement(querySelect);
+            
+            ResultSet rs = pst.executeQuery();
+            
+            if (rs.next()) {
+                // Closing Statement
+                pst.close();
+                // Closing database connection
+                dbconnection.close();
+                return Boolean.TRUE;
+            }
+            // Closing Statement
+            pst.close();
+            // Closing database connection
+            dbconnection.close();
+        } catch (Exception e) {
+            System.err.println("Got an exception! ");
+            System.err.println(e.getMessage());
+        }
+        
+        return Boolean.FALSE;
+    } // END of exists
+    
+    
+    
     /**
      * @param inLocationConsumers -- If Object is null, Returns false
      * @return Boolean - "True" - Able to insert into database, otherwise "False".
@@ -455,6 +516,73 @@ public class LocationConsumers {
         }
         return Boolean.FALSE;
     }
+
+
+    /**
+     *
+     * @param inConsumerPhone - -- If 0 or invalid phone number, Returns false
+     * @return Boolean - "True" - Able to update to database, otherwise "False".
+     */
+    public static Boolean updateLastWaterNotificationCall(Long inConsumerPhone) {
+        boolean existingConsumer = false,
+                existingLocationConsumer = false;
+
+        if (inConsumerPhone == 0) {
+            return Boolean.FALSE;
+        }
+
+        if (!(ConsumerOperations.IsValidPhone(inConsumerPhone.toString()))) {
+            return Boolean.FALSE;
+        }
+        
+        existingConsumer = (Consumer.consumerExists(inConsumerPhone));
+
+        if (!(existingConsumer)) {
+            return false;
+        }
+
+        if (existingConsumer) {
+
+            existingLocationConsumer = (LocationConsumers.exists(inConsumerPhone));
+
+            if (existingLocationConsumer) {
+                Date datetime = new Date();
+                Long milliseconds = datetime.getTime();
+
+                String updateSQL = "UPDATE LocationConsumers "
+                        + " SET LastWaterNotificationCall = " + milliseconds + ", "
+                        + " UpdateDateTime = " + " \"" + datetime.toString() + "\" "
+                        + " WHERE ConsumersPhone = " + inConsumerPhone + " "
+                        + "; ";
+
+                try {
+
+                    Connection dbconnection;
+                    dbconnection = SqliteConnection.dbConnector();
+                    PreparedStatement pst = dbconnection.prepareStatement(updateSQL);
+
+                    int rs = pst.executeUpdate();
+
+                    if (rs > 0) {
+                        // Closing Statement
+                        pst.close();
+                        // Closing database connection
+                        dbconnection.close();
+                        return Boolean.TRUE;
+                    }
+                    // Closing Statement
+                    pst.close();
+                    // Closing database connection
+                    dbconnection.close();
+                } catch (Exception e) {
+                    System.err.println("Got an exception! ");
+                    System.err.println(e.getMessage());
+                }
+            }
+        }
+        return Boolean.FALSE;
+
+    } // END of updateLastWaterNotificationCall
 
 
     /**
