@@ -126,9 +126,24 @@ public class GSM extends Arduino {
     }
 
     public void startCommands() {
-        for (int i = 0; i < 10; i++)
-            while (!(send("ATE0") && send("AT+CFUN=1") && send("AT+CPMS=\"SM\",\"SM\",\"SM\"") && send("AT+CMGF=1"))) {
+        for (int i = 0; i < 3; i++) {
+            boolean a = false;
+            while (!(a)) {
+                if (send("ATE0")) {
+                    delay(100);
+                    if (send("AT+CFUN=1")) {
+                        delay(100);
+                        if (send("AT+CPMS=\"SM\",\"SM\",\"SM\"")) {
+                            delay(100);
+                            if (send("AT+CMGF=1")) {
+                                delay(100);
+                                a = true;
+                            }
+                        }
+                    }
+                }
             }
+        }
     }
 
     public boolean checkService() {
