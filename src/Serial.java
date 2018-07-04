@@ -9,6 +9,7 @@ import arduino.*;
 import com.waternotifier.waternotifierlibrary.ConsumerCallers;
 import com.waternotifier.waternotifierlibrary.Location;
 import com.waternotifier.waternotifierlibrary.LocationConsumers;
+import com.waternotifier.waternotifierlibrary.LogToFile;
 
 public class Serial {
     private static String receiveCalls = "7472558416";
@@ -61,7 +62,7 @@ public class Serial {
                 for (int a = 0; a < people.size(); a++) {
                     String mess = people.get(a).getMessage();
                     boolean callormess = (mess.indexOf('(') > -1 && mess.indexOf(')') > -1 && mess.indexOf('(') < mess.lastIndexOf(')'));
-                    System.out.println("Call or message: " + callormess);
+                    LogToFile.log("info","Call or message: " + callormess);
                     String number = "";
                     String message = "";
                     if (callormess) {
@@ -86,18 +87,18 @@ public class Serial {
                                 partPhone.set(j, CC2 + partPhone.get(j));
                         }
                         if (callormess) {
-                            System.out.println(three.get(i) + ": messages assigned " + partPhone);
+                            LogToFile.log("info",three.get(i) + ": messages assigned " + partPhone);
                             ArrayList<Message> messages = new ArrayList<>();
                             for (String x : partPhone)
                                 messages.add(new Message(x, message));
                             three.get(i).addMessages(messages);
                         } else {
-                            System.out.println(three.get(i) + ": call assigned " + partPhone);
+                            LogToFile.log("info",three.get(i) + ": call assigned " + partPhone);
                             three.get(i).addPhoneNumbers(partPhone);
                         }
                     }
                 }
-                System.out.println("devices found: " + devices);
+                LogToFile.log("info","devices found: " + devices);
                 for (int a = 0; a < devices.size(); a++) {
                     String x = "";
                     if (devices.get(a).length() == 11)
@@ -120,7 +121,7 @@ public class Serial {
                             else
                                 partPhone.set(j, CC2 + partPhone.get(j));
                         }
-                        System.out.println(three.get(i) + ": call assigned " + partPhone);
+                        LogToFile.log("info",three.get(i) + ": call assigned " + partPhone);
                         three.get(i).addPhoneNumbers(partPhone);
                     }
                 }
@@ -130,10 +131,10 @@ public class Serial {
 //                for (MissedCalls b : three) {
 //                    waitFor(b);
 //                }
-                System.out.println("END OF LOOP");
+                LogToFile.log("info","END OF LOOP");
             } catch (Exception e) {
                 e.printStackTrace();
-                System.out.println("CONTINUING: major");
+                LogToFile.log("info","CONTINUING: major");
             }
         }
     }

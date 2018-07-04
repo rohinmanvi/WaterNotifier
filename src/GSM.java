@@ -2,6 +2,7 @@ import java.util.concurrent.TimeUnit;
 
 import arduino.Arduino;
 import com.waternotifier.waternotifierlibrary.LocationConsumers;
+import com.waternotifier.waternotifierlibrary.LogToFile;
 
 public class GSM extends Arduino {
     private String port = "";
@@ -24,6 +25,7 @@ public class GSM extends Arduino {
         try {
             openConnection();
         } catch (Exception e) {
+            LogToFile.log(e,"info", "GSM || GSM ");
             closeConnection();
         }
     }
@@ -314,6 +316,7 @@ public class GSM extends Arduino {
         try {
             TimeUnit.MILLISECONDS.sleep(s);
         } catch (InterruptedException e) {
+            LogToFile.log(e,"info", "GSM || delay ");
             // TODO Auto-generated catch block
         }
     }

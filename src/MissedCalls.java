@@ -1,4 +1,5 @@
 import com.waternotifier.waternotifierlibrary.LocationConsumers;
+import com.waternotifier.waternotifierlibrary.LogToFile;
 
 import java.util.ArrayList;
 
@@ -26,7 +27,7 @@ public class MissedCalls extends GSMs {
                 }
                 if (function == -1) {
                     closeConnection();
-                    System.out.println(threadName + " exiting.");
+                    LogToFile.log("info",threadName + " exiting.");
                     notif();
                     break;
                 }
@@ -41,13 +42,13 @@ public class MissedCalls extends GSMs {
 //                                    counts = 0;
 //                                }
 //                                counts++;
-//                                System.out.println(threadName + ": trying to get service");
+//                                LogToFile.log("info",threadName + ": trying to get service");
 //                                delay(5000);
 //                            }
                         checkService();
                     } catch(Exception e){
                         e.printStackTrace();
-                        System.out.println("CONTINUING");
+                        LogToFile.log("info","CONTINUING");
                     }
                     delay(100);
                     notif();
@@ -58,7 +59,7 @@ public class MissedCalls extends GSMs {
                     ArrayList<String> mess = new ArrayList<>();
                     for(Message a : messages)
                         mess.add(a.getPhoneNumber());
-                    System.out.println(threadName + ": sendingMessages: " + mess);
+                    LogToFile.log("info",threadName + ": sendingMessages: " + mess);
                     for (int i = 0; i < messages.size(); i++) {
                         Message a = messages.get(i);
                         DatabaseClass.newMessageLog(getPhoneNumber(), a.getPhoneNumber(), a.getMessage());
@@ -67,17 +68,17 @@ public class MissedCalls extends GSMs {
                             checkService();
                         } catch(Exception e){
                             e.printStackTrace();
-                            System.out.println("CONTINUING");
+                            LogToFile.log("info","CONTINUING");
                         }
-                        System.out.println(threadName + ": message " + a.getPhoneNumber() + ": " + sendMessage(a.getPhoneNumber(), a.getMessage()));
+                        LogToFile.log("info",threadName + ": message " + a.getPhoneNumber() + ": " + sendMessage(a.getPhoneNumber(), a.getMessage()));
                         messages.remove(i);
                         if(messages.size() >= i)
                             i--;
                     }
-                    System.out.println(threadName + ": missedCalls: " + phoneNumbers);
+                    LogToFile.log("info",threadName + ": missedCalls: " + phoneNumbers);
                     for (int i = 0; i < phoneNumbers.size(); i++) {
                         DatabaseClass.newCallLog(getPhoneNumber(), phoneNumbers.get(i));
-                        System.out.println(threadName + ": call " + phoneNumbers.get(i) + ":  " + missedCall(phoneNumbers.get(i), 10000));
+                        LogToFile.log("info",threadName + ": call " + phoneNumbers.get(i) + ":  " + missedCall(phoneNumbers.get(i), 10000));
                         phoneNumbers.remove(i);
                         if(messages.size() >= i)
                             i--;
@@ -87,11 +88,11 @@ public class MissedCalls extends GSMs {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("CONTINUING: major");
+            LogToFile.log("info","CONTINUING: major");
             if (checkConnection()) {
                 run();
             } else {
-                System.out.println("RECONNECTING");
+                LogToFile.log("info","RECONNECTING");
                 closeConnection();
                 COMStart(20);
                 run();

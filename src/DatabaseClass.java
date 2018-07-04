@@ -48,12 +48,13 @@ public class DatabaseClass {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("CONTINUING");
+            LogToFile.log(e,"info", "DatabaseClass || getConsumers || CONTINUING ");
+            LogToFile.log("info","CONTINUING");
             return new ArrayList<>();
         }
         return LCA;
     }
-    
+
     public static ArrayList<String> getConsumerCallers() {
         ArrayList<String> a = new ArrayList<>();
         ArrayList<Long> b = ConsumerCallers.getAllUniquePhoneNumbers();
@@ -61,7 +62,7 @@ public class DatabaseClass {
             a.add(c.toString());
         return a;
     }
-    
+
     public static ArrayList<String> getNotifierNumbers() {
         ArrayList<String> a = new ArrayList<>();
         ArrayList<Notifier> b = Notifier.getAll();
@@ -69,7 +70,7 @@ public class DatabaseClass {
             a.add(c.getSIMCardPhone().toString());
         return a;
     }
-    
+
     public static String getCallerOfConsumer(String a) {
         if (a.length() == 11)
             a = a.substring(1);
@@ -88,7 +89,7 @@ public class DatabaseClass {
         }
         return "";
     }
-    
+
     public static String getNotifierLocation(String locationNum) {
         if (locationNum == null)
             return "";
@@ -100,12 +101,13 @@ public class DatabaseClass {
             a = Location.getLocationNameByLocationCode(Integer.parseInt(locationNum));
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("CONTINUING");
+            LogToFile.log(e,"info", "DatabaseClass || getNotifierLocation ");
+            LogToFile.log("info","CONTINUING");
             return "";
         }
         return a;
     }
-    
+
     public static void madeCall(String phonenumb) {
         if (phonenumb != null) {
             phonenumb = phonenumb.replaceAll("\\s+", "");
@@ -115,16 +117,17 @@ public class DatabaseClass {
                 if (phonenumb.length() == 12)
                     phonenumb = phonenumb.substring(2);
                 try {
-                    System.out.println("Will not call this number for another hour: " + Long.valueOf(phonenumb));
+                    LogToFile.log("info","Will not call this number for another hour: " + Long.valueOf(phonenumb));
                     LocationConsumers.updateLastWaterNotificationCall(Long.valueOf(phonenumb));
                 } catch (Exception e) {
                     e.printStackTrace();
-                    System.out.println("CONTINUING");
+                    LogToFile.log(e,"info", "DatabaseClass || madeCall ");
+                    LogToFile.log("info","CONTINUING");
                 }
             }
         }
     }
-    
+
     public static boolean deviceExists(String phonenumb) {
         if (phonenumb == null)
             return false;
@@ -140,7 +143,8 @@ public class DatabaseClass {
             a = Notifier.notifierExists(Long.parseLong(phonenumb, 10));
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("CONTINUING");
+            LogToFile.log(e,"info", "DatabaseClass || deviceExists ");
+            LogToFile.log("info","CONTINUING");
             return false;
         }
         return a;
@@ -168,7 +172,8 @@ public class DatabaseClass {
             x = DatabaseHelper.newConsumer(b, a, name);
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("CONTINUING");
+            LogToFile.log(e,"info", "DatabaseClass || newConsumer ");
+            LogToFile.log("info","CONTINUING");
             return false;
         }
         return x;
@@ -194,7 +199,8 @@ public class DatabaseClass {
             x = VoiceCallDetails.insertToDatabase(Long.parseLong(sender, 10), Long.parseLong(receiver, 10));
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("CONTINUING");
+            LogToFile.log(e,"info", "DatabaseClass || newCallLog ");
+            LogToFile.log("info","CONTINUING");
             return false;
         }
         return x;
@@ -220,7 +226,8 @@ public class DatabaseClass {
             x = SMSDetails.insertToDatabase(Long.parseLong(sender, 10), Long.parseLong(receiver, 10), message);
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("CONTINUING");
+            LogToFile.log(e,"info", "DatabaseClass || newMessageLog ");
+            LogToFile.log("info","CONTINUING");
             return false;
         }
         return x;

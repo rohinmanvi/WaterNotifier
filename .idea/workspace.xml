@@ -7,7 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6fb18b51-a07b-4240-b73f-d87ea4281214" name="Default" comment="Rajesh Test for Commit File">
-      <change afterPath="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LogToFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WaterNotifier.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WaterNotifier.iml" afterDir="false" />
@@ -19,26 +18,14 @@
       <change beforePath="$PROJECT_DIR$/out/production/WaterNotifier/WaitForCalls.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WaterNotifier/WaitForCalls.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/WaterNotifier/WaitForMessages.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WaterNotifier/WaitForMessages.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/WaterNotifier/WaterNotifier.iml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WaterNotifier/WaterNotifier.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WaterNotifier/com/waternotifier/waternotifierlibrary/Consumer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WaterNotifier/com/waternotifier/waternotifierlibrary/Consumer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WaterNotifier/com/waternotifier/waternotifierlibrary/ConsumerCallers.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WaterNotifier/com/waternotifier/waternotifierlibrary/ConsumerCallers.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WaterNotifier/com/waternotifier/waternotifierlibrary/ConsumerOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WaterNotifier/com/waternotifier/waternotifierlibrary/ConsumerOperations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WaterNotifier/com/waternotifier/waternotifierlibrary/DataOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WaterNotifier/com/waternotifier/waternotifierlibrary/DataOperations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WaterNotifier/com/waternotifier/waternotifierlibrary/DatabaseHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WaterNotifier/com/waternotifier/waternotifierlibrary/DatabaseHelper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WaterNotifier/com/waternotifier/waternotifierlibrary/Displayconsumers$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WaterNotifier/com/waternotifier/waternotifierlibrary/Displayconsumers$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WaterNotifier/com/waternotifier/waternotifierlibrary/Displayconsumers$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WaterNotifier/com/waternotifier/waternotifierlibrary/Displayconsumers$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WaterNotifier/com/waternotifier/waternotifierlibrary/Displayconsumers.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WaterNotifier/com/waternotifier/waternotifierlibrary/Displayconsumers.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WaterNotifier/com/waternotifier/waternotifierlibrary/Location.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WaterNotifier/com/waternotifier/waternotifierlibrary/Location.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WaterNotifier/com/waternotifier/waternotifierlibrary/LocationConsumers.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WaterNotifier/com/waternotifier/waternotifierlibrary/LocationConsumers.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WaterNotifier/com/waternotifier/waternotifierlibrary/Notifier.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WaterNotifier/com/waternotifier/waternotifierlibrary/Notifier.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WaterNotifier/com/waternotifier/waternotifierlibrary/SIMCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WaterNotifier/com/waternotifier/waternotifierlibrary/SIMCard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WaterNotifier/com/waternotifier/waternotifierlibrary/SMSDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WaterNotifier/com/waternotifier/waternotifierlibrary/SMSDetails.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WaterNotifier/com/waternotifier/waternotifierlibrary/SqliteConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WaterNotifier/com/waternotifier/waternotifierlibrary/SqliteConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WaterNotifier/com/waternotifier/waternotifierlibrary/VoiceCallDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WaterNotifier/com/waternotifier/waternotifierlibrary/VoiceCallDetails.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DatabaseClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DatabaseClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GSM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GSM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GSMs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GSMs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MissedCalls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MissedCalls.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Displayconsumers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Displayconsumers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LocationConsumers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LocationConsumers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Serial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Serial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WaitForCalls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WaitForCalls.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WaitForMessages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WaitForMessages.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LogToFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LogToFile.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,129 +41,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SendHTMLEmail.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/SendHTMLEmail.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2227">
-              <caret line="138" selection-start-line="138" selection-end-line="138" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LocationConsumers.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LocationConsumers.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="525" column="81" selection-start-line="525" selection-start-column="81" selection-end-line="525" selection-end-column="81" />
-              <folding>
-                <element signature="e#548#880#0" />
-                <element signature="e#548#3083#0" />
-                <element signature="e#3089#3370#0" />
-                <element signature="e#3089#5586#0" />
-                <element signature="e#5592#5756#0" />
-                <element signature="e#5592#7523#0" />
-                <element signature="e#7529#7683#0" />
-                <element signature="e#7529#9497#0" />
-                <element signature="e#9504#9666#0" />
-                <element signature="e#9504#11118#0" />
-                <element signature="e#11124#11525#0" />
-                <element signature="e#11124#14396#0" />
-                <element signature="e#14403#14572#0" />
-                <element signature="e#14403#15909#0" />
-                <element signature="e#18971#19140#0" />
-                <element signature="e#18971#20555#0" />
-                <element signature="e#20561#20725#0" />
-                <element signature="e#20561#22255#0" />
-                <element signature="e#22261#22413#0" />
-                <element signature="e#22261#24060#0" />
-                <element signature="e#24066#24352#0" />
-                <element signature="e#24066#26790#0" />
-                <element signature="e#26796#27078#0" />
-                <element signature="e#28937#28980#0" />
-                <element signature="e#29967#30058#0" />
-                <element signature="e#29967#32433#0" />
-                <element signature="e#32439#32530#0" />
-                <element signature="e#32439#34825#0" />
-                <element signature="e#39953#39954#0" expanded="true" />
-                <element signature="e#39995#39996#0" expanded="true" />
-                <element signature="e#34914#34923#0" />
-                <element signature="e#42016#42017#0" expanded="true" />
-                <element signature="e#42073#42074#0" expanded="true" />
-                <element signature="e#42112#42113#0" expanded="true" />
-                <element signature="e#42150#42151#0" expanded="true" />
-                <element signature="e#42209#42210#0" expanded="true" />
-                <element signature="e#42263#42264#0" expanded="true" />
-                <element signature="e#42304#42305#0" expanded="true" />
-                <element signature="e#42344#42345#0" expanded="true" />
-                <element signature="e#42407#42408#0" expanded="true" />
-                <element signature="e#42465#42466#0" expanded="true" />
-                <element signature="e#42504#42505#0" expanded="true" />
-                <element signature="e#42541#42542#0" expanded="true" />
-                <element signature="e#42599#42600#0" expanded="true" />
-                <element signature="e#42651#42652#0" expanded="true" />
-                <element signature="e#42692#42693#0" expanded="true" />
-                <element signature="e#42729#42730#0" expanded="true" />
-                <element signature="e#42789#42790#0" expanded="true" />
-                <element signature="e#42841#42842#0" expanded="true" />
-                <element signature="e#42882#42883#0" expanded="true" />
-                <element signature="e#42919#42920#0" expanded="true" />
-                <element signature="e#42979#42980#0" expanded="true" />
-                <element signature="e#43031#43032#0" expanded="true" />
-                <element signature="e#43072#43073#0" expanded="true" />
-                <element signature="e#43109#43110#0" expanded="true" />
-                <element signature="e#43169#43170#0" expanded="true" />
-                <element signature="e#43221#43222#0" expanded="true" />
-                <element signature="e#43266#43267#0" expanded="true" />
-                <element signature="e#43307#43308#0" expanded="true" />
-                <element signature="e#43375#43376#0" expanded="true" />
-                <element signature="e#43435#43436#0" expanded="true" />
-                <element signature="e#43476#43477#0" expanded="true" />
-                <element signature="e#43513#43514#0" expanded="true" />
-                <element signature="e#43573#43574#0" expanded="true" />
-                <element signature="e#43625#43626#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Location.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Location.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="468" column="12" lean-forward="true" selection-start-line="468" selection-start-column="12" selection-end-line="469" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Displayconsumers.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Displayconsumers.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="118" column="66" selection-start-line="118" selection-start-column="66" selection-end-line="118" selection-end-column="66" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GSM.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GSM.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="294" column="50" lean-forward="true" selection-start-line="294" selection-start-column="24" selection-end-line="294" selection-end-column="50" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DatabaseClass.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DatabaseClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="109" column="23" selection-start-line="109" selection-start-column="23" selection-end-line="109" selection-end-column="23" />
+            <state relative-caret-position="2397">
+              <caret line="147" column="25" lean-forward="true" selection-start-line="147" selection-start-column="25" selection-end-line="147" selection-end-column="25" />
+              <folding>
+                <element signature="e#1460#1477#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -184,8 +56,8 @@
       <file leaf-file-name="LogToFile.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LogToFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
-              <caret line="83" column="60" lean-forward="true" selection-start-line="83" selection-start-column="60" selection-end-line="83" selection-end-column="60" />
+            <state relative-caret-position="714">
+              <caret line="153" column="56" lean-forward="true" selection-start-line="153" selection-start-column="56" selection-end-line="153" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -193,16 +65,52 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Serial.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Serial.java">
+      <file leaf-file-name="Logger.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.logging/java/util/logging/Logger.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="15" column="36" lean-forward="true" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
+            <state relative-caret-position="210">
+              <caret line="959" column="39" lean-forward="true" selection-start-line="959" selection-start-column="39" selection-end-line="959" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GSM.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GSM.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3720">
+              <caret line="318" selection-start-line="318" selection-end-line="318" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WaitForMessages.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/WaitForMessages.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1292">
+              <caret line="80" column="62" lean-forward="true" selection-start-line="80" selection-start-column="62" selection-end-line="80" selection-end-column="62" />
               <folding>
-                <element signature="e#1462#1508#0" />
-                <element signature="e#6184#6231#0" />
-                <element signature="method#function#0;class#Serial#0" />
-                <element signature="method#delay#0;class#Serial#0" />
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GSMs.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GSMs.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="973">
+              <caret line="243" column="37" lean-forward="true" selection-start-line="243" selection-start-column="37" selection-end-line="243" selection-end-column="37" />
+              <folding>
+                <element signature="e#6298#6299#0" expanded="true" />
+                <element signature="e#6328#6329#0" expanded="true" />
+                <element signature="e#6368#6369#0" expanded="true" />
+                <element signature="e#6392#6393#0" expanded="true" />
+                <element signature="e#6676#6677#0" expanded="true" />
+                <element signature="e#6709#6710#0" expanded="true" />
+                <element signature="e#6747#6748#0" expanded="true" />
+                <element signature="e#6781#6782#0" expanded="true" />
+                <element signature="e#6834#6835#0" expanded="true" />
+                <element signature="e#6865#6866#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -211,8 +119,8 @@
       <file leaf-file-name="WaitForCalls.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/WaitForCalls.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="64" column="42" lean-forward="true" selection-start-line="64" selection-start-column="42" selection-end-line="64" selection-end-column="42" />
+            <state relative-caret-position="207">
+              <caret line="156" column="19" selection-start-line="156" selection-start-column="19" selection-end-line="156" selection-end-column="19" />
               <folding>
                 <element signature="e#8144#8145#0" expanded="true" />
                 <element signature="e#8179#8180#0" expanded="true" />
@@ -221,16 +129,34 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Serial.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Serial.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="283">
+              <caret line="64" column="25" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
+              <folding>
+                <element signature="e#1462#1508#0" />
+                <element signature="method#function#0;class#Serial#0" />
+                <element signature="method#delay#0;class#Serial#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="MissedCalls.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MissedCalls.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="78" selection-start-line="78" selection-end-line="78" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4402#4403#0" expanded="true" />
-                <element signature="e#4433#4434#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="173">
+              <caret line="94" column="20" selection-start-line="94" selection-start-column="20" selection-end-line="94" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Message.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Message.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="13" selection-start-column="13" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -271,9 +197,16 @@
       <find>checkM</find>
       <find>CMGR</find>
       <find>try</find>
+      <find>Last</find>
+      <find>System.out</find>
+      <find>ex</find>
+      <find>DatabaseClass</find>
+      <find>System.out.println(</find>
     </findStrings>
     <replaceStrings>
       <replace>queryUpdate</replace>
+      <replace>GSM</replace>
+      <replace>LogToFile.log(&quot;info&quot;,</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -282,8 +215,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Serial.java" />
-        <option value="$PROJECT_DIR$/src/GSMs.java" />
         <option value="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/VoiceCallDetails.java" />
         <option value="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/DatabaseHelper.java" />
         <option value="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/ConsumerCallers.java" />
@@ -291,26 +222,33 @@
         <option value="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/SIMCard.java" />
         <option value="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Location.java" />
         <option value="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/SendHTMLEmail.java" />
-        <option value="$PROJECT_DIR$/src/MissedCalls.java" />
         <option value="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LocationConsumers.java" />
-        <option value="$PROJECT_DIR$/src/GSM.java" />
-        <option value="$PROJECT_DIR$/src/DatabaseClass.java" />
         <option value="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Displayconsumers.java" />
+        <option value="$PROJECT_DIR$/src/GSM.java" />
         <option value="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LogToFile.java" />
+        <option value="$PROJECT_DIR$/src/DatabaseClass.java" />
+        <option value="$PROJECT_DIR$/src/WaitForCalls.java" />
+        <option value="$PROJECT_DIR$/src/Serial.java" />
+        <option value="$PROJECT_DIR$/src/GSMs.java" />
+        <option value="$PROJECT_DIR$/src/WaitForMessages.java" />
+        <option value="$PROJECT_DIR$/src/MissedCalls.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-18" />
-    <option name="width" value="3420" />
-    <option name="height" value="1794" />
+    <option name="y" value="-18" />
+    <option name="width" value="1402" />
+    <option name="height" value="1004" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -335,23 +273,17 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="META-INF" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="WaterNotifier" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="AnalyzeApkAction.lastApkPath" value="$PROJECT_DIR$/src/Resources-WaterNotifier" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Resources-WaterNotifier" />
-    <property name="project.structure.last.edited" value="SDKs" />
-    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15332031" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
@@ -367,7 +299,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Displayconsumers">
+  <component name="RunManager" selected="Application.WaterNotifier">
     <configuration name="Displayconsumers" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.waternotifier.waternotifierlibrary.Displayconsumers" />
       <module name="WaterNotifier" />
@@ -475,36 +407,56 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1292" height="732" extended-state="6" />
+    <frame x="-6" y="-6" width="1833" height="972" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3280255" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32868758" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="6" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.0" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.31847134" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="7" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14609376" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info id="Learn" order="5" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24986272" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24986272" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.329849" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39871383" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.95382166" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info id="Designer" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14609376" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.31847134" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Capture Tool" order="7" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.95382166" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3280255" />
+      <window_info anchor="right" id="Maven Projects" order="6" />
+      <window_info id="Learn" order="5" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -525,20 +477,14 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/MissedCalls.java</url>
-          <line>78</line>
+          <line>79</line>
           <properties />
           <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/DatabaseClass.java</url>
-          <line>111</line>
-          <properties />
-          <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LocationConsumers.java</url>
           <line>96</line>
-          <properties class="com.waternotifier.waternotifierlibrary.LocationConsumers" method="exists">
+          <properties class="com.waternotifier.waternotifierlibrary.LocationConsumers">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="20" />
@@ -551,37 +497,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Displayconsumers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3587">
-          <caret line="211" lean-forward="true" selection-start-line="211" selection-end-line="211" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LocationConsumers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8143">
-          <caret line="726" selection-start-line="726" selection-end-line="726" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Location.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8500">
-          <caret line="503" selection-start-line="503" selection-end-line="503" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GSMs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="40" column="24" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/VoiceCallDetails.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -749,13 +664,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GSMs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="40" column="24" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/DatabaseHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="874">
@@ -819,13 +727,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_171/src.zip!/java/time/LocalDate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1739">
-          <caret line="264" column="28" selection-start-line="264" selection-start-column="28" selection-end-line="264" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_171/src.zip!/java/time/LocalDate.java" />
     <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/VoiceCallDetails.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -914,13 +816,7 @@
     <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_171/src.zip!/java/util/ArrayList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="106" column="13" selection-start-line="106" selection-start-column="13" selection-end-line="106" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_171/src.zip!/java/util/ArrayList.java" />
     <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/SMSDetails.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -965,85 +861,64 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LocationConsumers.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="525" column="81" selection-start-line="525" selection-start-column="81" selection-end-line="525" selection-end-column="81" />
+        <state relative-caret-position="6817">
+          <caret line="948" selection-start-line="948" selection-end-line="948" />
           <folding>
             <element signature="e#548#880#0" />
             <element signature="e#548#3083#0" />
             <element signature="e#3089#3370#0" />
             <element signature="e#3089#5586#0" />
-            <element signature="e#5592#5756#0" />
-            <element signature="e#5592#7523#0" />
-            <element signature="e#7529#7683#0" />
-            <element signature="e#7529#9497#0" />
-            <element signature="e#9504#9666#0" />
-            <element signature="e#9504#11118#0" />
-            <element signature="e#11124#11525#0" />
-            <element signature="e#11124#14396#0" />
-            <element signature="e#14403#14572#0" />
-            <element signature="e#14403#15909#0" />
-            <element signature="e#18971#19140#0" />
-            <element signature="e#18971#20555#0" />
-            <element signature="e#20561#20725#0" />
-            <element signature="e#20561#22255#0" />
-            <element signature="e#22261#22413#0" />
-            <element signature="e#22261#24060#0" />
-            <element signature="e#24066#24352#0" />
-            <element signature="e#24066#26790#0" />
-            <element signature="e#26796#27078#0" />
-            <element signature="e#28937#28980#0" />
-            <element signature="e#29967#30058#0" />
-            <element signature="e#29967#32433#0" />
-            <element signature="e#32439#32530#0" />
-            <element signature="e#32439#34825#0" />
-            <element signature="e#39953#39954#0" expanded="true" />
-            <element signature="e#39995#39996#0" expanded="true" />
-            <element signature="e#34914#34923#0" />
-            <element signature="e#42016#42017#0" expanded="true" />
-            <element signature="e#42073#42074#0" expanded="true" />
-            <element signature="e#42112#42113#0" expanded="true" />
-            <element signature="e#42150#42151#0" expanded="true" />
-            <element signature="e#42209#42210#0" expanded="true" />
-            <element signature="e#42263#42264#0" expanded="true" />
-            <element signature="e#42304#42305#0" expanded="true" />
-            <element signature="e#42344#42345#0" expanded="true" />
-            <element signature="e#42407#42408#0" expanded="true" />
-            <element signature="e#42465#42466#0" expanded="true" />
-            <element signature="e#42504#42505#0" expanded="true" />
-            <element signature="e#42541#42542#0" expanded="true" />
-            <element signature="e#42599#42600#0" expanded="true" />
-            <element signature="e#42651#42652#0" expanded="true" />
-            <element signature="e#42692#42693#0" expanded="true" />
-            <element signature="e#42729#42730#0" expanded="true" />
-            <element signature="e#42789#42790#0" expanded="true" />
-            <element signature="e#42841#42842#0" expanded="true" />
-            <element signature="e#42882#42883#0" expanded="true" />
-            <element signature="e#42919#42920#0" expanded="true" />
-            <element signature="e#42979#42980#0" expanded="true" />
-            <element signature="e#43031#43032#0" expanded="true" />
-            <element signature="e#43072#43073#0" expanded="true" />
-            <element signature="e#43109#43110#0" expanded="true" />
-            <element signature="e#43169#43170#0" expanded="true" />
-            <element signature="e#43221#43222#0" expanded="true" />
-            <element signature="e#43266#43267#0" expanded="true" />
-            <element signature="e#43307#43308#0" expanded="true" />
-            <element signature="e#43375#43376#0" expanded="true" />
-            <element signature="e#43435#43436#0" expanded="true" />
-            <element signature="e#43476#43477#0" expanded="true" />
-            <element signature="e#43513#43514#0" expanded="true" />
-            <element signature="e#43573#43574#0" expanded="true" />
-            <element signature="e#43625#43626#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Location.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5593">
+          <caret line="332" selection-start-line="332" selection-end-line="332" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Displayconsumers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="286" column="66" selection-start-line="286" selection-start-column="66" selection-end-line="286" selection-end-column="66" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.logging/java/util/logging/Level.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="142" column="45" selection-start-line="142" selection-start-column="42" selection-end-line="142" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.logging/java/util/logging/Logger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="959" column="39" lean-forward="true" selection-start-line="959" selection-start-column="39" selection-end-line="959" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DatabaseClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2397">
+          <caret line="147" column="25" lean-forward="true" selection-start-line="147" selection-start-column="25" selection-end-line="147" selection-end-column="25" />
+          <folding>
+            <element signature="e#1460#1477#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Serial.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="15" column="36" lean-forward="true" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
+        <state relative-caret-position="283">
+          <caret line="64" column="25" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
           <folding>
             <element signature="e#1462#1508#0" />
-            <element signature="e#6184#6231#0" />
             <element signature="method#function#0;class#Serial#0" />
             <element signature="method#delay#0;class#Serial#0" />
           </folding>
@@ -1052,8 +927,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/WaitForCalls.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="64" column="42" lean-forward="true" selection-start-line="64" selection-start-column="42" selection-end-line="64" selection-end-column="42" />
+        <state relative-caret-position="207">
+          <caret line="156" column="19" selection-start-line="156" selection-start-column="19" selection-end-line="156" selection-end-column="19" />
           <folding>
             <element signature="e#8144#8145#0" expanded="true" />
             <element signature="e#8179#8180#0" expanded="true" />
@@ -1061,53 +936,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MissedCalls.java">
+    <entry file="file://$PROJECT_DIR$/src/GSMs.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="78" selection-start-line="78" selection-end-line="78" />
+        <state relative-caret-position="973">
+          <caret line="243" column="37" lean-forward="true" selection-start-line="243" selection-start-column="37" selection-end-line="243" selection-end-column="37" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4402#4403#0" expanded="true" />
-            <element signature="e#4433#4434#0" expanded="true" />
+            <element signature="e#6298#6299#0" expanded="true" />
+            <element signature="e#6328#6329#0" expanded="true" />
+            <element signature="e#6368#6369#0" expanded="true" />
+            <element signature="e#6392#6393#0" expanded="true" />
+            <element signature="e#6676#6677#0" expanded="true" />
+            <element signature="e#6709#6710#0" expanded="true" />
+            <element signature="e#6747#6748#0" expanded="true" />
+            <element signature="e#6781#6782#0" expanded="true" />
+            <element signature="e#6834#6835#0" expanded="true" />
+            <element signature="e#6865#6866#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GSM.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="294" column="50" lean-forward="true" selection-start-line="294" selection-start-column="24" selection-end-line="294" selection-end-column="50" />
+        <state relative-caret-position="3720">
+          <caret line="318" selection-start-line="318" selection-end-line="318" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Location.java">
+    <entry file="file://$PROJECT_DIR$/src/WaitForMessages.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="468" column="12" lean-forward="true" selection-start-line="468" selection-start-column="12" selection-end-line="469" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DatabaseClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="109" column="23" selection-start-line="109" selection-start-column="23" selection-end-line="109" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Displayconsumers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="118" column="66" selection-start-line="118" selection-start-column="66" selection-end-line="118" selection-end-column="66" />
+        <state relative-caret-position="1292">
+          <caret line="80" column="62" lean-forward="true" selection-start-line="80" selection-start-column="62" selection-end-line="80" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/MissedCalls.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="94" column="20" selection-start-line="94" selection-start-column="20" selection-end-line="94" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LogToFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="83" column="60" lean-forward="true" selection-start-line="83" selection-start-column="60" selection-end-line="83" selection-end-column="60" />
+        <state relative-caret-position="714">
+          <caret line="153" column="56" lean-forward="true" selection-start-line="153" selection-start-column="56" selection-end-line="153" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1121,8 +1003,8 @@
         <settings>
           <artifact-editor>
             <show-content>
-              <type id="library" />
               <type id="artifact" />
+              <type id="library" />
             </show-content>
           </artifact-editor>
           <last-edited>WaterNotifier:jar</last-edited>
@@ -1161,7 +1043,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>JDK_10.0.1</last-edited>
+          <last-edited>10</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

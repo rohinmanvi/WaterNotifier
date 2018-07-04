@@ -128,5 +128,58 @@ public class LogToFile {
             if(fh!=null)fh.close();
         }
     }
+
+    public static void log(String level, String msg){
+
+        FileHandler fh = null;
+        try {
+
+            // This block configure the logger with handler and formatter
+            fh = new FileHandler("C:/WNDB/log/WNLogFile.log", true);
+            logger.addHandler(fh);
+            SimpleFormatter formatter = new SimpleFormatter();
+            fh.setFormatter(formatter);
+
+            switch (level) {
+                case "severe":
+                    logger.log(Level.SEVERE, msg);
+//                    if(!msg.equals(""))
+//                        JOptionPane.showMessageDialog(null,msg,
+//                                "Error", JOptionPane.ERROR_MESSAGE);
+                    break;
+                case "warning":
+                    logger.log(Level.WARNING, msg);
+//                    if(!msg.equals(""))
+//                        JOptionPane.showMessageDialog(null,msg,
+//                                "Warning", JOptionPane.WARNING_MESSAGE);
+                    break;
+                case "info":
+                    logger.log(Level.INFO, msg);
+//                    if(!msg.equals(""))
+//                        JOptionPane.showMessageDialog(null,msg,
+//                                "Info", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                case "config":
+                    logger.log(Level.CONFIG, msg);
+                    break;
+                case "fine":
+                    logger.log(Level.FINE, msg);
+                    break;
+                case "finer":
+                    logger.log(Level.FINER, msg);
+                    break;
+                case "finest":
+                    logger.log(Level.FINEST, msg);
+                    break;
+                default:
+                    logger.log(Level.CONFIG, msg);
+                    break;
+            }
+        } catch (IOException | SecurityException ex1) {
+            logger.log(Level.SEVERE, null, ex1);
+        } finally{
+            if(fh!=null)fh.close();
+        }
+    }
     
 }

@@ -1,3 +1,5 @@
+import com.waternotifier.waternotifierlibrary.LogToFile;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,7 +19,7 @@ public abstract class GSMs extends GSM implements Runnable {
         threadName = name;
         function = fun;
         threadName += " (" + phone + ")";
-        System.out.println(threadName + ": creating");
+        LogToFile.log("info",threadName + ": creating");
         COMStart(comports);
         threadName += " (" + COMport + ")";
         if (t == null) {
@@ -32,7 +34,7 @@ public abstract class GSMs extends GSM implements Runnable {
         threadName = name;
         function = fun;
         threadName += " (" + phone + ")";
-        System.out.println(threadName + ": creating");
+        LogToFile.log("info",threadName + ": creating");
         boolean v = false;
         boolean reset = false;
         int count = 0;
@@ -45,7 +47,7 @@ public abstract class GSMs extends GSM implements Runnable {
             }
             for (int i = 0; i < COMports.size(); i++) {
                 String port = COMports.get(i);
-                System.out.println(threadName + ": " + port);
+                LogToFile.log("info",threadName + ": " + port);
                 setPortDescription(port);
                 try {
                     if (openConnection()) {
@@ -62,11 +64,12 @@ public abstract class GSMs extends GSM implements Runnable {
                                     }
                                 } catch (Exception e) {
                                     e.printStackTrace();
-                                    System.out.println("CONTINUING");
+                                    LogToFile.log(e,"info", "GSMs || ");
+                                    LogToFile.log("info","CONTINUING");
                                 }
                                 break;
                             } else {
-                                System.out.println(threadName + ": " + port + " wrong number");
+                                LogToFile.log("info",threadName + ": " + port + " wrong number");
                             }
                             if (reset) {
                                 completeReset();
@@ -76,7 +79,8 @@ public abstract class GSMs extends GSM implements Runnable {
                 } catch (Exception e) {
                     closeConnection();
                     e.printStackTrace();
-                    System.out.println("CONTINUING");
+                    LogToFile.log(e,"info", "GSMs || ");
+                    LogToFile.log("info","CONTINUING");
                     v = false;
                 }
                 closeConnection();
@@ -101,7 +105,7 @@ public abstract class GSMs extends GSM implements Runnable {
                 count = 0;
             for (int i = 0; i <= comports; i++) {
                 String port = "COM" + i;
-                System.out.println(threadName + ": " + port);
+                LogToFile.log("info",threadName + ": " + port);
                 setPortDescription(port);
                 try {
                     if (openConnection()) {
@@ -114,12 +118,12 @@ public abstract class GSMs extends GSM implements Runnable {
                                     }
                                 } catch (Exception e) {
                                     e.printStackTrace();
-                                    System.out.println("CONTINUING");
+                                    LogToFile.log("info","CONTINUING");
                                 }
                                 v = true;
                                 COMport = port;
                             } else {
-                                System.out.println(threadName + ": " + port + " wrong number");
+                                LogToFile.log("info",threadName + ": " + port + " wrong number");
                             }
                             if (reset) {
                                 completeReset();
@@ -129,11 +133,11 @@ public abstract class GSMs extends GSM implements Runnable {
                 } catch (Exception e) {
                     closeConnection();
                     e.printStackTrace();
-                    System.out.println("CONTINUING");
+                    LogToFile.log("info","CONTINUING");
                     v = false;
                 }
                 closeConnection();
-                System.out.println(v + " " + COMports.size());
+                LogToFile.log("info",v + " " + COMports.size());
             }
             COMports = removeDuplicates(COMports);
         }
@@ -144,7 +148,7 @@ public abstract class GSMs extends GSM implements Runnable {
     public void run() {
         checkConnection();
         startCommands();
-        System.out.println(threadName + ": running");
+        LogToFile.log("info",threadName + ": running");
         int count = 0;
         while (!checkService()) {
             if (count > 5) {
@@ -154,10 +158,10 @@ public abstract class GSMs extends GSM implements Runnable {
                 count = 0;
             }
             count++;
-            System.out.println(threadName + ": trying to get service");
+            LogToFile.log("info",threadName + ": trying to get service");
             delay(5000);
         }
-        System.out.println(threadName + ": service");
+        LogToFile.log("info",threadName + ": service");
 
         running();
     }
@@ -181,6 +185,7 @@ public abstract class GSMs extends GSM implements Runnable {
         try {
             TimeUnit.MILLISECONDS.sleep(s);
         } catch (InterruptedException e) {
+            LogToFile.log(e,"info", "GSMs || ");
             // TODO Auto-generated catch block
         }
     }
@@ -198,7 +203,7 @@ public abstract class GSMs extends GSM implements Runnable {
     }
 
     public boolean completeReset() {
-        System.out.println(threadName + ": resetting");
+        LogToFile.log("info",threadName + ": resetting");
         if (send("AT+CFUN=1,1")) {
             delay(3000);
             checkConnection();
@@ -212,17 +217,17 @@ public abstract class GSMs extends GSM implements Runnable {
                     count = 0;
                 }
                 count++;
-                System.out.println(threadName + ": trying to get service");
+                LogToFile.log("info",threadName + ": trying to get service");
                 delay(5000);
             }
-            System.out.println(threadName + ": service");
+            LogToFile.log("info",threadName + ": service");
             return true;
         }
         return false;
     }
 
     public boolean reset() {
-        System.out.println(threadName + ": resetting");
+        LogToFile.log("info",threadName + ": resetting");
         if (send("AT+CFUN=1,1")) {
             delay(3000);
             while (!checkConnection())
@@ -236,7 +241,7 @@ public abstract class GSMs extends GSM implements Runnable {
                     counts = 0;
                 }
                 counts++;
-                System.out.println(threadName + ": trying to get service");
+                LogToFile.log("info",threadName + ": trying to get service");
                 delay(5000);
             }
             return true;

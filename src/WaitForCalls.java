@@ -1,3 +1,5 @@
+import com.waternotifier.waternotifierlibrary.LogToFile;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -21,7 +23,7 @@ public class WaitForCalls extends GSMs {
     }
 
     public void running() {
-        System.out.println(threadName + ": waitForCalls");
+        LogToFile.log("info",threadName + ": waitForCalls");
         int counting = 0;
         try {
             while (true) {
@@ -32,7 +34,7 @@ public class WaitForCalls extends GSMs {
                 }
                 if (function == -1) {
                     closeConnection();
-                    System.out.println(threadName + " exiting.");
+                    LogToFile.log("info",threadName + " exiting.");
                     notif();
                     break;
                 }
@@ -52,13 +54,13 @@ public class WaitForCalls extends GSMs {
 //                                    counts = 0;
 //                                }
 //                                counts++;
-//                                System.out.println(threadName + ": trying to get service");
+//                                LogToFile.log("info",threadName + ": trying to get service");
 //                                delay(5000);
 //                            }
                             checkService();
                         } catch(Exception e){
                             e.printStackTrace();
-                            System.out.println("CONTINUING");
+                            LogToFile.log("info","CONTINUING");
                         }
                         phoneNumber = "";
                         message = "";
@@ -69,7 +71,7 @@ public class WaitForCalls extends GSMs {
                             if (mess.isEmpty() || mess == null) {
                                 break;
                             }
-                            System.out.println(threadName + ": Message Received: \n" + mess);
+                            LogToFile.log("info",threadName + ": Message Received: \n" + mess);
                             if (mess.length() > 3 && (super.phoneNum().length() == 11 || super.phoneNum().length() == 12)
                                     && mess.indexOf(',') > -1 && mess.indexOf('!') > -1) {
                                 message = mess;
@@ -81,7 +83,7 @@ public class WaitForCalls extends GSMs {
                                 phoneNumber = phoneNumber.replaceAll("\\s+", "");
                                 DatabaseClass.newMessageLog(phoneNumber, getPhoneNumber(), message);
                                 if (DatabaseClass.newConsumer(phoneNumber, locationNum, name)) {
-                                    System.out.println(phoneNumber + " " + locationNum + " " + name);
+                                    LogToFile.log("info",phoneNumber + " " + locationNum + " " + name);
                                     sendMessages.add(new Message(phoneNumber, phoneNumber + " has been subscribed to the "
                                             + DatabaseClass.getNotifierLocation(locationNum) + " notifier"));
                                     counting = 0;
@@ -98,13 +100,13 @@ public class WaitForCalls extends GSMs {
                                 if (mess.isEmpty() || mess == null) {
                                     break;
                                 }
-                                System.out.println(threadName + ": Command Message Received: \n" + mess);
+                                LogToFile.log("info",threadName + ": Command Message Received: \n" + mess);
                             }
                             if (mess.length() >= 10) {
                                 message = mess;
                                 if(message.indexOf('(') > -1 && message.indexOf(')') > -1 && message.indexOf('(') < message.indexOf(')')) {
                                     message = message.replace('\n', ' ');
-                                    System.out.println("RECEIVED COMMAND MESSAGE: " + message);
+                                    LogToFile.log("info","RECEIVED COMMAND MESSAGE: " + message);
                                     receiveMessages.add(new Message(phoneNumber, message));
                                 }
                                 else {
@@ -122,13 +124,13 @@ public class WaitForCalls extends GSMs {
                             function = 0;
                     } catch (Exception e) {
                         e.printStackTrace();
-                        System.out.println("CONTINUING");
+                        LogToFile.log("info","CONTINUING");
                     }
                     deleteMessages();
                     String a = waitForCall(0);
                     if (!a.isEmpty()) {
                         DatabaseClass.newCallLog(a, getPhoneNumber());
-                        System.out.println(threadName + ": got a call = " + a);
+                        LogToFile.log("info",threadName + ": got a call = " + a);
                         if (DatabaseClass.deviceExists(a)) {
                             phoneNumbersCall.add(a);
                             function = 0;
@@ -139,10 +141,10 @@ public class WaitForCalls extends GSMs {
                     removeDuplicatesMessage(sendMessages);
                 }
                 if (function == 2) {
-                    System.out.println(threadName + ": waitForCalls");
+                    LogToFile.log("info",threadName + ": waitForCalls");
                     String a = waitForCall();
                     DatabaseClass.newCallLog(a, getPhoneNumber());
-                    System.out.println(threadName + ": got a call = " + a);
+                    LogToFile.log("info",threadName + ": got a call = " + a);
                     if (DatabaseClass.deviceExists(a))
                         phoneNumbersCall.add(a);
                     function = 0;
@@ -150,9 +152,9 @@ public class WaitForCalls extends GSMs {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("CONTINUING: major");
+            LogToFile.log("info","CONTINUING: major");
             if (checkConnection()) {
-                System.out.println("RECONNECTING");
+                LogToFile.log("info","RECONNECTING");
                 run();
             } else {
                 closeConnection();

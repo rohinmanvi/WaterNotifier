@@ -1,3 +1,5 @@
+import com.waternotifier.waternotifierlibrary.LogToFile;
+
 import java.util.ArrayList;
 
 public class WaitForMessages extends GSMs {
@@ -26,7 +28,7 @@ public class WaitForMessages extends GSMs {
                 }
                     if (function == -1) {
                         closeConnection();
-                        System.out.println(threadName + " exiting.");
+                        LogToFile.log("info",threadName + " exiting.");
                         notif();
                         break;
                     }
@@ -46,15 +48,15 @@ public class WaitForMessages extends GSMs {
 //                                    counts = 0;
 //                                }
 //                                counts++;
-//                                System.out.println(threadName + ": trying to get service");
+//                                LogToFile.log("info",threadName + ": trying to get service");
 //                                delay(5000);
 //                            }
                             checkService();
                         } catch(Exception e){
                             e.printStackTrace();
-                            System.out.println("CONTINUING");
+                            LogToFile.log("info","CONTINUING");
                         }
-                        System.out.println(threadName + ": testing " + count + " = " + sendMessage(testingPhone, "Notifier is still alive: " + count));
+                        LogToFile.log("info",threadName + ": testing " + count + " = " + sendMessage(testingPhone, "Notifier is still alive: " + count));
                         for (int j = 0; j < 1000; j++) {
                             for (int i = 1; i <= 100; i++) {
                                 String mess = "";
@@ -63,7 +65,7 @@ public class WaitForMessages extends GSMs {
                                     if (mess.isEmpty() || mess == null) {
                                         break;
                                     }
-                                    System.out.println(threadName + ": Message Received: \n" + mess);
+                                    LogToFile.log("info",threadName + ": Message Received: \n" + mess);
                                     if (mess.length() > 3 && (super.phoneNum().length() == 11 || super.phoneNum().length() == 12)
                                             && mess.indexOf(',') > -1 && mess.indexOf('!') > -1) {
                                         message = mess;
@@ -75,15 +77,15 @@ public class WaitForMessages extends GSMs {
                                         phoneNumber = phoneNumber.replaceAll("\\s+", "");
                                         DatabaseClass.newMessageLog(phoneNumber, getPhoneNumber(), message);
                                         if (DatabaseClass.newConsumer(phoneNumber, locationNum, name)) {
-                                            System.out.println(phoneNumber + " " + locationNum + " " + name);
+                                            LogToFile.log("info",phoneNumber + " " + locationNum + " " + name);
                                             checkConnection();
-                                            System.out.println(sendMessage(phoneNumber, phoneNumber + " has been subscribed to the "
+                                            LogToFile.log("info", "" + sendMessage(phoneNumber, phoneNumber + " has been subscribed to the "
                                                     + DatabaseClass.getNotifierLocation(locationNum) + " notifier"));
                                         }
                                     }
                                 } catch (Exception e) {
                                     e.printStackTrace();
-                                    System.out.println("CONTINUING");
+                                    LogToFile.log("info","CONTINUING");
                                     break;
                                 }
                                 delay(2000);
@@ -94,9 +96,9 @@ public class WaitForMessages extends GSMs {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("CONTINUING: major");
+            LogToFile.log("info","CONTINUING: major");
             if (checkConnection()) {
-                System.out.println("RECONNECTING");
+                LogToFile.log("info","RECONNECTING");
                 run();
             } else {
                 closeConnection();
