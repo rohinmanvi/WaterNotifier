@@ -10,6 +10,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/WaterNotifier/GSM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WaterNotifier/GSM.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GSM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GSM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MissedCalls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MissedCalls.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WaitForCalls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WaitForCalls.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,51 +27,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DatabaseClass.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DatabaseClass.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2397">
-              <caret line="147" column="25" lean-forward="true" selection-start-line="147" selection-start-column="25" selection-end-line="147" selection-end-column="25" />
-              <folding>
-                <element signature="e#1460#1477#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="LogToFile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LogToFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1683">
-              <caret line="153" column="56" lean-forward="true" selection-start-line="153" selection-start-column="56" selection-end-line="153" selection-end-column="56" />
+            <state relative-caret-position="1173">
+              <caret line="164" column="7" lean-forward="true" selection-start-line="164" selection-start-column="7" selection-end-line="164" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Logger.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.logging/java/util/logging/Logger.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="959" column="39" lean-forward="true" selection-start-line="959" selection-start-column="39" selection-end-line="959" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GSM.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/GSM.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7">
-              <caret line="131" column="35" lean-forward="true" selection-start-line="131" selection-start-column="35" selection-end-line="131" selection-end-column="35" />
-              <folding>
-                <element signature="e#4318#4319#0" expanded="true" />
-                <element signature="e#4348#4349#0" expanded="true" />
-                <element signature="e#4662#4663#0" expanded="true" />
-                <element signature="e#4700#4701#0" expanded="true" />
-                <element signature="e#6757#6758#0" expanded="true" />
-                <element signature="e#6786#6787#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -78,7 +42,7 @@
       <file leaf-file-name="WaitForMessages.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/WaitForMessages.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1292">
+            <state relative-caret-position="123">
               <caret line="80" column="62" lean-forward="true" selection-start-line="80" selection-start-column="62" selection-end-line="80" selection-end-column="62" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -87,10 +51,32 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="WaitForCalls.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/WaitForCalls.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="474">
+              <caret line="129" column="59" lean-forward="true" selection-start-line="129" selection-start-column="59" selection-end-line="129" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GSM.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GSM.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="148" column="25" selection-start-line="148" selection-start-column="19" selection-end-line="148" selection-end-column="25" />
+              <folding>
+                <element signature="e#6955#6956#0" expanded="true" />
+                <element signature="e#6984#6985#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="GSMs.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GSMs.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="973">
+            <state relative-caret-position="802">
               <caret line="243" column="37" lean-forward="true" selection-start-line="243" selection-start-column="37" selection-end-line="243" selection-end-column="37" />
               <folding>
                 <element signature="e#6298#6299#0" expanded="true" />
@@ -108,15 +94,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WaitForCalls.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/WaitForCalls.java">
+      <file leaf-file-name="MissedCalls.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MissedCalls.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="156" column="19" selection-start-line="156" selection-start-column="19" selection-end-line="156" selection-end-column="19" />
-              <folding>
-                <element signature="e#8144#8145#0" expanded="true" />
-                <element signature="e#8179#8180#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="275">
+              <caret line="46" column="31" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -124,31 +106,12 @@
       <file leaf-file-name="Serial.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Serial.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="64" column="25" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
+            <state relative-caret-position="2">
+              <caret line="46" column="53" lean-forward="true" selection-start-line="46" selection-start-column="53" selection-end-line="46" selection-end-column="53" />
               <folding>
-                <element signature="e#1462#1508#0" />
                 <element signature="method#function#0;class#Serial#0" />
                 <element signature="method#delay#0;class#Serial#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MissedCalls.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MissedCalls.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="94" column="20" selection-start-line="94" selection-start-column="20" selection-end-line="94" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Message.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Message.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="13" selection-start-column="13" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -164,8 +127,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>UPDATE</find>
-      <find>validZIPCODESeqNumber</find>
       <find>\&quot;</find>
       <find>ZIPCODE+SeqNumber number</find>
       <find>7</find>
@@ -192,13 +153,15 @@
       <find>Last</find>
       <find>System.out</find>
       <find>DatabaseClass</find>
-      <find>System.out.println(</find>
       <find>ex</find>
+      <find>System.out.println(</find>
+      <find>check</find>
+      <find>checkS</find>
     </findStrings>
     <replaceStrings>
       <replace>queryUpdate</replace>
-      <replace>LogToFile.log(&quot;info&quot;,</replace>
       <replace>GSM</replace>
+      <replace>LogToFile.log(&quot;info&quot;,</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -218,18 +181,18 @@
         <option value="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Displayconsumers.java" />
         <option value="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LogToFile.java" />
         <option value="$PROJECT_DIR$/src/DatabaseClass.java" />
-        <option value="$PROJECT_DIR$/src/WaitForCalls.java" />
-        <option value="$PROJECT_DIR$/src/Serial.java" />
         <option value="$PROJECT_DIR$/src/GSMs.java" />
         <option value="$PROJECT_DIR$/src/WaitForMessages.java" />
-        <option value="$PROJECT_DIR$/src/MissedCalls.java" />
         <option value="$PROJECT_DIR$/src/GSM.java" />
+        <option value="$PROJECT_DIR$/src/Serial.java" />
+        <option value="$PROJECT_DIR$/src/MissedCalls.java" />
+        <option value="$PROJECT_DIR$/src/WaitForCalls.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-18" />
-    <option name="y" value="-18" />
+    <option name="x" value="-14" />
+    <option name="y" value="22" />
     <option name="width" value="1402" />
     <option name="height" value="1004" />
   </component>
@@ -410,7 +373,7 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="6" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.9361208" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.031358887" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="7" />
@@ -466,12 +429,6 @@
           <line>404</line>
           <properties />
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/MissedCalls.java</url>
-          <line>79</line>
-          <properties />
-          <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LocationConsumers.java</url>
@@ -905,32 +862,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Serial.java">
+    <entry file="file://$PROJECT_DIR$/src/Message.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="64" column="25" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
-          <folding>
-            <element signature="e#1462#1508#0" />
-            <element signature="method#function#0;class#Serial#0" />
-            <element signature="method#delay#0;class#Serial#0" />
-          </folding>
+        <state>
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/WaitForCalls.java">
+    <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LogToFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="156" column="19" selection-start-line="156" selection-start-column="19" selection-end-line="156" selection-end-column="19" />
+        <state relative-caret-position="1173">
+          <caret line="164" column="7" lean-forward="true" selection-start-line="164" selection-start-column="7" selection-end-line="164" selection-end-column="7" />
           <folding>
-            <element signature="e#8144#8145#0" expanded="true" />
-            <element signature="e#8179#8180#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GSMs.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="973">
+        <state relative-caret-position="802">
           <caret line="243" column="37" lean-forward="true" selection-start-line="243" selection-start-column="37" selection-end-line="243" selection-end-column="37" />
           <folding>
             <element signature="e#6298#6299#0" expanded="true" />
@@ -949,7 +900,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/WaitForMessages.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1292">
+        <state relative-caret-position="123">
           <caret line="80" column="62" lean-forward="true" selection-start-line="80" selection-start-column="62" selection-end-line="80" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -957,42 +908,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Serial.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2">
+          <caret line="46" column="53" lean-forward="true" selection-start-line="46" selection-start-column="53" selection-end-line="46" selection-end-column="53" />
+          <folding>
+            <element signature="method#function#0;class#Serial#0" />
+            <element signature="method#delay#0;class#Serial#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/MissedCalls.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="94" column="20" selection-start-line="94" selection-start-column="20" selection-end-line="94" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Message.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LogToFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1683">
-          <caret line="153" column="56" lean-forward="true" selection-start-line="153" selection-start-column="56" selection-end-line="153" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="275">
+          <caret line="46" column="31" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GSM.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="131" column="35" lean-forward="true" selection-start-line="131" selection-start-column="35" selection-end-line="131" selection-end-column="35" />
+        <state relative-caret-position="253">
+          <caret line="148" column="25" selection-start-line="148" selection-start-column="19" selection-end-line="148" selection-end-column="25" />
           <folding>
-            <element signature="e#4318#4319#0" expanded="true" />
-            <element signature="e#4348#4349#0" expanded="true" />
-            <element signature="e#4662#4663#0" expanded="true" />
-            <element signature="e#4700#4701#0" expanded="true" />
-            <element signature="e#6757#6758#0" expanded="true" />
-            <element signature="e#6786#6787#0" expanded="true" />
+            <element signature="e#6955#6956#0" expanded="true" />
+            <element signature="e#6984#6985#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WaitForCalls.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="474">
+          <caret line="129" column="59" lean-forward="true" selection-start-line="129" selection-start-column="59" selection-end-line="129" selection-end-column="59" />
         </state>
       </provider>
     </entry>

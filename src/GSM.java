@@ -183,7 +183,7 @@ public class GSM extends Arduino {
                 serialWrite("AT+CMGR=" + x + '\r' + '\n');
                 delay(400);
                 String a = serialRead();
-                System.out.println(a);
+                LogToFile.log("info",a);
                 if (a.indexOf('\"') != a.lastIndexOf('\"') && a.indexOf('+') > -1 && a.indexOf('O') > -1) {
                     number = a;
                     number = number.substring(0, number.lastIndexOf('\"') - 1);
@@ -205,7 +205,7 @@ public class GSM extends Arduino {
                 serialWrite("AT+CMGR=" + x + '\r' + '\n');
                 delay(400);
                 String a = serialRead();
-                System.out.println(a);
+                LogToFile.log("info",a);
                 if (a.indexOf("WN(") > -1 && a.lastIndexOf(')') > -1 && a.indexOf("WN(") < a.lastIndexOf(')')) {
                     String b = a.substring(a.indexOf("WN(") + 3, a.lastIndexOf(')'));
                     if (b.indexOf('(') > -1) {
@@ -304,6 +304,27 @@ public class GSM extends Arduino {
         send("AT+CHUP", 1);
         for (int i = 0; i < 10; i++) {
             if (send("ATD+" + n)) {
+                delay(s);
+                DatabaseClass.madeCall(n);
+                for (int k = 0; k < 5; k++) {
+                    if (send("AT+CHUP", "CALL\",0", 5) || send("AT+CHUP", "CME", 5)) {
+                        return true;
+                    }
+                }
+                return true;
+            }
+            else{
+                send("AT+CHUP", 1);
+            }
+        }
+        return false;
+    }
+
+    public boolean advancedMissedCall(String n, int s) {
+        String b = "";
+        send("AT+CHUP", 1);
+        for (int i = 0; i < 10; i++) {
+            if (send("ATD+" + n)) {
                 while (true) {
                     b = serialRead();
                     print(b);
@@ -337,7 +358,7 @@ public class GSM extends Arduino {
     }
 
     private void print(String a) {
-//        System.out.println(a);
+//        LogToFile.log("info",a);
     }
 
 }

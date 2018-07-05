@@ -45,7 +45,6 @@ public class MissedCalls extends GSMs {
 //                                LogToFile.log("info",threadName + ": trying to get service");
 //                                delay(5000);
 //                            }
-                        checkService();
                     } catch(Exception e){
                         e.printStackTrace();
                         LogToFile.log("info","CONTINUING");

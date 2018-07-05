@@ -57,7 +57,6 @@ public class WaitForCalls extends GSMs {
 //                                LogToFile.log("info",threadName + ": trying to get service");
 //                                delay(5000);
 //                            }
-                            checkService();
                         } catch(Exception e){
                             e.printStackTrace();
                             LogToFile.log("info","CONTINUING");
@@ -69,6 +68,8 @@ public class WaitForCalls extends GSMs {
                             String mess = "";
                             mess = checkMessage(i);
                             if (mess.isEmpty() || mess == null) {
+                                if(i > 1)
+                                    deleteMessages();
                                 break;
                             }
                             LogToFile.log("info",threadName + ": Message Received: \n" + mess);
@@ -98,6 +99,8 @@ public class WaitForCalls extends GSMs {
                             else {
                                 mess = checkMessageCommand(i);
                                 if (mess.isEmpty() || mess == null) {
+                                    if(i > 1)
+                                        deleteMessages();
                                     break;
                                 }
                                 LogToFile.log("info",threadName + ": Command Message Received: \n" + mess);
@@ -126,7 +129,6 @@ public class WaitForCalls extends GSMs {
                         e.printStackTrace();
                         LogToFile.log("info","CONTINUING");
                     }
-                    deleteMessages();
                     String a = waitForCall(0);
                     if (!a.isEmpty()) {
                         DatabaseClass.newCallLog(a, getPhoneNumber());
