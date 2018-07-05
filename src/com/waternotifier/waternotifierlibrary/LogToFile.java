@@ -12,7 +12,7 @@ public class LogToFile {
     protected static final Logger logger = Logger.getLogger("MYLOG");
     
     public static void main(String[] args) {
-        
+
 //        Logger logger = Logger.getLogger("MyLog");
         FileHandler fh;
         
@@ -27,7 +27,7 @@ public class LogToFile {
             
             // the following statement is used to log any messages
 //            logger.info("WN first log");
-            x = i/j;
+            x = i / j;
         } catch (SecurityException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -45,7 +45,7 @@ public class LogToFile {
             log(e, "finer", "This is finer message!");
             log(e, "finest", "This is finest message!");
         }
-        
+
 //        logger.info("Hi How r u? - WN");
         
     }
@@ -53,40 +53,48 @@ public class LogToFile {
     /**
      * log Method
      * enable to log all exceptions to a file and display user message on demand
+     *
      * @param ex
      * @param level
      * @param msg
      */
-    public static void log(Exception ex, String level, String msg){
+    public static void log(Exception ex, String level, String msg) {
         
         FileHandler fh = null;
         try {
-    
+            
             // This block configure the logger with handler and formatter
             fh = new FileHandler("C:/WNDB/log/WNLogFile.log", true);
             logger.addHandler(fh);
-            SimpleFormatter formatter = new SimpleFormatter();
-            fh.setFormatter(formatter);
+//            SimpleFormatter formatter = new SimpleFormatter();
+//            fh.setFormatter(formatter);
             
-//            fh.setFormatter(new Formatter() {
-//                @Override
-//                public String format(LogRecord record) {
-//                    SimpleDateFormat logTime = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss");
-//                    Calendar cal = new GregorianCalendar();
-//                    cal.setTimeInMillis(record.getMillis());
-//                    return record.getLevel()
-//                            + logTime.format(cal.getTime())
-//                            + " || "
-//                            + record.getSourceClassName().substring(
-//                            record.getSourceClassName().lastIndexOf(".")+1,
-//                            record.getSourceClassName().length())
-//                            + "."
-//                            + record.getSourceMethodName()
-//                            + "() : "
+            fh.setFormatter(new Formatter() {
+                @Override
+                public String format(LogRecord record) {
+                    SimpleDateFormat logTime = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss:SSS");
+                    Calendar cal = new GregorianCalendar();
+                    cal.setTimeInMillis(record.getMillis());
+                    String messageFormatted;
+                    messageFormatted = logTime.format(cal.getTime())
+                            + " || "
+                            + record.getLevel()
+                            + " || "
+                            + record.getSourceClassName().substring(
+                            record.getSourceClassName().lastIndexOf(".") + 1,
+                            record.getSourceClassName().length())
+                            + "."
+                            + record.getSourceMethodName()
+                            + "() : "
+                            + ex
+                            + " || "
+                            + msg + "\n";
 //                            + record.getMessage() + "\n";
-//                }
-//            });
-    
+//                            + formattedMessage + "\n";
+                    return messageFormatted;
+                }
+            });
+            
             switch (level) {
                 case "severe":
                     logger.log(Level.SEVERE, msg, ex);
@@ -124,61 +132,83 @@ public class LogToFile {
             }
         } catch (IOException | SecurityException ex1) {
             logger.log(Level.SEVERE, null, ex1);
-        } finally{
-            if(fh!=null)fh.close();
+        } finally {
+            if (fh != null) fh.close();
         }
     }
-
-    public static void log(String level, String msg){
-
+    
+    public static void log(String level, String msg) {
+        
         FileHandler fh = null;
         try {
-
+            
             // This block configure the logger with handler and formatter
             fh = new FileHandler("C:/WNDB/log/WNLogFile.log", true);
             logger.addHandler(fh);
-            SimpleFormatter formatter = new SimpleFormatter();
-            fh.setFormatter(formatter);
-
+            
+            fh.setFormatter(new Formatter() {
+                @Override
+                public String format(LogRecord record) {
+                    SimpleDateFormat logTime = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss:SSS");
+                    Calendar cal = new GregorianCalendar();
+                    cal.setTimeInMillis(record.getMillis());
+                    String messageFormatted;
+                    messageFormatted = logTime.format(cal.getTime())
+                            + " || "
+                            + record.getLevel()
+                            + " || "
+                            + record.getSourceClassName().substring(
+                            record.getSourceClassName().lastIndexOf(".") + 1,
+                            record.getSourceClassName().length())
+                            + "."
+                            + record.getSourceMethodName()
+                            + "() : "
+                            + msg + "\n";
+//                            + record.getMessage() + "\n";
+//                            + formattedMessage + "\n";
+                    return messageFormatted;
+                }
+            });
+            
             switch (level) {
                 case "severe":
-                    logger.log(Level.SEVERE, msg);
+                    logger.log(Level.SEVERE, "");
 //                    if(!msg.equals(""))
 //                        JOptionPane.showMessageDialog(null,msg,
 //                                "Error", JOptionPane.ERROR_MESSAGE);
                     break;
                 case "warning":
-                    logger.log(Level.WARNING, msg);
+                    logger.log(Level.WARNING, "");
 //                    if(!msg.equals(""))
 //                        JOptionPane.showMessageDialog(null,msg,
 //                                "Warning", JOptionPane.WARNING_MESSAGE);
                     break;
                 case "info":
-                    logger.log(Level.INFO, msg);
+                    logger.log(Level.INFO, "");
 //                    if(!msg.equals(""))
 //                        JOptionPane.showMessageDialog(null,msg,
 //                                "Info", JOptionPane.INFORMATION_MESSAGE);
                     break;
                 case "config":
-                    logger.log(Level.CONFIG, msg);
+                    logger.log(Level.CONFIG, "");
                     break;
                 case "fine":
-                    logger.log(Level.FINE, msg);
+                    logger.log(Level.FINE, "");
                     break;
                 case "finer":
-                    logger.log(Level.FINER, msg);
+                    logger.log(Level.FINER, "");
                     break;
                 case "finest":
-                    logger.log(Level.FINEST, msg);
+                    logger.log(Level.FINEST, "");
                     break;
                 default:
-                    logger.log(Level.CONFIG, msg);
+                    logger.log(Level.CONFIG, "");
                     break;
             }
         } catch (IOException | SecurityException ex1) {
             logger.log(Level.SEVERE, null, ex1);
-        } finally{
-            if(fh!=null)fh.close();
+        } finally {
+            if (fh != null) fh.close();
         }
     }
     

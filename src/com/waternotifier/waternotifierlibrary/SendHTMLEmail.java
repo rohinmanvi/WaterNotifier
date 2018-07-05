@@ -84,6 +84,7 @@ public class SendHTMLEmail {
 //                    + "<p> Please renew SIM Cards, by making payment online/with nearest dealer only a week left!</p>", "text/html");
             String messageBody = getMessageBody();
             message.setContent(messageBody, "text/html");
+            LogToFile.log("info", messageBody);
 
             // Send message
             Transport.send(message);
@@ -91,6 +92,7 @@ public class SendHTMLEmail {
             System.out.println("Done");
 
         } catch (MessagingException e) {
+            LogToFile.log(e, "warning", "SendHTMLEmail.main()");
             throw new RuntimeException(e);
         }
     }

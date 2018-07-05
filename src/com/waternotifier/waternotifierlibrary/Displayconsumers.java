@@ -21,6 +21,7 @@ import java.awt.Font;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.LogRecord;
 //import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
 
 
@@ -34,7 +35,7 @@ public class Displayconsumers {
     private JTextField textPhone;
 
     Date datetime = new Date();
-
+    
     /**
      * Create the application.
      */
@@ -116,7 +117,7 @@ public class Displayconsumers {
 //							+ "where c.Phone = nc.ConsumerROWID " + "AND nc.NotifierROWID = n.IMEINumber ";
 //					queryOrderby = " order by n.LocationCityDistrict, c.CreateDateTime desc ";
 
-                    querySelect = "select c.FirstName, c.LastName2, c.Phone from Consumers as c";
+                    querySelect = "select c.FirstName, c.LastName, c.Phone from Consumers as c";
                     queryOrderby = " order by c.CreateDateTime desc ";
 
                     String queryString = "";
@@ -226,19 +227,19 @@ public class Displayconsumers {
                 List<ConsumerCallers> listOfConsumerCallers = new ArrayList<ConsumerCallers>();
 
                 if (tempLoc == null) {
-                    System.out.println("System could not find Location details for given Notifier Phone : " + inNotifierPhone + " !");
+                    LogToFile.log("info", "System could not find Location details for given Notifier Phone : " + inNotifierPhone + " !");
                 }
 
                 listOfConsumerCallers = ConsumerCallers.getAll(tempLoc.getZIPCODE(), tempLoc.getSeqNumber());
 
                 if (listOfConsumerCallers.isEmpty() || listOfConsumerCallers == null) {
-                    System.out.println("There are no Consumer Callers for given Notifier Phone : " + inNotifierPhone +
+                    LogToFile.log("info", "There are no Consumer Callers for given Notifier Phone : " + inNotifierPhone +
                             " at LocationCode : " + tempLoc.getZIPCODE() + tempLoc.getSeqNumber());
                 } else {
-                    System.out.println("There are TOTAL of " + listOfConsumerCallers.size() + "  Consumer Callers for given Notifier Phone : " + inNotifierPhone +
+                    LogToFile.log("info", "There are TOTAL of " + listOfConsumerCallers.size() + "  Consumer Callers for given Notifier Phone : " + inNotifierPhone +
                             " at LocationCode : " + tempLoc.getZIPCODE() + tempLoc.getSeqNumber() + '\n');
                     for (int i = 0; i < listOfConsumerCallers.size(); i++) {
-                        System.out.println("The Consumers for :: " + listOfConsumerCallers.get(i).getName() + '\n');
+                        LogToFile.log("info", "The Consumers for :: " + listOfConsumerCallers.get(i).getName() + '\n');
 
                         ArrayList<Long> locationConsumersArrayList = new ArrayList<>();
 
@@ -246,7 +247,7 @@ public class Displayconsumers {
                                 tempLoc.getZIPCODE(), tempLoc.getSeqNumber());
 
                         for (int j = 0; j < locationConsumersArrayList.size(); j++) {
-                            System.out.println( Integer.valueOf(j+1) + " :: " + locationConsumersArrayList.get(j) + '\n');
+                            LogToFile.log("info",  Integer.valueOf(j+1) + " :: " + locationConsumersArrayList.get(j) + '\n');
                         }
                     }
 
@@ -257,9 +258,9 @@ public class Displayconsumers {
                 ArrayList<Long> listOfUniqueConsumerCallers = ConsumerCallers.getAllUniquePhoneNumbers();
 
                 if (!(listOfUniqueConsumerCallers.isEmpty() || listOfUniqueConsumerCallers == null)) {
-                    System.out.println("There are total of " + listOfUniqueConsumerCallers.size() + " UNIQUE Consumer Callers in the system : \n");
+                    LogToFile.log("info", "There are total of " + listOfUniqueConsumerCallers.size() + " UNIQUE Consumer Callers in the system : \n");
                     for (int j = 0; j < listOfUniqueConsumerCallers.size(); j++) {
-                        System.out.println(Integer.valueOf(j + 1) + " :: " + listOfUniqueConsumerCallers.get(j) + '\n');
+                        LogToFile.log("info", Integer.valueOf(j + 1) + " :: " + listOfUniqueConsumerCallers.get(j) + '\n');
                     }
                 }
 
@@ -269,23 +270,23 @@ public class Displayconsumers {
 
                 tempNotifierZIPCODESeqNumber = 912144;
                 tempNotifierPhone = Notifier.getSIMCardPhone(tempNotifierZIPCODESeqNumber);
-                System.out.println("The Notifier Phone Number for given NotifierZIPCODESeqNumber :: " + tempNotifierZIPCODESeqNumber + " is =  " + tempNotifierPhone + '\n');
+                LogToFile.log("info", "The Notifier Phone Number for given NotifierZIPCODESeqNumber :: " + tempNotifierZIPCODESeqNumber + " is =  " + tempNotifierPhone + '\n');
 
 
                 tempNotifierZIPCODESeqNumber = 912141;
                 tempNotifierPhone = Notifier.getSIMCardPhone(tempNotifierZIPCODESeqNumber);
-                System.out.println("The Notifier Phone Number for given NotifierZIPCODESeqNumber :: " + tempNotifierZIPCODESeqNumber + " is =  " + tempNotifierPhone + '\n');
+                LogToFile.log("info", "The Notifier Phone Number for given NotifierZIPCODESeqNumber :: " + tempNotifierZIPCODESeqNumber + " is =  " + tempNotifierPhone + '\n');
 
 
                 tempNotifierZIPCODESeqNumber = 5861041;
                 tempNotifierPhone = Notifier.getSIMCardPhone(tempNotifierZIPCODESeqNumber);
-                System.out.println("The Notifier Phone Number for given NotifierZIPCODESeqNumber :: " + tempNotifierZIPCODESeqNumber + " is =  " + tempNotifierPhone + '\n');
+                LogToFile.log("info", "The Notifier Phone Number for given NotifierZIPCODESeqNumber :: " + tempNotifierZIPCODESeqNumber + " is =  " + tempNotifierPhone + '\n');
 
                 ArrayList<Notifier> listOfNotifiers = new ArrayList<Notifier>();
                 listOfNotifiers = Notifier.getAll();
-                System.out.println("There are total of " + listOfNotifiers.size() + " UNIQUE Notifiers in the system : \n");
+                LogToFile.log("info", "There are total of " + listOfNotifiers.size() + " UNIQUE Notifiers in the system : \n");
                 for (int j = 0; j < listOfNotifiers.size(); j++) {
-                    System.out.println(Integer.valueOf(j + 1) + " :: PHONE : " + listOfNotifiers.get(j).getSIMCardPhone()
+                    LogToFile.log("info", Integer.valueOf(j + 1) + " :: PHONE : " + listOfNotifiers.get(j).getSIMCardPhone()
                             + " || ZIPCODE + SeqNumber : " +  listOfNotifiers.get(j).getLocationZIPCODE() + " + " +  listOfNotifiers.get(j).getLocationSeqNumber()
                             + '\n');
                 }
@@ -295,7 +296,7 @@ public class Displayconsumers {
                 ArrayList<Long> listOfLocationConsumers = new ArrayList<Long>();
                 listOfLocationConsumers = LocationConsumers.getAllConsumerPhone(4086370230L, 91214, 4 );
                 for (int i = 0; i < listOfLocationConsumers.size(); i++) {
-                    System.out.println(Integer.valueOf(i + 1) + " :: PHONE : " + listOfLocationConsumers.get(i)
+                    LogToFile.log("info", Integer.valueOf(i + 1) + " :: PHONE : " + listOfLocationConsumers.get(i)
                             + '\n');
                     LocationConsumers.updateLastWaterNotificationCall(listOfLocationConsumers.get(i),91214, 4);
                 }
