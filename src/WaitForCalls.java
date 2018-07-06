@@ -23,18 +23,18 @@ public class WaitForCalls extends GSMs {
     }
 
     public void running() {
-        LogToFile.log("info",threadName + ": waitForCalls");
+        LogToFile.log("info", threadName + ": waitForCalls");
         int counting = 0;
         try {
             while (true) {
                 counting++;
-                if(counting == 10000){
+                if (counting == 10000) {
                     counting = 0;
                     reset();
                 }
                 if (function == -1) {
                     closeConnection();
-                    LogToFile.log("info",threadName + " exiting.");
+                    LogToFile.log("info", threadName + " exiting.");
                     notif();
                     break;
                 }
@@ -45,21 +45,19 @@ public class WaitForCalls extends GSMs {
                 if (function == 1) {
                     try {
                         try {
-//                            int counts = 0;
-//                            while (!checkService()) {
-//                                if (counts > 5) {
-//                                    reset();
-//                                    checkConnection();
-//                                    startCommands();
-//                                    counts = 0;
-//                                }
-//                                counts++;
-//                                LogToFile.log("info",threadName + ": trying to get service");
-//                                delay(5000);
-//                            }
-                        } catch(Exception e){
+                            int counts = 0;
+                            while (!checkService()) {
+                                if (counts > 5) {
+                                    completeReset();
+                                    counts = 0;
+                                }
+                                counts++;
+                                LogToFile.log("info", threadName + ": trying to get service");
+                                delay(5000);
+                            }
+                        } catch (Exception e) {
                             e.printStackTrace();
-                            LogToFile.log("info","CONTINUING");
+                            LogToFile.log("info", "CONTINUING");
                         }
                         phoneNumber = "";
                         message = "";
@@ -68,11 +66,11 @@ public class WaitForCalls extends GSMs {
                             String mess = "";
                             mess = checkMessage(i);
                             if (mess.isEmpty() || mess == null) {
-                                if(i > 1)
+                                if (i > 1)
                                     deleteMessages();
                                 break;
                             }
-                            LogToFile.log("info",threadName + ": Message Received: \n" + mess);
+                            LogToFile.log("info", threadName + ": Message Received: \n" + mess);
                             if (mess.length() > 3 && (super.phoneNum().length() == 11 || super.phoneNum().length() == 12)
                                     && mess.indexOf(',') > -1 && mess.indexOf('!') > -1) {
                                 message = mess;
@@ -84,38 +82,36 @@ public class WaitForCalls extends GSMs {
                                 phoneNumber = phoneNumber.replaceAll("\\s+", "");
                                 DatabaseClass.newMessageLog(phoneNumber, getPhoneNumber(), message);
                                 if (DatabaseClass.newConsumer(phoneNumber, locationNum, name)) {
-                                    LogToFile.log("info",phoneNumber + " " + locationNum + " " + name);
+                                    LogToFile.log("info", phoneNumber + " " + locationNum + " " + name);
                                     sendMessages.add(new Message(phoneNumber, phoneNumber + " has been subscribed to the "
                                             + DatabaseClass.getNotifierLocation(locationNum) + " notifier"));
                                     counting = 0;
                                     v = true;
                                 }
                             }
-                            if(mess.indexOf("WN(") > -1 && mess.indexOf(')') > -1 && mess.indexOf("WN(") < mess.lastIndexOf(')')){
+                            if (mess.indexOf("WN(") > -1 && mess.indexOf(')') > -1 && mess.indexOf("WN(") < mess.lastIndexOf(')')) {
                                 mess = mess.substring(mess.indexOf("WN(") + 3, mess.lastIndexOf(')'));
                                 phoneNumber = super.phoneNum();
                                 phoneNumber = phoneNumber.replaceAll("\\s+", "");
-                            }
-                            else {
+                            } else {
                                 mess = checkMessageCommand(i);
                                 if (mess.isEmpty() || mess == null) {
-                                    if(i > 1)
+                                    if (i > 1)
                                         deleteMessages();
                                     break;
                                 }
-                                LogToFile.log("info",threadName + ": Command Message Received: \n" + mess);
+                                LogToFile.log("info", threadName + ": Command Message Received: \n" + mess);
                             }
                             if (mess.length() >= 10) {
                                 message = mess;
-                                if(message.indexOf('(') > -1 && message.indexOf(')') > -1 && message.indexOf('(') < message.indexOf(')')) {
+                                if (message.indexOf('(') > -1 && message.indexOf(')') > -1 && message.indexOf('(') < message.indexOf(')')) {
                                     message = message.replace('\n', ' ');
-                                    LogToFile.log("info","RECEIVED COMMAND MESSAGE: " + message);
+                                    LogToFile.log("info", "RECEIVED COMMAND MESSAGE: " + message);
+                                    receiveMessages.add(new Message(phoneNumber, message));
+                                } else {
                                     receiveMessages.add(new Message(phoneNumber, message));
                                 }
-                                else {
-                                    receiveMessages.add(new Message(phoneNumber, message));
-                                }
-                                if(phoneNumber.length() >= 10) {
+                                if (phoneNumber.length() >= 10) {
                                     sendMessages.add(new Message(phoneNumber, "OK: " + message));
                                     counting = 0;
                                 }
@@ -127,12 +123,12 @@ public class WaitForCalls extends GSMs {
                             function = 0;
                     } catch (Exception e) {
                         e.printStackTrace();
-                        LogToFile.log("info","CONTINUING");
+                        LogToFile.log("info", "CONTINUING");
                     }
                     String a = waitForCall(0);
                     if (!a.isEmpty()) {
                         DatabaseClass.newCallLog(a, getPhoneNumber());
-                        LogToFile.log("info",threadName + ": got a call = " + a);
+                        LogToFile.log("info", threadName + ": got a call = " + a);
                         if (DatabaseClass.deviceExists(a)) {
                             phoneNumbersCall.add(a);
                             function = 0;
@@ -143,10 +139,10 @@ public class WaitForCalls extends GSMs {
                     removeDuplicatesMessage(sendMessages);
                 }
                 if (function == 2) {
-                    LogToFile.log("info",threadName + ": waitForCalls");
+                    LogToFile.log("info", threadName + ": waitForCalls");
                     String a = waitForCall();
                     DatabaseClass.newCallLog(a, getPhoneNumber());
-                    LogToFile.log("info",threadName + ": got a call = " + a);
+                    LogToFile.log("info", threadName + ": got a call = " + a);
                     if (DatabaseClass.deviceExists(a))
                         phoneNumbersCall.add(a);
                     function = 0;
@@ -154,9 +150,9 @@ public class WaitForCalls extends GSMs {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            LogToFile.log("info","CONTINUING: major");
+            LogToFile.log("info", "CONTINUING: major");
             if (checkConnection()) {
-                LogToFile.log("info","RECONNECTING");
+                LogToFile.log("info", "RECONNECTING");
                 run();
             } else {
                 closeConnection();

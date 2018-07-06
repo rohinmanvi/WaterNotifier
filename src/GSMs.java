@@ -37,14 +37,7 @@ public abstract class GSMs extends GSM implements Runnable {
         LogToFile.log("info",threadName + ": creating");
         boolean v = false;
         boolean reset = false;
-        int count = 0;
         while (!v) {
-            if (reset)
-                reset = false;
-            if (count >= 3) {
-                count = 0;
-                reset = true;
-            }
             for (int i = 0; i < COMports.size(); i++) {
                 String port = COMports.get(i);
                 LogToFile.log("info",threadName + ": " + port);
@@ -70,8 +63,6 @@ public abstract class GSMs extends GSM implements Runnable {
                                 break;
                             } else {
                                 LogToFile.log("info",threadName + ": " + port + " wrong number");
-                            }
-                            if (reset) {
                                 completeReset();
                             }
                         }
@@ -85,7 +76,6 @@ public abstract class GSMs extends GSM implements Runnable {
                 }
                 closeConnection();
             }
-            count++;
             COMports = removeDuplicates(COMports);
         }
     }
@@ -109,6 +99,7 @@ public abstract class GSMs extends GSM implements Runnable {
                 setPortDescription(port);
                 try {
                     if (openConnection()) {
+                        completeReset();
                         if (checkConnection()) {
                             COMports.add(0, port);
                             if (ownPhoneNumber()) {
@@ -167,7 +158,20 @@ public abstract class GSMs extends GSM implements Runnable {
     }
 
     public boolean ownPhoneNumber() {
-        String a = jsend("AT+CNUM");
+        String a = "";
+        for(int i = 0; i < 25; i++) {
+            if (send("AT+CNUM"))
+                break;
+            delay(3000);
+        }
+        for(int i = 0; i < 25; i++) {
+            a = jsend("AT+CNUM");
+            int b = a.lastIndexOf('"') - a.indexOf('"');
+            if (b > 10)
+                break;
+            delay(3000);
+        }
+        a = jsend("AT+CNUM");
         return a.indexOf(phoneNumber) > -1;
     }
 
@@ -206,11 +210,12 @@ public abstract class GSMs extends GSM implements Runnable {
         LogToFile.log("info",threadName + ": resetting");
         if (send("AT+CFUN=1,1")) {
             delay(3000);
-            checkConnection();
+            while (!checkConnection())
+                delay(1000);
             startCommands();
             int count = 0;
             while (!checkService()) {
-                if (count > 5) {
+                if (count > 10) {
                     reset();
                     checkConnection();
                     startCommands();
@@ -232,18 +237,18 @@ public abstract class GSMs extends GSM implements Runnable {
             delay(3000);
             while (!checkConnection())
                 delay(1000);
-            int counts = 0;
-            while (!checkService()) {
-                if (counts > 5) {
-                    reset();
-                    checkConnection();
-                    startCommands();
-                    counts = 0;
-                }
-                counts++;
-                LogToFile.log("info",threadName + ": trying to get service");
-                delay(5000);
-            }
+//            int counts = 0;
+//            while (!checkService()) {
+//                if (counts > 10) {
+//                    reset();
+//                    checkConnection();
+//                    startCommands();
+//                    counts = 0;
+//                }
+//                counts++;
+//                LogToFile.log("info",threadName + ": trying to get service");
+//                delay(5000);
+//            }
             return true;
         }
         return false;

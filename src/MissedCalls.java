@@ -21,9 +21,9 @@ public class MissedCalls extends GSMs {
         try {
             while (true) {
                 counting++;
-                if(counting == 10000){
+                if(counting == 1000){
                     counting = 0;
-                    reset();
+                    completeReset();
                 }
                 if (function == -1) {
                     closeConnection();
@@ -33,18 +33,16 @@ public class MissedCalls extends GSMs {
                 }
                 if (function == 0) {
                     try {
-//                        int counts = 0;
-//                            while (!checkService()) {
-//                                if (counts > 5) {
-//                                    reset();
-//                                    checkConnection();
-//                                    startCommands();
-//                                    counts = 0;
-//                                }
-//                                counts++;
-//                                LogToFile.log("info",threadName + ": trying to get service");
-//                                delay(5000);
-//                            }
+                        int counts = 0;
+                        while (!checkService()) {
+                            if (counts > 5) {
+                                completeReset();
+                                counts = 0;
+                            }
+                            counts++;
+                            LogToFile.log("info", threadName + ": trying to get service");
+                            delay(5000);
+                        }
                     } catch(Exception e){
                         e.printStackTrace();
                         LogToFile.log("info","CONTINUING");

@@ -358,7 +358,7 @@ public class GSM extends Arduino {
     }
 
     private void print(String a) {
-//        LogToFile.log("info",a);
+        System.out.println(a);
     }
 
 }
