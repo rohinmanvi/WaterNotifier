@@ -59,10 +59,15 @@ public class DatabaseHelper {
                 locationCode = "" + listLocationConsumers.get(i).getLocationZIPCODE() + listLocationConsumers.get(i).getLocationSeqNumber();
                 if (ConsumerCallers.assignPhone(listLocationConsumers.get(i).getConsumersPhone(), Integer.valueOf(locationCode))) {
                     System.out.println("Successfully updated user " + listLocationConsumers.get(i).getConsumersPhone() + " with LocationCode " + locationCode + " for ConsumerCallerPhone! " + '\n');
+                    LogToFile.log("info","Successfully updated user " + listLocationConsumers.get(i)
+                            .getConsumersPhone() + "" +
+                            " with " +
+                            "LocationCode " + locationCode + " for ConsumerCallerPhone! " + '\n');
                 }
             }
         } else {
             System.out.println("There are NO LocationConsumers to be updated for Consumer Caller Phone Number." + '\n');
+            LogToFile.log("info","There are NO LocationConsumers to be updated for Consumer Caller Phone Number." + '\n');
         }
 
         ConsumerCallers.updateConsumerCallerCount();
