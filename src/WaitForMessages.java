@@ -39,16 +39,21 @@ public class WaitForMessages extends GSMs {
                     if (function == 1) {
                         count++;
                         try {
-                            int counts = 0;
-                        while (!checkService()) {
-                            if (counts > 5) {
-                                completeReset();
-                                counts = 0;
+//                            int counts = 0;
+//                        while (!checkService()) {
+//                            if (counts > 5) {
+//                                completeReset();
+//                                counts = 0;
+//                            }
+//                            counts++;
+//                            LogToFile.log("info", threadName + ": trying to get service");
+//                            delay(5000);
+//                        }
+                            if (!checkService()) {
+                                startCommands();
+                                if (!ownPhoneNumber())
+                                    startCommands();
                             }
-                            counts++;
-                            LogToFile.log("info", threadName + ": trying to get service");
-                            delay(5000);
-                        }
                         } catch(Exception e){
                             e.printStackTrace();
                             LogToFile.log("info","CONTINUING");

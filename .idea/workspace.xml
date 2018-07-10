@@ -2,11 +2,27 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="WaterNotifier:jar" />
+      <artifact name="SIMRenewalReminderEmail:jar" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6fb18b51-a07b-4240-b73f-d87ea4281214" name="Default" comment="Rajesh Test for Commit File" />
+    <list default="true" id="6fb18b51-a07b-4240-b73f-d87ea4281214" name="Default" comment="Rajesh Test for Commit File">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/WaterNotifier_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WaterNotifier/GSM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WaterNotifier/GSM.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WaterNotifier/GSMs.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WaterNotifier/GSMs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WaterNotifier/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WaterNotifier/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WaterNotifier/MissedCalls.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WaterNotifier/MissedCalls.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WaterNotifier/WaitForCalls.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WaterNotifier/WaitForCalls.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WaterNotifier/WaitForMessages.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WaterNotifier/WaitForMessages.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WaterNotifier/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WaterNotifier/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GSM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GSM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GSMs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GSMs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MissedCalls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MissedCalls.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WaitForCalls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WaitForCalls.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WaitForMessages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WaitForMessages.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,7 +40,7 @@
       <file leaf-file-name="LogToFile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LogToFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3213">
+            <state relative-caret-position="943">
               <caret line="194" column="7" selection-start-line="194" selection-start-column="7" selection-end-line="194" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -36,8 +52,8 @@
       <file leaf-file-name="WaitForMessages.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/WaitForMessages.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="41" column="23" selection-start-line="41" selection-start-column="23" selection-end-line="50" selection-end-column="25" />
+            <state relative-caret-position="102">
+              <caret line="55" column="29" selection-start-line="55" selection-start-column="29" selection-end-line="55" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -45,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WaitForCalls.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WaitForCalls.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/WaitForCalls.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8">
-              <caret line="56" column="29" selection-start-line="56" selection-start-column="29" selection-end-line="56" selection-end-column="29" />
+            <state relative-caret-position="1564">
+              <caret line="101" column="36" lean-forward="true" selection-start-line="101" selection-start-column="36" selection-end-line="101" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -57,8 +73,8 @@
       <file leaf-file-name="GSM.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GSM.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="731">
-              <caret line="63" column="36" selection-start-line="63" selection-start-column="36" selection-end-line="63" selection-end-column="36" />
+            <state relative-caret-position="680">
+              <caret line="296" column="30" selection-start-line="296" selection-start-column="21" selection-end-line="296" selection-end-column="30" />
               <folding>
                 <element signature="e#6955#6956#0" expanded="true" />
                 <element signature="e#6984#6985#0" expanded="true" />
@@ -72,29 +88,17 @@
       <file leaf-file-name="GSMs.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GSMs.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7">
-              <caret line="214" column="28" selection-start-line="214" selection-start-column="28" selection-end-line="214" selection-end-column="28" />
-              <folding>
-                <element signature="e#6115#6116#0" expanded="true" />
-                <element signature="e#6145#6146#0" expanded="true" />
-                <element signature="e#6185#6186#0" expanded="true" />
-                <element signature="e#6209#6210#0" expanded="true" />
-                <element signature="e#6493#6494#0" expanded="true" />
-                <element signature="e#6526#6527#0" expanded="true" />
-                <element signature="e#6564#6565#0" expanded="true" />
-                <element signature="e#6598#6599#0" expanded="true" />
-                <element signature="e#6651#6652#0" expanded="true" />
-                <element signature="e#6682#6683#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="824">
+              <caret line="252" column="24" selection-start-line="252" selection-start-column="24" selection-end-line="252" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MissedCalls.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MissedCalls.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MissedCalls.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="44" column="25" selection-start-line="35" selection-start-column="24" selection-end-line="44" selection-end-column="25" />
+            <state relative-caret-position="6">
+              <caret line="45" column="40" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -102,8 +106,8 @@
       <file leaf-file-name="Serial.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Serial.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="46" column="53" selection-start-line="46" selection-start-column="53" selection-end-line="46" selection-end-column="53" />
+            <state relative-caret-position="1283">
+              <caret line="134" column="35" lean-forward="true" selection-start-line="134" selection-start-column="35" selection-end-line="134" selection-end-column="35" />
               <folding>
                 <element signature="method#function#0;class#Serial#0" />
                 <element signature="method#delay#0;class#Serial#0" />
@@ -123,12 +127,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>7</find>
-      <find>callerPHone</find>
-      <find>zipcode</find>
-      <find>SELECT</find>
-      <find>912141</find>
-      <find>ConsumerCount</find>
       <find>vali</find>
       <find>tempLoc.getZIPCODE()</find>
       <find>voice</find>
@@ -150,9 +148,15 @@
       <find>ex</find>
       <find>System.out.println(</find>
       <find>checkS</find>
-      <find>check</find>
       <find>ownP</find>
+      <find>check</find>
       <find>reset()</find>
+      <find>trying</find>
+      <find>complete</find>
+      <find>resetting</find>
+      <find>send(</find>
+      <find>missed</find>
+      <find>sendMe</find>
     </findStrings>
     <replaceStrings>
       <replace>queryUpdate</replace>
@@ -178,17 +182,17 @@
         <option value="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LogToFile.java" />
         <option value="$PROJECT_DIR$/src/DatabaseClass.java" />
         <option value="$PROJECT_DIR$/src/Serial.java" />
-        <option value="$PROJECT_DIR$/src/GSM.java" />
-        <option value="$PROJECT_DIR$/src/MissedCalls.java" />
-        <option value="$PROJECT_DIR$/src/GSMs.java" />
         <option value="$PROJECT_DIR$/src/WaitForMessages.java" />
         <option value="$PROJECT_DIR$/src/WaitForCalls.java" />
+        <option value="$PROJECT_DIR$/src/GSM.java" />
+        <option value="$PROJECT_DIR$/src/GSMs.java" />
+        <option value="$PROJECT_DIR$/src/MissedCalls.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-14" />
-    <option name="y" value="63" />
+    <option name="x" value="218" />
+    <option name="y" value="729" />
     <option name="width" value="1305" />
     <option name="height" value="1008" />
   </component>
@@ -197,6 +201,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -209,31 +215,17 @@
               <item name="WaterNotifier" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="WaterNotifier" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WaterNotifier" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="waternotifierlibrary" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WaterNotifier" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WaterNotifier" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="AnalyzeApkAction.lastApkPath" value="$PROJECT_DIR$/src/Resources-WaterNotifier" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../WNDB" />
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Resources-WaterNotifier" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15332031" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
@@ -357,30 +349,40 @@
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1833" height="972" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3293556" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32752612" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="6" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.9221835" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3293556" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.99522674" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3293556" />
       <window_info id="Capture Tool" order="7" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14607358" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1496905" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329849" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24985932" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.95382166" />
       <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.95382166" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24986272" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -419,6 +421,10 @@
       </breakpoints-dialog>
       <option name="time" value="23" />
     </breakpoint-manager>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/VoiceCallDetails.java">
@@ -551,9 +557,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2788">
           <caret line="184" selection-start-line="184" selection-end-line="186" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -568,9 +571,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="33" lean-forward="true" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -662,9 +662,7 @@
     <entry file="file://$PROJECT_DIR$/src/Resources-WaterNotifier/META-INF/MANIFEST.MF">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Resources-SIMRenewalReminderEmail/META-INF/MANIFEST.MF">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Resources-SIMRenewalReminderEmail/META-INF/MANIFEST.MF" />
     <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -701,9 +699,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2227">
           <caret line="138" selection-start-line="138" selection-end-line="138" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -731,9 +726,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="111">
           <caret line="286" column="66" selection-start-line="286" selection-start-column="66" selection-end-line="286" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -755,9 +747,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2397">
           <caret line="147" column="25" lean-forward="true" selection-start-line="147" selection-start-column="25" selection-end-line="147" selection-end-column="25" />
-          <folding>
-            <element signature="e#1460#1477#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -768,20 +757,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LogToFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3213">
-          <caret line="194" column="7" selection-start-line="194" selection-start-column="7" selection-end-line="194" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Serial.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="46" column="53" selection-start-line="46" selection-start-column="53" selection-end-line="46" selection-end-column="53" />
+        <state relative-caret-position="1283">
+          <caret line="134" column="35" lean-forward="true" selection-start-line="134" selection-start-column="35" selection-end-line="134" selection-end-column="35" />
           <folding>
             <element signature="method#function#0;class#Serial#0" />
             <element signature="method#delay#0;class#Serial#0" />
@@ -789,10 +768,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LogToFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="943">
+          <caret line="194" column="7" selection-start-line="194" selection-start-column="7" selection-end-line="194" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WaitForMessages.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="55" column="29" selection-start-line="55" selection-start-column="29" selection-end-line="55" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WaitForCalls.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1564">
+          <caret line="101" column="36" lean-forward="true" selection-start-line="101" selection-start-column="36" selection-end-line="101" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/GSM.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="63" column="36" selection-start-line="63" selection-start-column="36" selection-end-line="63" selection-end-column="36" />
+        <state relative-caret-position="680">
+          <caret line="296" column="30" selection-start-line="296" selection-start-column="21" selection-end-line="296" selection-end-column="30" />
           <folding>
             <element signature="e#6955#6956#0" expanded="true" />
             <element signature="e#6984#6985#0" expanded="true" />
@@ -804,44 +810,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GSMs.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7">
-          <caret line="214" column="28" selection-start-line="214" selection-start-column="28" selection-end-line="214" selection-end-column="28" />
-          <folding>
-            <element signature="e#6115#6116#0" expanded="true" />
-            <element signature="e#6145#6146#0" expanded="true" />
-            <element signature="e#6185#6186#0" expanded="true" />
-            <element signature="e#6209#6210#0" expanded="true" />
-            <element signature="e#6493#6494#0" expanded="true" />
-            <element signature="e#6526#6527#0" expanded="true" />
-            <element signature="e#6564#6565#0" expanded="true" />
-            <element signature="e#6598#6599#0" expanded="true" />
-            <element signature="e#6651#6652#0" expanded="true" />
-            <element signature="e#6682#6683#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="824">
+          <caret line="252" column="24" selection-start-line="252" selection-start-column="24" selection-end-line="252" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MissedCalls.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="44" column="25" selection-start-line="35" selection-start-column="24" selection-end-line="44" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WaitForMessages.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="41" column="23" selection-start-line="41" selection-start-column="23" selection-end-line="50" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WaitForCalls.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8">
-          <caret line="56" column="29" selection-start-line="56" selection-start-column="29" selection-end-line="56" selection-end-column="29" />
+        <state relative-caret-position="6">
+          <caret line="45" column="40" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -856,7 +833,7 @@
               <type id="library" />
             </show-content>
           </artifact-editor>
-          <last-edited>WaterNotifier:jar</last-edited>
+          <last-edited>SIMRenewalReminderEmail:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

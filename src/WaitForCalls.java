@@ -30,7 +30,7 @@ public class WaitForCalls extends GSMs {
                 counting++;
                 if (counting == 10000) {
                     counting = 0;
-                    reset();
+                    completeReset();
                 }
                 if (function == -1) {
                     closeConnection();
@@ -45,15 +45,21 @@ public class WaitForCalls extends GSMs {
                 if (function == 1) {
                     try {
                         try {
-                            int counts = 0;
-                            while (!checkService()) {
-                                if (counts > 5) {
-                                    completeReset();
-                                    counts = 0;
-                                }
-                                counts++;
-                                LogToFile.log("info", threadName + ": trying to get service");
-                                delay(5000);
+//                            int counts = 0;
+//                            while (!checkService()) {
+//                                if (counts > 5) {
+//                                    completeReset();
+//                                    counts = 0;
+//                                }
+//                                counts++;
+//                                LogToFile.log("info", threadName + ": trying to get service");
+//                                delay(5000);
+//                            }
+                            send("AT+CMGF=1");
+                            if (!checkService()) {
+                                startCommands();
+                                if (!ownPhoneNumber())
+                                    startCommands();
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -119,6 +125,7 @@ public class WaitForCalls extends GSMs {
                             }
                             delay(2000);
                         }
+                        deleteMessages();
                         if (v)
                             function = 0;
                     } catch (Exception e) {

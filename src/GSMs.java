@@ -164,12 +164,11 @@ public abstract class GSMs extends GSM implements Runnable {
                 break;
             delay(3000);
         }
-        for(int i = 0; i < 25; i++) {
+        for(int i = 0; i < 5; i++) {
             a = jsend("AT+CNUM");
             int b = a.lastIndexOf('"') - a.indexOf('"');
             if (b > 10)
                 break;
-            delay(3000);
         }
         a = jsend("AT+CNUM");
         return a.indexOf(phoneNumber) > -1;
@@ -206,15 +205,33 @@ public abstract class GSMs extends GSM implements Runnable {
         return COMports;
     }
 
+    public void RsendMessage(String phone, String message){
+        while(!sendMessage(phone, message))
+            completeReset();
+    }
+
+    public void RmissedCall(String phone, int i){
+        while(!missedCall(phone, i))
+            completeReset();
+    }
+    public void clearTransmit() {
+        jsend("" + (char) 26);
+        delay(100);
+        jsend("AT+CHUP");
+        delay(100);
+    }
+
     public boolean completeReset() {
-        LogToFile.log("info",threadName + ": resetting");
+        clearTransmit();
         if (send("AT+CFUN=1,1")) {
+            LogToFile.log("info",threadName + ": complete resetting: true");
             delay(3000);
             while (!checkConnection())
                 delay(1000);
             startCommands();
             int count = 0;
             while (!checkService()) {
+                startCommands();
                 if (count > 10) {
                     reset();
                     checkConnection();
@@ -228,29 +245,21 @@ public abstract class GSMs extends GSM implements Runnable {
             LogToFile.log("info",threadName + ": service");
             return true;
         }
+        LogToFile.log("info",threadName + ": complete resetting: false");
         return false;
     }
 
     public boolean reset() {
-        LogToFile.log("info",threadName + ": resetting");
+        clearTransmit();
         if (send("AT+CFUN=1,1")) {
+            LogToFile.log("info",threadName + ": resetting: true");
             delay(3000);
             while (!checkConnection())
                 delay(1000);
-//            int counts = 0;
-//            while (!checkService()) {
-//                if (counts > 10) {
-//                    reset();
-//                    checkConnection();
-//                    startCommands();
-//                    counts = 0;
-//                }
-//                counts++;
-//                LogToFile.log("info",threadName + ": trying to get service");
-//                delay(5000);
-//            }
+            startCommands();
             return true;
         }
+        LogToFile.log("info",threadName + ": resetting: false");
         return false;
     }
 

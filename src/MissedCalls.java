@@ -21,7 +21,7 @@ public class MissedCalls extends GSMs {
         try {
             while (true) {
                 counting++;
-                if(counting == 1000){
+                if(counting == 10000){
                     counting = 0;
                     completeReset();
                 }
@@ -33,15 +33,21 @@ public class MissedCalls extends GSMs {
                 }
                 if (function == 0) {
                     try {
-                        int counts = 0;
-                        while (!checkService()) {
-                            if (counts > 5) {
-                                completeReset();
-                                counts = 0;
-                            }
-                            counts++;
-                            LogToFile.log("info", threadName + ": trying to get service");
-                            delay(5000);
+//                        int counts = 0;
+//                        while (!checkService()) {
+//                            if (counts > 10) {
+//                                completeReset();
+//                                counts = 0;
+//                            }
+//                            counts++;
+//                            LogToFile.log("info", threadName + ": trying to get service");
+//                            delay(10000);
+//                        }
+                        clearTransmit();
+                        if (!checkService()) {
+                            startCommands();
+                            if (!ownPhoneNumber())
+                                startCommands();
                         }
                     } catch(Exception e){
                         e.printStackTrace();
@@ -67,7 +73,8 @@ public class MissedCalls extends GSMs {
                             e.printStackTrace();
                             LogToFile.log("info","CONTINUING");
                         }
-                        LogToFile.log("info",threadName + ": message " + a.getPhoneNumber() + ": " + sendMessage(a.getPhoneNumber(), a.getMessage()));
+                        LogToFile.log("info",threadName + ": message " + a.getPhoneNumber());
+                        RsendMessage(a.getPhoneNumber(), a.getMessage());
                         messages.remove(i);
                         if(messages.size() >= i)
                             i--;
@@ -75,7 +82,8 @@ public class MissedCalls extends GSMs {
                     LogToFile.log("info",threadName + ": missedCalls: " + phoneNumbers);
                     for (int i = 0; i < phoneNumbers.size(); i++) {
                         DatabaseClass.newCallLog(getPhoneNumber(), phoneNumbers.get(i));
-                        LogToFile.log("info",threadName + ": call " + phoneNumbers.get(i) + ":  " + missedCall(phoneNumbers.get(i), 10000));
+                        LogToFile.log("info",threadName + ": call " + phoneNumbers.get(i));
+                        RmissedCall(phoneNumbers.get(i), 15000);
                         phoneNumbers.remove(i);
                         if(messages.size() >= i)
                             i--;
