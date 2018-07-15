@@ -28,7 +28,7 @@ public class WaitForCalls extends GSMs {
         try {
             while (true) {
                 counting++;
-                if (counting == 10000) {
+                if (counting == 5000) {
                     counting = 0;
                     completeReset();
                 }

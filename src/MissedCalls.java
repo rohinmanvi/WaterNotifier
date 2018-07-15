@@ -21,7 +21,7 @@ public class MissedCalls extends GSMs {
         try {
             while (true) {
                 counting++;
-                if(counting == 10000){
+                if(counting == 1000){
                     counting = 0;
                     completeReset();
                 }

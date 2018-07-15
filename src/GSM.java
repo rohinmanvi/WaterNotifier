@@ -179,7 +179,7 @@ public class GSM extends Arduino {
     }
 
     public String checkMessage(int x) {
-        if (send("AT+CMGR=" + x + '\r' + '\n')) {
+        if (send("AT+CMGR=" + x + '\r' + '\n') && send("AT+CMGR=" + x + '\r' + '\n') && send("AT+CMGR=" + x + '\r' + '\n')) {
             for (int i = 0; i < 5; i++) {
                 serialWrite("AT+CMGR=" + x + '\r' + '\n');
                 delay(1000);
@@ -201,7 +201,7 @@ public class GSM extends Arduino {
     }
 
     public String checkMessageCommand(int x) {
-        if (send("AT+CMGR=" + x + '\r' + '\n')) {
+        if (send("AT+CMGR=" + x + '\r' + '\n') && send("AT+CMGR=" + x + '\r' + '\n') && send("AT+CMGR=" + x + '\r' + '\n')) {
             for (int i = 0; i < 5; i++) {
                 serialWrite("AT+CMGR=" + x + '\r' + '\n');
                 delay(1000);
