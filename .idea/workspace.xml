@@ -8,12 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6fb18b51-a07b-4240-b73f-d87ea4281214" name="Default" comment="Rajesh Test for Commit File">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WaterNotifier/GSMs.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WaterNotifier/GSMs.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WaterNotifier/MissedCalls.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WaterNotifier/MissedCalls.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WaterNotifier/WaitForCalls.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WaterNotifier/WaitForCalls.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GSMs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GSMs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MissedCalls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MissedCalls.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WaitForCalls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WaitForCalls.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,8 +50,8 @@
       <file leaf-file-name="WaitForCalls.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/WaitForCalls.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="5" column="37" lean-forward="true" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+            <state relative-caret-position="170">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
@@ -207,6 +201,18 @@
               <item name="WaterNotifier" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="WaterNotifier" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WaterNotifier" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WaterNotifier" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WaterNotifier" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -216,7 +222,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="AnalyzeApkAction.lastApkPath" value="$PROJECT_DIR$/src/Resources-WaterNotifier" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Resources-WaterNotifier" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../WNDB" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15332031" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -363,11 +369,11 @@
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="6" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3293556" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.7768496" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.34009546" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3293556" />
       <window_info id="Capture Tool" order="7" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1496905" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1496905" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329849" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24985932" />
@@ -651,10 +657,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Resources-WaterNotifier/META-INF/MANIFEST.MF">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Resources-SIMRenewalReminderEmail/META-INF/MANIFEST.MF" />
     <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -807,10 +809,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Resources-SIMRenewalReminderEmail/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Resources-WaterNotifier/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/WaitForCalls.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="5" column="37" lean-forward="true" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+        <state relative-caret-position="170">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
@@ -825,7 +833,7 @@
               <type id="library" />
             </show-content>
           </artifact-editor>
-          <last-edited>SIMRenewalReminderEmail:jar</last-edited>
+          <last-edited>WaterNotifier:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
