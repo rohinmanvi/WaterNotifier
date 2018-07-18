@@ -27,11 +27,11 @@ public class WaitForCalls extends GSMs {
         int counting = 0;
         try {
             while (true) {
-                counting++;
-                if (counting == 5000) {
-                    counting = 0;
-                    completeReset();
-                }
+//                counting++;
+//                if (counting == 5000) {
+//                    counting = 0;
+//                    completeReset();
+//                }
                 if (function == -1) {
                     closeConnection();
                     LogToFile.log("info", threadName + " exiting.");

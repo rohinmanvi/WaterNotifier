@@ -20,11 +20,11 @@ public class MissedCalls extends GSMs {
         int counting = 0;
         try {
             while (true) {
-                counting++;
-                if(counting == 1000){
-                    counting = 0;
-                    completeReset();
-                }
+//                counting++;
+//                if(counting == 1000){
+//                    counting = 0;
+//                    completeReset();
+//                }
                 if (function == -1) {
                     closeConnection();
                     LogToFile.log("info",threadName + " exiting.");

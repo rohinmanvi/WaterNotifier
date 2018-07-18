@@ -223,27 +223,38 @@ public abstract class GSMs extends GSM implements Runnable {
 
     public boolean completeReset() {
         clearTransmit();
-        if (send("AT+CFUN=1,1")) {
-            LogToFile.log("info",threadName + ": complete resetting: true");
-            delay(3000);
-            while (!checkConnection())
-                delay(1000);
-            startCommands();
-            int count = 0;
-            while (!checkService()) {
-                startCommands();
-                if (count > 10) {
-                    reset();
-                    checkConnection();
-                    startCommands();
-                    count = 0;
+        for(int i = 0; i < 2; i++) {
+            if (send("AT+CFUN=1,1", 20)) {
+                LogToFile.log("info", threadName + ": complete resetting: true");
+                delay(3000);
+                int count = 0;
+                while (!checkConnection()) {
+                    delay(1000);
+                    count++;
+                    if (count > 10) {
+                        justReset();
+                        count = 0;
+                    }
                 }
-                count++;
-                LogToFile.log("info",threadName + ": trying to get service");
-                delay(5000);
+                startCommands();
+                count = 0;
+                while (!checkService()) {
+                    startCommands();
+                    if (count > 10) {
+                        reset();
+                        checkConnection();
+                        startCommands();
+                        count = 0;
+                    }
+                    count++;
+                    LogToFile.log("info", threadName + ": trying to get service");
+                    delay(5000);
+                }
+                LogToFile.log("info", threadName + ": service");
+                return true;
+            } else {
+                justReset();
             }
-            LogToFile.log("info",threadName + ": service");
-            return true;
         }
         LogToFile.log("info",threadName + ": complete resetting: false");
         return false;
@@ -261,6 +272,13 @@ public abstract class GSMs extends GSM implements Runnable {
         }
         LogToFile.log("info",threadName + ": resetting: false");
         return false;
+    }
+
+    public void justReset(){
+        for(int i = 0; i < 10; i++) {
+            serialWrite("AT+CFUN=1,1" + '\r' + '\n');;
+        }
+        delay(10000);
     }
 
     public ArrayList<String> removeDuplicates(ArrayList<String> a) {
