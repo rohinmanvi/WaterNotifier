@@ -206,13 +206,19 @@ public abstract class GSMs extends GSM implements Runnable {
     }
 
     public void RsendMessage(String phone, String message){
+        clearTransmit();
         while(!sendMessage(phone, message))
-            completeReset();
+            clearTransmit();
+//            completeReset();
+        clearTransmit();
     }
 
     public void RmissedCall(String phone, int i){
+        clearTransmit();
         while(!missedCall(phone, i))
-            completeReset();
+            clearTransmit();
+//            completeReset();
+        clearTransmit();
     }
     public void clearTransmit() {
         jsend("" + (char) 26);
@@ -232,6 +238,7 @@ public abstract class GSMs extends GSM implements Runnable {
                     delay(1000);
                     count++;
                     if (count > 10) {
+                        clearTransmit();
                         justReset();
                         count = 0;
                     }
@@ -253,6 +260,7 @@ public abstract class GSMs extends GSM implements Runnable {
                 LogToFile.log("info", threadName + ": service");
                 return true;
             } else {
+                clearTransmit();
                 justReset();
             }
         }
