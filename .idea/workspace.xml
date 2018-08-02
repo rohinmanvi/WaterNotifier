@@ -8,7 +8,12 @@
   <component name="ChangeListManager">
     <list default="true" id="6fb18b51-a07b-4240-b73f-d87ea4281214" name="Default" comment="Rajesh Test for Commit File">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/GSMs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GSMs.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/out/production/WaterNotifier/Serial.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WaterNotifier/Serial.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Serial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Serial.java" afterDir="false" />
+>>>>>>> 6e679f10411b6ddd075992e0bd3ee1bbf535d171
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,8 +35,20 @@
       <file leaf-file-name="LogToFile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LogToFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
+            <state relative-caret-position="3213">
               <caret line="194" column="7" selection-start-line="194" selection-start-column="7" selection-end-line="194" selection-end-column="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WaitForMessages.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/WaitForMessages.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="544">
+              <caret line="38" column="40" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -42,8 +59,8 @@
       <file leaf-file-name="WaitForCalls.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/WaitForCalls.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="88" column="42" selection-start-line="88" selection-start-column="42" selection-end-line="88" selection-end-column="42" />
+            <state relative-caret-position="612">
+              <caret line="45" column="25" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -51,8 +68,8 @@
       <file leaf-file-name="GSM.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GSM.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3408">
-              <caret line="302" column="48" lean-forward="true" selection-start-line="302" selection-start-column="48" selection-end-line="302" selection-end-column="48" />
+            <state relative-caret-position="513">
+              <caret line="149" column="34" selection-start-line="149" selection-start-column="26" selection-end-line="149" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -60,19 +77,24 @@
       <file leaf-file-name="GSMs.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GSMs.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="238">
               <caret line="100" column="40" selection-start-line="100" selection-start-column="40" selection-end-line="100" selection-end-column="40" />
+=======
+            <state relative-caret-position="17">
+              <caret line="136" column="5" lean-forward="true" selection-start-line="136" selection-start-column="5" selection-end-line="136" selection-end-column="5" />
+>>>>>>> 6e679f10411b6ddd075992e0bd3ee1bbf535d171
               <folding>
-                <element signature="e#6372#6373#0" expanded="true" />
-                <element signature="e#6402#6403#0" expanded="true" />
-                <element signature="e#6442#6443#0" expanded="true" />
-                <element signature="e#6466#6467#0" expanded="true" />
-                <element signature="e#6751#6752#0" expanded="true" />
-                <element signature="e#6784#6785#0" expanded="true" />
-                <element signature="e#6822#6823#0" expanded="true" />
-                <element signature="e#6856#6857#0" expanded="true" />
-                <element signature="e#6909#6910#0" expanded="true" />
-                <element signature="e#6940#6941#0" expanded="true" />
+                <element signature="e#8615#8616#0" expanded="true" />
+                <element signature="e#8645#8646#0" expanded="true" />
+                <element signature="e#8685#8686#0" expanded="true" />
+                <element signature="e#8709#8710#0" expanded="true" />
+                <element signature="e#8993#8994#0" expanded="true" />
+                <element signature="e#9026#9027#0" expanded="true" />
+                <element signature="e#9064#9065#0" expanded="true" />
+                <element signature="e#9098#9099#0" expanded="true" />
+                <element signature="e#9151#9152#0" expanded="true" />
+                <element signature="e#9182#9183#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -81,8 +103,13 @@
       <file leaf-file-name="MissedCalls.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MissedCalls.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="31">
               <caret line="60" column="54" lean-forward="true" selection-start-line="60" selection-start-column="54" selection-end-line="60" selection-end-column="54" />
+=======
+            <state relative-caret-position="1326">
+              <caret line="85" column="29" selection-start-line="85" selection-start-column="29" selection-end-line="85" selection-end-column="29" />
+>>>>>>> 6e679f10411b6ddd075992e0bd3ee1bbf535d171
             </state>
           </provider>
         </entry>
@@ -90,8 +117,8 @@
       <file leaf-file-name="Serial.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Serial.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="37" column="29" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
+            <state relative-caret-position="204">
+              <caret line="23" column="38" lean-forward="true" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
               <folding>
                 <element signature="method#function#0;class#Serial#0" />
                 <element signature="method#delay#0;class#Serial#0" />
@@ -111,8 +138,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getalluni</find>
-      <find>getAll</find>
       <find>querySelect</find>
       <find>`</find>
       <find>milli</find>
@@ -139,8 +164,10 @@
       <find>missed</find>
       <find>call ass</find>
       <find>sendMe</find>
-      <find>ATE0</find>
-      <find>cle</find>
+      <find>7472558416</find>
+      <find>CC</find>
+      <find>USnumbers</find>
+      <find>cnum</find>
     </findStrings>
     <replaceStrings>
       <replace>queryUpdate</replace>
@@ -167,25 +194,27 @@
         <option value="$PROJECT_DIR$/src/DatabaseClass.java" />
         <option value="$PROJECT_DIR$/src/WaitForMessages.java" />
         <option value="$PROJECT_DIR$/src/WaitForCalls.java" />
+        <option value="$PROJECT_DIR$/src/MissedCalls.java" />
         <option value="$PROJECT_DIR$/src/GSM.java" />
         <option value="$PROJECT_DIR$/src/Serial.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/MissedCalls.java" />
+=======
+>>>>>>> 6e679f10411b6ddd075992e0bd3ee1bbf535d171
         <option value="$PROJECT_DIR$/src/GSMs.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="2034" />
-    <option name="width" value="2077" />
-    <option name="height" value="2176" />
+    <option name="width" value="2076" />
+    <option name="height" value="2175" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -208,6 +237,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -348,35 +379,39 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1833" height="972" extended-state="6" />
+    <frame x="-6" y="-6" width="1292" height="732" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="2" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3293556" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32752612" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32643312" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="5" />
+<<<<<<< HEAD
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36873507" />
+=======
+      <window_info anchor="bottom" id="Run" order="2" weight="0.0" />
+>>>>>>> 6e679f10411b6ddd075992e0bd3ee1bbf535d171
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3293556" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3293556" />
       <window_info id="Capture Tool" order="7" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1547552" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="1" weight="0.24985932" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15234375" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329849" />
+      <window_info id="Learn" order="5" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="8" weight="0.24985932" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="4" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.95382166" />
       <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="1" weight="0.24986272" />
       <window_info anchor="right" id="Coverage" order="7" side_tool="true" weight="0.32976928" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info id="Learn" order="5" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
     </layout>
@@ -749,37 +784,23 @@
     <entry file="file://$PROJECT_DIR$/src/Resources-WaterNotifier/META-INF/MANIFEST.MF">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Serial.java">
+    <entry file="file://$PROJECT_DIR$/src/WaitForCalls.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="37" column="29" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
-          <folding>
-            <element signature="method#function#0;class#Serial#0" />
-            <element signature="method#delay#0;class#Serial#0" />
-          </folding>
+        <state relative-caret-position="612">
+          <caret line="45" column="25" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GSM.java">
+    <entry file="file://$PROJECT_DIR$/src/MissedCalls.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3408">
-          <caret line="302" column="48" lean-forward="true" selection-start-line="302" selection-start-column="48" selection-end-line="302" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WaitForMessages.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-16">
-          <caret line="38" column="40" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="1326">
+          <caret line="85" column="29" selection-start-line="85" selection-start-column="29" selection-end-line="85" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LogToFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
+        <state relative-caret-position="3213">
           <caret line="194" column="7" selection-start-line="194" selection-start-column="7" selection-end-line="194" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -787,6 +808,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/WaitForMessages.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="38" column="40" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/WaitForCalls.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -805,21 +837,48 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="100" column="40" selection-start-line="100" selection-start-column="40" selection-end-line="100" selection-end-column="40" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/Serial.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="23" column="38" lean-forward="true" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+>>>>>>> 6e679f10411b6ddd075992e0bd3ee1bbf535d171
           <folding>
-            <element signature="e#6372#6373#0" expanded="true" />
-            <element signature="e#6402#6403#0" expanded="true" />
-            <element signature="e#6442#6443#0" expanded="true" />
-            <element signature="e#6466#6467#0" expanded="true" />
-            <element signature="e#6751#6752#0" expanded="true" />
-            <element signature="e#6784#6785#0" expanded="true" />
-            <element signature="e#6822#6823#0" expanded="true" />
-            <element signature="e#6856#6857#0" expanded="true" />
-            <element signature="e#6909#6910#0" expanded="true" />
-            <element signature="e#6940#6941#0" expanded="true" />
+            <element signature="method#function#0;class#Serial#0" />
+            <element signature="method#delay#0;class#Serial#0" />
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/src/GSM.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="149" column="34" selection-start-line="149" selection-start-column="26" selection-end-line="149" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GSMs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="136" column="5" lean-forward="true" selection-start-line="136" selection-start-column="5" selection-end-line="136" selection-end-column="5" />
+          <folding>
+            <element signature="e#8615#8616#0" expanded="true" />
+            <element signature="e#8645#8646#0" expanded="true" />
+            <element signature="e#8685#8686#0" expanded="true" />
+            <element signature="e#8709#8710#0" expanded="true" />
+            <element signature="e#8993#8994#0" expanded="true" />
+            <element signature="e#9026#9027#0" expanded="true" />
+            <element signature="e#9064#9065#0" expanded="true" />
+            <element signature="e#9098#9099#0" expanded="true" />
+            <element signature="e#9151#9152#0" expanded="true" />
+            <element signature="e#9182#9183#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+>>>>>>> 6e679f10411b6ddd075992e0bd3ee1bbf535d171
   </component>
   <component name="masterDetails">
     <states>
@@ -884,6 +943,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
