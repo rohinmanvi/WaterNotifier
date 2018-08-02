@@ -12,15 +12,16 @@ import com.waternotifier.waternotifierlibrary.LocationConsumers;
 import com.waternotifier.waternotifierlibrary.LogToFile;
 
 public class Serial {
-    private static String receiveCalls = "7472558416";
+    private static String receiveCalls = "8277816186";
+//    private static String receiveCalls = "7472558416";
     private static String CC = "91";
     private static String CC2 = "1";
     private static ArrayList<String> USnumbers = new ArrayList<>();
 
     public static void main(String[] args) {
-        USnumbers.add("8189135171");
-        USnumbers.add("8189678112");
-        USnumbers.add("8189570369");
+//        USnumbers.add("8189135171");
+//        USnumbers.add("8189678112");
+//        USnumbers.add("8189570369");
 
         WaitForCalls two = new WaitForCalls(20, receiveCalls, "Incoming Calls GSM", 0);
         waitFor(two);
