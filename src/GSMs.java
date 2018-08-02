@@ -98,7 +98,7 @@ public abstract class GSMs extends GSM implements Runnable {
                 LogToFile.log("info", threadName + ": " + port);
                 setPortDescription(port);
                 try {
-                    if (openConnection() && completeReset() && checkConnection()) {
+                    if (openConnection() && checkConnection()) {
                         COMports.add(0, port);
                         if (ownPhoneNumber()) {
                             try {
