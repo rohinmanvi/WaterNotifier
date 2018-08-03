@@ -12,7 +12,6 @@ import com.waternotifier.waternotifierlibrary.LocationConsumers;
 import com.waternotifier.waternotifierlibrary.LogToFile;
 
 public class Serial {
-//    private static String receiveCalls = "8277816186";
     private static String receiveCalls = "7472558416";
     private static String CC = "91";
     private static String CC2 = "1";
