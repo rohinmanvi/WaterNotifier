@@ -95,37 +95,40 @@ public abstract class GSMs extends GSM implements Runnable {
                 count = 0;
             for (int i = 0; i <= comports; i++) {
                 String port = "COM" + i;
-                LogToFile.log("info", threadName + ": " + port);
+                LogToFile.log("info",threadName + ": " + port);
                 setPortDescription(port);
                 try {
-                    if (openConnection() && checkConnection()) {
-                        COMports.add(0, port);
-                        if (ownPhoneNumber()) {
-                            try {
-                                if (COMports.size() > 0) {
-                                    COMports.remove(0);
+                    if (openConnection()) {
+                        completeReset();
+                        if (checkConnection()) {
+                            COMports.add(0, port);
+                            if (ownPhoneNumber()) {
+                                try {
+                                    if (COMports.size() > 0) {
+                                        COMports.remove(0);
+                                    }
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                    LogToFile.log("info","CONTINUING");
                                 }
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                                LogToFile.log("info", "CONTINUING");
+                                v = true;
+                                COMport = port;
+                            } else {
+                                LogToFile.log("info",threadName + ": " + port + " wrong number");
                             }
-                            v = true;
-                            COMport = port;
-                        } else {
-                            LogToFile.log("info", threadName + ": " + port + " wrong number");
-                        }
-                        if (reset) {
-                            completeReset();
+                            if (reset) {
+                                completeReset();
+                            }
                         }
                     }
-            } catch(Exception e){
+                } catch (Exception e) {
+                    closeConnection();
+                    e.printStackTrace();
+                    LogToFile.log("info","CONTINUING");
+                    v = false;
+                }
                 closeConnection();
-                e.printStackTrace();
-                LogToFile.log("info", "CONTINUING");
-                v = false;
-            }
-            closeConnection();
-            LogToFile.log("info", v + " " + COMports.size());
+                LogToFile.log("info",v + " " + COMports.size());
             }
             COMports = removeDuplicates(COMports);
         }
