@@ -46,6 +46,7 @@ public class GSM extends Arduino {
 
     public boolean send(String a) {
         for (int i = 0; i < 100; i++) {
+            connect();
             serialWrite(a + '\r' + '\n');
             String b = serialRead();
             print(b);
@@ -60,6 +61,7 @@ public class GSM extends Arduino {
 
     public boolean send(String a, double s) {
         for (int i = 0; i < s; i++) {
+            connect();
             serialWrite(a + '\r' + '\n');
             String b = serialRead();
             print(b);
@@ -75,6 +77,7 @@ public class GSM extends Arduino {
     public boolean send(String a, String f, int s) {
         String b = "";
         for (int i = 0; i < s; i++) {
+            connect();
             serialWrite(a + '\r' + '\n');
             b = serialRead();
             print(b);
@@ -86,8 +89,10 @@ public class GSM extends Arduino {
     }
 
     public boolean oldsend(String a, int s) {
+        connect();
         serialWrite(a + '\r' + '\n');
         for (int i = 0; i < s; i++) {
+            connect();
             delay(100);
             String b = serialRead();
             if (b.indexOf("OK") > -1) {
@@ -100,6 +105,7 @@ public class GSM extends Arduino {
     public String jsend(String a, double s) {
         String b = "";
         for (int i = 0; i < s; i++) {
+            connect();
             serialWrite(a + '\r' + '\n');
             b = serialRead();
             print(b);
@@ -114,6 +120,7 @@ public class GSM extends Arduino {
     public String jsend(String a) {
         String b = "";
         for (int i = 0; i < 100; i++) {
+            connect();
             serialWrite(a + '\r' + '\n');
             b = serialRead();
             print(b);
@@ -126,9 +133,11 @@ public class GSM extends Arduino {
     }
 
     public void startCommands() {
+        closeConnection();
         for (int i = 0; i < 3; i++) {
             boolean a = false;
             while (!(a)) {
+                openConnection();
                 if (send("ATE0")) {
                     delay(100);
                     if (send("AT+CFUN=1")) {
@@ -181,6 +190,7 @@ public class GSM extends Arduino {
     public String checkMessage(int x) {
         if (send("AT+CMGR=" + x + '\r' + '\n') && send("AT+CMGR=" + x + '\r' + '\n') && send("AT+CMGR=" + x + '\r' + '\n')) {
             for (int i = 0; i < 5; i++) {
+                connect();
                 serialWrite("AT+CMGR=" + x + '\r' + '\n');
                 delay(1000);
                 String a = serialRead();
@@ -203,6 +213,7 @@ public class GSM extends Arduino {
     public String checkMessageCommand(int x) {
         if (send("AT+CMGR=" + x + '\r' + '\n') && send("AT+CMGR=" + x + '\r' + '\n') && send("AT+CMGR=" + x + '\r' + '\n')) {
             for (int i = 0; i < 5; i++) {
+                connect();
                 serialWrite("AT+CMGR=" + x + '\r' + '\n');
                 delay(1000);
                 String a = serialRead();
@@ -228,6 +239,7 @@ public class GSM extends Arduino {
         String b = "";
         String a = "";
         while (true) {
+            connect();
             b = serialRead();
             if (b.indexOf("RING") > -1) {
                 for (int i = 0; i < 5; i++) {
@@ -253,6 +265,7 @@ public class GSM extends Arduino {
     public String waitForCall(int s) {
         String b = "";
         String a = "";
+        connect();
         delay(s);
         b = serialRead();
         if (b.indexOf("RING") > -1) {
@@ -281,6 +294,7 @@ public class GSM extends Arduino {
         for (int i = 0; i < 3; i++) {
             if (send("ATD+" + n)) {
                 while (true) {
+                    connect();
                     b = serialRead();
                     print(b);
                     if (b.indexOf("SOUNDER\",0") > -1 || b.indexOf("ERROR") > -1) {
@@ -327,6 +341,7 @@ public class GSM extends Arduino {
         for (int i = 0; i < 10; i++) {
             if (send("ATD+" + n)) {
                 while (true) {
+                    connect();
                     b = serialRead();
                     print(b);
                     if (b.indexOf("SO") > -1 || b.indexOf("DER") > -1 || b.indexOf("ERROR") > -1) {
@@ -360,6 +375,19 @@ public class GSM extends Arduino {
 
     private void print(String a) {
         System.out.println(a);
+    }
+
+    public void connect(){
+        if(!openConnection()){
+            LogToFile.log("info", "openConnection did not work");
+            delay(500);
+            while(!openConnection()){
+                delay(500);
+                closeConnection();
+                delay(500);
+            }
+            LogToFile.log("info", "openConnection worked");
+        }
     }
 
 }
