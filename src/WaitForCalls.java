@@ -57,6 +57,7 @@ public class WaitForCalls extends GSMs {
 //                            }
                             send("AT+CMGF=1");
                             if (!checkService()) {
+                                LogToFile.log("info", threadName + ": service: false");
                                 startCommands();
                                 if (!ownPhoneNumber())
                                     startCommands();

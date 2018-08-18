@@ -388,6 +388,7 @@ public class GSM extends Arduino {
             }
             LogToFile.log("info", "openConnection worked");
         }
+//        startCommands();
     }
 
 }

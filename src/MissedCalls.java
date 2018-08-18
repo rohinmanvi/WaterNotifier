@@ -45,6 +45,7 @@ public class MissedCalls extends GSMs {
 //                        }
                         clearTransmit();
                         if (!checkService()) {
+                            LogToFile.log("info", threadName + ": service: false");
                             startCommands();
                             if (!ownPhoneNumber())
                                 startCommands();
