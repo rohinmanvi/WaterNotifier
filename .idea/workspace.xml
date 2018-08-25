@@ -7,6 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6fb18b51-a07b-4240-b73f-d87ea4281214" name="Default" comment="Rajesh Test for Commit File">
+      <change beforePath="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Displayconsumers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Displayconsumers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LocationConsumers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LocationConsumers.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -27,36 +28,50 @@
     <session id="1691299785">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="1" />
+          <entry key="java" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="1" />
+          <entry key="JAVA" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="219" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="219" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LocationConsumers.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="1221" column="35" selection-start-line="1221" selection-start-column="35" selection-end-line="1221" selection-end-column="35" />
-              <folding>
-                <element signature="e#548#880#0" />
-                <element signature="e#548#3083#0" />
-                <element signature="e#3089#3370#0" />
-                <element signature="e#3089#5586#0" />
-              </folding>
+            <state relative-caret-position="283">
+              <caret line="997" column="12" selection-start-line="997" selection-start-column="12" selection-end-line="1000" selection-end-column="103" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Displayconsumers.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="104">
+              <caret line="304" column="30" selection-start-line="304" selection-start-column="30" selection-end-line="304" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -72,7 +87,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getAll</find>
       <find>querySelect</find>
       <find>`</find>
       <find>milli</find>
@@ -102,6 +116,7 @@
       <find>ATE0</find>
       <find>cle</find>
       <find>serial</find>
+      <find>print</find>
     </findStrings>
     <replaceStrings>
       <replace>queryUpdate</replace>
@@ -122,7 +137,6 @@
         <option value="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/SIMCard.java" />
         <option value="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Location.java" />
         <option value="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/SendHTMLEmail.java" />
-        <option value="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Displayconsumers.java" />
         <option value="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LogToFile.java" />
         <option value="$PROJECT_DIR$/src/DatabaseClass.java" />
         <option value="$PROJECT_DIR$/src/WaitForMessages.java" />
@@ -131,6 +145,7 @@
         <option value="$PROJECT_DIR$/src/MissedCalls.java" />
         <option value="$PROJECT_DIR$/src/WaitForCalls.java" />
         <option value="$PROJECT_DIR$/src/GSM.java" />
+        <option value="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Displayconsumers.java" />
         <option value="$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LocationConsumers.java" />
       </list>
     </option>
@@ -145,7 +160,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -170,6 +184,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -193,7 +208,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.WaterNotifier">
+  <component name="RunManager" selected="Application.Displayconsumers">
     <configuration name="Displayconsumers" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.waternotifier.waternotifierlibrary.Displayconsumers" />
       <module name="WaterNotifier" />
@@ -304,7 +319,7 @@
     <frame x="-6" y="-6" width="1292" height="732" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22815534" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23220065" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -314,8 +329,8 @@
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329849" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="1.0" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.95382166" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.23013245" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.40562913" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3293556" />
@@ -350,10 +365,16 @@
           <properties />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Displayconsumers.java</url>
+          <line>306</line>
+          <properties />
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LocationConsumers.java</url>
           <line>96</line>
-          <properties class="com.waternotifier.waternotifierlibrary.LocationConsumers">
+          <properties class="com.waternotifier.waternotifierlibrary.LocationConsumers" method="exists">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="20" />
@@ -500,13 +521,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Displayconsumers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="286" column="66" selection-start-line="286" selection-start-column="66" selection-end-line="286" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.logging/java/util/logging/Level.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="986">
@@ -606,14 +620,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/LocationConsumers.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="1221" column="35" selection-start-line="1221" selection-start-column="35" selection-end-line="1221" selection-end-column="35" />
-          <folding>
-            <element signature="e#548#880#0" />
-            <element signature="e#548#3083#0" />
-            <element signature="e#3089#3370#0" />
-            <element signature="e#3089#5586#0" />
-          </folding>
+        <state relative-caret-position="283">
+          <caret line="997" column="12" selection-start-line="997" selection-start-column="12" selection-end-line="1000" selection-end-column="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/waternotifier/waternotifierlibrary/Displayconsumers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="304" column="30" selection-start-line="304" selection-start-column="30" selection-end-line="304" selection-end-column="30" />
         </state>
       </provider>
     </entry>

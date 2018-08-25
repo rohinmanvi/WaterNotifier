@@ -997,8 +997,8 @@ public class LocationConsumers {
             //querySelect = "SELECT lc.LocationZIPCODE, lc.LocationSeqNumber, lc.ConsumersPhone, lc.ConsumerCallerPhone, lc.CreateDateTime, lc.UpdateDateTime, lc.RegisteredFlag, lc.RegisteredDateTime, lc.DeleteDateTime "
             querySelect = "SELECT lc.ConsumersPhone "
                     + " FROM LocationConsumers as lc "
-                    + " WHERE lc.ConsumerCallerPhone = " + inConsumerPhone + " "
-                    + " AND (( " + milliseconds + " - lc.LastWaterNotificationCall) > 900000)" + " ; ";
+                    + " WHERE lc.ConsumersPhone = " + inConsumerPhone + " "
+                    + " AND (( " + milliseconds + " - lc.LastWaterNotificationCall) < 900000)" + " ; ";
 //                    + " AND (( " + milliseconds + " - lc.LastWaterNotificationCall) > 3600000)" + " ; ";
             
             PreparedStatement pst = dbconnection.prepareStatement(querySelect);
